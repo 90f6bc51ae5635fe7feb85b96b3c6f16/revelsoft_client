@@ -17,16 +17,25 @@ export default {
     position: relative;
     height: 485px;
     width: 485px;
-    border: #00F0FF solid 5px;
-    z-index: 5;
 }
 
-#circle-blur {
-    border: #00F0FF solid 5px;
-    height: 485px;
-    width: 485px;
-    background: #00F0FF;
-    /* filter: blur(940px); */
+.circle-blur {
+    filter: blur(940px);
+    height: 100%;
+    width: 100%;
     position: absolute;
+    background-color: #00F0FF;
+}
+
+@media only screen and (max-width: 480px) {
+    .blur-containner {
+        position: relative;
+        height: 200px;
+        width: 200px;
+    }
+
+    .circle-blur {
+        filter: blur(150px);
+    }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <img class="banner-bg1  w-100" src="@/assets/images/Curve1.png">
     <img class="banner-bg2 d-block w-100" src="@/assets/images/Curve2.png">
-    <div id="banner" class="d-flex justify-center my-1">
+    <div id="banner" class="d-flex justify-center">
         <v-row class="mx-16 py-2 banner-info">
             <v-col class="py-10">
                 <v-col class="align-center">
@@ -11,10 +11,10 @@
                         WITH THE BEST OF SERVICE THAT YOU NEEDED.
                     </h5>
                 </v-col>
-                <v-row class=" mt-10 pl-10 mx-5">
+                <v-row class=" mt-10 pl-10 mx-5 gap-2">
                     <v-hover>
                         <template v-slot:default="{ isHovering, props }">
-                            <v-btn class="text-none rounded-pill bg-greenblue ml-5 border border-themecolor border-3"
+                            <v-btn class="text-none rounded-pill bg-greenblue ml-5 border border-3 border-greenblue"
                                 v-bind="props" :color="isHovering ? 'themecolor' : undefined">
                                 Get In Touch
                             </v-btn>
@@ -22,7 +22,7 @@
                     </v-hover>
                     <v-hover>
                         <template v-slot:default="{ isHovering, props }">
-                            <v-btn class="text-none rounded-pill bg-themecolor ml-5 border border-surface border-3"
+                            <v-btn class="text-none rounded-pill bg-themecolor ml-5 border border-3 border-surface"
                                 href="#service" v-bind="props" :color="isHovering ? 'greenblue' : undefined">
                                 Our Service
                             </v-btn>
@@ -44,6 +44,10 @@ export default {
 </script>
 
 <style scoped>
+#banner {
+    padding-top: 200px;
+}
+
 .banner-bg1 {
     width: 100%;
     height: 99.99%;
@@ -68,5 +72,6 @@ export default {
 .banner-img {
     min-width: 300px;
     max-width: 500px;
+    object-fit: cover;
 }
 </style>

@@ -7,23 +7,22 @@
         <v-col>
             <v-row class="d-flex justify-space-evenly m-16 py-10">
                 <div class="skill-item">
-                    <img class="skill-img" src="@/assets/images/skills/Frontend.png" alt="">
+                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Frontend.png" alt="">
                 </div>
                 <div class="skill-item">
-                    <img class="skill-img" src="@/assets/images/skills/Backend.png" alt="">
+                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Backend.png" alt="">
                 </div>
                 <div class="skill-item">
-                    <img class="skill-img" src="@/assets/images/skills/Database.png" alt="">
+                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Database.png" alt="">
                 </div>
             </v-row>
             <v-row class="d-flex justify-space-evenly">
-                <div class="skill-item4">
-                    <img class="skill-img" src="@/assets/images/skills/Framework.png" alt="">
+                <div class="skill-item">
+                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Framework.png" alt="">
                 </div>
-                <div class="skill-item5">
-                    <img class="skill-img" src="@/assets/images/skills/Infrastructure.png" alt="">
+                <div class="skill-item">
+                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Infrastructure.png" alt="">
                 </div>
-
             </v-row>
         </v-col>
     </div>
@@ -35,4 +34,11 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.skill-img {
+    max-width: 340px;
+    max-height: 340px;
+    min-width: 100px;
+    min-height: 100px;
+}
+</style>

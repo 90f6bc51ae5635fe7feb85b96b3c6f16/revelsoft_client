@@ -1,5 +1,7 @@
 <template>
-    <div class="circle-banner-sm rounded-circle" style="width: 100px; height: 100px; background-color: aqua; z-index: 5">
+    <div class="circle-containner">
+        <div class="circle-sm rounded-circle">
+        </div>
     </div>
 </template>
 
@@ -9,4 +11,17 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.ciecle-containner {
+    position: relative;
+}
+
+.circle-sm {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #25AAE2;
+    z-index: 5;
+    opacity: 0.1;
+}
+</style>

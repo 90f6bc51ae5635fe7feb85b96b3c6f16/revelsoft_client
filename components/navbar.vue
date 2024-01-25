@@ -1,7 +1,7 @@
 <template>
     <header id="header">
         <nav
-            class="navbar navbar-expand-sm navbar-dark bg-themecolor fixed-top border border-navtail border-5 rounded-5 mt-5 mx-5 p-0">
+            class="navbar navbar-expand-md navbar-dark bg-themecolor fixed-top border border-navtail border-3 rounded-5 mt-5 mx-5 p-0">
             <div class="container p-0">
                 <img id="nav-img" class="navbar-brand d-block" src="@/assets/images/logos/logo.png" cover height="70"
                     alt="logo" />
@@ -12,21 +12,21 @@
                 <div id="navbar1" class="collapse navbar-collapse fs-5">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item px-1">
-                            <a href="#header" class="nav-link">Home</a>
+                            <a href="#header" class="nav-link px-2">Home</a>
                         </li>
                         <li class="nav-item px-1">
-                            <a href="#service" class="nav-link">Service</a>
+                            <a href="#service" class="nav-link px-2">Service</a>
                         </li>
                         <li class="nav-item px-1">
-                            <a href="#skill" class="nav-link">Skill</a>
+                            <a href="#skill" class="nav-link px-2">Skill</a>
                         </li>
                         <li class="nav-item px-1">
-                            <a href="#portfolio" class="nav-link">Portfolio</a>
+                            <a href="#portfolio" class="nav-link px-2">Portfolio</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto ">
                         <li class="nav-item border border-navtail border-3 rounded-5">
-                            <a href="#footer" class="nav-link">Contect Us</a>
+                            <a href="#footer" class="nav-link px-3 ">Contect Us</a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link" data-bs-toggle="modal" data-bs-target="#myModal"></a>
@@ -45,6 +45,10 @@ export default {
 </script>
 
 <style scoped>
+.nav-item {
+    align-self: center;
+}
+
 .nav-link {
     border-radius: 20px;
     transition: all 2s ease;
@@ -52,5 +56,11 @@ export default {
 
 .nav-link:hover {
     background-color: #25AAE2;
+}
+
+@media only screen and (max-width: 800px) {
+    /* .nav-item {
+        data-bs-toggle="modal" data-bs-target="#myModal"
+    } */
 }
 </style>

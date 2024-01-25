@@ -29,10 +29,6 @@
                             <div class="carousel-inner">
                                 <div class="carousel-item">
                                     <img src="../assets/images/portfolios/image=01.png" class="d-block w-100">
-                                    <!-- <div class="carousel-caption d-none d-md-block">
-                    <h3>ภูเขา</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi, nobis.</p>
-                  </div> -->
                                 </div>
                                 <div class="carousel-item">
                                     <img src="../assets/images/portfolios/image=02.png" class="d-block w-100">

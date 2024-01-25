@@ -34,4 +34,20 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+/* .img-containner {
+    position: relative;
+    border: #fff solid 5px;
+} */
+
+/* .footer-img {
+    position: absolute;
+    width: 100%;
+    object-fit: cover;
+} */
+.footer-info {
+    background-image: url('../assets/images/footer/footer.png');
+    background-size: cover;
+    width: 100%;
+}
+</style>

@@ -1,10 +1,26 @@
 <template >
-  <v-col class="bg-themecolor text-surface">
+  <v-col id="topweb" class="bg-themecolor text-surface">
 
     <navbar />
+    <!-- <<<<******************************** #circle 1  **********************************>>>>  -->
+    <div style="position: relative;">
+      <circle-lg class="circle-lg-1" />
+      <div style="position: relative;">
+        <circle-sm class="circle-sm-1" />
+      </div>
+    </div>
+    <!-- <<<<******************************** #circle 1  **********************************>>>> -->
 
-    <div class="my-16 pt-16">
+    <div>
       <banner />
+    </div>
+
+    <div style="position: relative;">
+      <circle-blur style="position: absolute;" />
+    </div>
+
+    <div style="position: relative;">
+      <circle-sm style="position: absolute; left: 5%;" />
     </div>
 
     <div class="pt-3">
@@ -19,12 +35,34 @@
       <skill />
     </div>
 
-    <div>
-      <circlde-blur />
+    <div style="position: relative;">
+      <circle-blur style="position: absolute; left: -15%; top: -50px;" />
+    </div>
+    <!-- <<<<******************************** #circle 2  **********************************>>>> -->
+    <div style="position: relative;">
+      <circle-lg class="circle-lg-2" />
+      <div style="position: relative;">
+        <circle-sm class="circle-sm-2" />
+      </div>
+    </div>
+    <!-- <<<<******************************** #circle 2  **********************************>>>> -->
+
+    <div style="position: relative;">
+      <circle-sm style="position: absolute; right: 7%;" />
     </div>
 
     <div>
       <portfolio />
+    </div>
+
+
+
+    <div style="position: relative;">
+      <circle-blur style="position: absolute; right: 0; top: -200px;" />
+    </div>
+
+    <div style="position: relative;">
+      <circle-sm style="position: absolute; right: 10%; bottom: 5em;" />
     </div>
 
     <div>
@@ -43,22 +81,56 @@ export default {
 </script>
 
 <style scoped>
-/* .blur-containner-2 {
-  position: relative;
-  right: 275px;
-  bottom: 200px;
+/* <<<<******************************** #circle 1  **********************************>>>> */
+.circle-lg-1 {
+  position: absolute;
+  top: -20em;
+  left: 35%
 }
 
-#circle-blur-2 {
-  height: 485px;
-  width: 485px;
-  background: #00F0FF;
-  filter: blur(940px);
+.circle-sm-1 {
   position: absolute;
-} */
-/* .footer-img {
-  width: 100%;
-  position: inherit;
-  z-index: 0;
-} */
+  top: 5em;
+  left: 40%
+}
+
+/* <<<<******************************** #circle 2  **********************************>>>> */
+.circle-lg-2 {
+  position: absolute;
+  top: -15em;
+  left: -15%
+}
+
+.circle-sm-2 {
+  position: absolute;
+  top: 2em;
+  left: 15%;
+}
+
+
+@media only screen and (max-width: 790px) {
+  .circle-lg-1 {
+    position: absolute;
+    top: -7em;
+    left: 40%;
+  }
+
+  .circle-sm-1 {
+    position: absolute;
+    top: 4em;
+    left: 40%
+  }
+
+  .circle-lg-2 {
+    position: absolute;
+    top: -5em;
+    left: -20%
+  }
+
+  .circle-sm-2 {
+    position: absolute;
+    top: 2em;
+    left: 20%;
+  }
+}
 </style>
