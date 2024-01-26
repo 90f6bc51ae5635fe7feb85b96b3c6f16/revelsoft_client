@@ -1,55 +1,76 @@
+<script lang="ts" setup>
+import { Product } from "~~/misc/types"
+import errorImage from "@/assets/images/error.png"
+
+const defaultImage = "https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
+
+definePageMeta({ middleware: ["auth"] });
+const { getProductBy, getProductByID } = useProduct();
+const { public: publicCtx } = useRuntimeConfig()
+
+const products = ref<Product[]>([]);
+
+
+onMounted(async () => {
+    try {
+        const params = new URLSearchParams(window.location.search);
+        const query: { [key: number | string]: string } = {};
+
+        for (const [key, value] of params) {
+            query[key] = value;
+        }
+
+        products.value = await getProductBy({ product_id: query.id }).then(res => res.docs)
+        console.log("products.value", products.value)
+    } catch (e) {
+        console.log(e)
+    }
+})
+</script>
+
 <template>
-    <div id="service" class="pb-16">
+    <v-col id="service" class="pb-16">
         <v-row class="d-flex justify-center ">
             <h1 class="text-txtcolor ">Our</h1>
             <h1 class="ml-3">Service</h1>
         </v-row>
-        <v-row class="d-flex justify-space-evenly m-16 py-7">
-            <div class="rounded-xl bg-service_1">
+        <v-row class="d-flex justify-space-evenly m-16 py-7 px-2">
+            <v-containner v-for="(list, idx) in products " :key="idx" class="rounded-xl bg-service_2">
                 <v-col id="service-containner" class="d-flex flex-column align-center mt-12">
-                    <div class="pa-6 bg-service_circle rounded-circle d-inline-block">
-                        <img class="" src="@/assets/images/service/Group-1.png" alt="">
+                    <div class="circle pa-6 bg-service_circle rounded-circle d-inline-block">
+                        <v-img class="service-img"
+                            :src="`${list.product_img ? `${publicCtx.apiBaseUrl}${list.product_img}` : defaultImage}`" cover
+                            alt="service-img ">
+                            <template v-slot:error>
+                                <v-img :src="errorImage" cover alt="error"></v-img>
+                            </template>
+                        </v-img>
                     </div>
-                    <h4 class="mt-10">WEB DEVELOPMENT</h4>
-                </v-col>
-            </div>
-            <div class="rounded-xl bg-service_2">
-                <v-col id="service-containner" class="d-flex flex-column align-center mt-12">
-                    <div class="pa-6 bg-service_circle rounded-circle d-inline-block">
-                        <img class="" src="@/assets/images/service/Group-2.png" alt="">
+                    <div class="service-title" style="text-transform: uppercase; white-space: pre; font-size: 1.1rem;">{{
+                        list.product_name }}
                     </div>
-                    <h6 class="mt-10 text-none"><span>APPLICATION DEVELOPMEN</span></h6>
                 </v-col>
-            </div>
-            <div class="rounded-xl bg-service_3">
-                <v-col id="service-containner" class="d-flex flex-column align-center mt-12">
-                    <div class="pa-6 bg-service_circle rounded-circle d-inline-block">
-                        <img class="" src="@/assets/images/service/Group-3.png" alt="">
-                    </div>
-                    <h4 class="mt-10 text-white">IOT DEVELOPMENT</h4>
-                </v-col>
-            </div>
-            <div class="rounded-xl bg-service_4">
-                <v-col id="service-containner" class="d-flex flex-column align-center mt-12">
-                    <div class="pa-6 bg-service_circle rounded-circle d-inline-block">
-                        <img class="" src="@/assets/images/service/Group-4.png" alt="">
-                    </div>
-                    <h4 class="mt-10">OUTSOURCE</h4>
-                </v-col>
-            </div>
+            </v-containner>
         </v-row>
-    </div>
+    </v-col>
 </template>
 
-<script>
-export default {
-
-}
-</script>
-
 <style scoped>
+.service-title {
+    margin-top: 15%;
+}
+
 #service-containner {
     width: 250px;
     height: 200px;
+}
+
+.circle {
+    width: 110px;
+    height: 110px;
+}
+
+.service-img {
+    object-fit: cover;
 }
 </style>

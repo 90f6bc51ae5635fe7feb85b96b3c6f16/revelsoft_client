@@ -12,16 +12,16 @@
                 <div id="navbar1" class="collapse navbar-collapse fs-5">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item px-1">
-                            <a href="#header" class="nav-link px-2">Home</a>
+                            <a href="#header" class="nav-link px-1.5">Home</a>
                         </li>
                         <li class="nav-item px-1">
-                            <a href="#service" class="nav-link px-2">Service</a>
+                            <a href="#service" class="nav-link px-1.5">Service</a>
                         </li>
                         <li class="nav-item px-1">
-                            <a href="#skill" class="nav-link px-2">Skill</a>
+                            <a href="#skill" class="nav-link px-1.5">Skill</a>
                         </li>
                         <li class="nav-item px-1">
-                            <a href="#portfolio" class="nav-link px-2">Portfolio</a>
+                            <a href="#portfolio" class="nav-link px-1.5">Portfolio</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto ">
