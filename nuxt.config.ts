@@ -5,7 +5,8 @@ export default defineNuxtConfig({
   ssr: false,
   plugins: [
     '~/plugins/vue-scrollto.ts',
-    '~/plugins/bootstrap.ts'
+    '~/plugins/bootstrap.ts',
+    // '~/plugins/vue-carousel-3d.ts'
   ],
   build: {
     // extractCSS: false,

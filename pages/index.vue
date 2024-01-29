@@ -19,9 +19,9 @@
       <circle-blur style="position: absolute;" />
     </div>
 
-    <!-- <div style="position: relative;">
-      <circle-sm style="position: absolute; left: 5%;" />
-    </div> -->
+    <div style="position: relative;">
+      <circle-sm style="position: absolute;" />
+    </div>
 
     <div class="pt-3">
       <about />
@@ -47,9 +47,9 @@
     </div>
     <!-- <<<<******************************** #circle 2  **********************************>>>> -->
 
-    <!-- <div style="position: relative;">
-      <circle-sm style="position: absolute; right: 7%;" />
-    </div> -->
+    <div style="position: relative;">
+      <circle-sm class="circle-sm-portfolio" />
+    </div>
 
     <div>
       <portfolio />
@@ -107,6 +107,11 @@ export default {
   left: 15%;
 }
 
+.circle-sm-portfolio {
+  position: absolute;
+  right: 10%;
+}
+
 
 @media only screen and (max-width: 790px) {
   .circle-lg-1 {
@@ -131,6 +136,11 @@ export default {
     position: absolute;
     top: 2em;
     left: 20%;
+  }
+
+  .circle-sm-portfolio {
+    position: absolute;
+    right: 25%;
   }
 }
 </style>

@@ -40,16 +40,20 @@ onMounted(async () => {
     <img class="banner-bg1  w-100" src="@/assets/images/Curve1.png">
     <img class="banner-bg2 d-block w-100" src="@/assets/images/Curve2.png">
     <div id="banner" class="d-flex justify-center ">
-        <v-row class="py-2 banner-info">
+        <v-row class=" py-2 banner-info">
             <v-col class="py-10">
-                <v-col class="banner-title-containner align-center w-auto border">
-                    <v-col cols="12" sm="4" md="6" class="py-2">
-                        <div class="banner-title fs-1 text-h1" style="white-space: pre;">{{ banner.banner_name }}
+                <v-col>
+                    <v-col class="containner-title py-2  w-100">
+                        <div class="banner-title banner-text-1 fs-1 text-h1 " style="white-space: pre-line;">
+                            {{ banner.banner_name }}
                         </div>
                     </v-col>
-                    <v-col cols="12" sm="4" md="6" class="py-2">
-                        <div class="banner-title text-h4 fs-6" style="white-space: pre;">{{ banner.banner_detail
-                        }}</div>
+                    <v-col class="containner-title py-2  w-100">
+                        <div class="banner-title banner-text-2 text-h4 fs-6" style="white-space: pre-line;">
+                            {{
+                                banner.banner_detail
+                            }}
+                        </div>
                     </v-col>
                 </v-col>
                 <v-row class=" mt-10 pl-10 mx-5 gap-2">
@@ -71,7 +75,7 @@ onMounted(async () => {
                     </v-hover>
                 </v-row>
             </v-col>
-            <v-col>
+            <v-col class="banner-img-containner">
                 <v-img class="banner-img d-block w-100 h-100"
                     :src="`${banner.banner_img ? `${publicCtx.apiBaseUrl}${banner.banner_img}` : defaultImage}`" cover
                     alt="banner">
@@ -111,21 +115,42 @@ onMounted(async () => {
     z-index: 4;
 }
 
-/* .banner-title {
-    width: auto !important;
-    font-size: 2vw
-} */
-
 .banner-img {
     min-width: 250px;
     max-width: 80%;
     object-fit: cover;
 }
 
-@media only screen and (max-width: 660px) {
-    /* .banner-title {
-        max-width: 80%;
-        font-size: 80%;
-    } */
+.containner-title {
+    transform: scale(0.94);
+    animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+.banner-title {
+    display: inline-block;
+    opacity: 0;
+    filter: blur(4px);
+}
+
+.banner-text-1 {
+    animation: fade-in 0.8s 1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+.banner-text-2 {
+    animation: fade-in 0.8s 1.5s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+
+@keyframes scale {
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fade-in {
+    100% {
+        opacity: 1;
+        filter: blur(0);
+    }
 }
 </style>

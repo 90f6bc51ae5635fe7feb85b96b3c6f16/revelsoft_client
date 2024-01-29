@@ -1,11 +1,11 @@
 <template>
     <header id="header">
         <nav
-            class="navbar navbar-expand-md navbar-dark bg-themecolor fixed-top border border-navtail border-3 rounded-5 mt-5 mx-5 p-0">
+            class="navbar navbar-expand-md navbar-dark bg-themecolor border border-navtail rounded-5 fixed-top mt-5 mx-5 p-0">
             <div class="container p-0">
-                <img id="nav-img" class="navbar-brand d-block" src="@/assets/images/logos/logo.png" cover height="70"
+                <img id="nav-img" class="navbar-brand d-block " src="@/assets/images/logos/logo.png" cover height="70"
                     alt="logo" />
-                <a href="#header" class="navbar-brand fs-2">REVELSOFT</a>
+                <a href="#header" class="navbar-brand fs-2 ">REVELSOFT</a>
                 <button class="navbar-toggler " data-bs-toggle="collapse" data-bs-target="#navbar1">
                     <span class="navbar-toggler-icon "></span>
                 </button>
@@ -25,7 +25,7 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto ">
-                        <li class="nav-item border border-navtail border-3 rounded-5">
+                        <li class="nav-item border border-navtail rounded-5">
                             <a href="#footer" class="nav-link px-3 ">Contect Us</a>
                         </li>
                         <li class="nav-item ">
@@ -45,6 +45,11 @@ export default {
 </script>
 
 <style scoped>
+.navbar {
+    border-radius: #fff solid 5px;
+    /* border-radius: #25AAE2 solid 5px; */
+}
+
 .nav-item {
     align-self: center;
 }
@@ -52,13 +57,18 @@ export default {
 .nav-link {
     border-radius: 20px;
     transition: all 2s ease;
+    color: #fff;
 }
 
 .nav-link:hover {
     background-color: #25AAE2;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 360px) {
+    .navbar-brand {
+        padding-left: 0;
+    }
+
     /* .nav-item {
         data-bs-toggle="modal" data-bs-target="#myModal"
     } */

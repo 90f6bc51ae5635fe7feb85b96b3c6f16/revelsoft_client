@@ -63,6 +63,7 @@ export default {
 
 <style scoped>
 #portfolio a {
+    z-index: 4;
     text-decoration: none;
     color: white;
 }
