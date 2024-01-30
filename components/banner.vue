@@ -7,8 +7,6 @@ const defaultImage = "https://coffective.com/wp-content/uploads/2018/06/default-
 definePageMeta({ middleware: ["auth"] });
 const { getBannerByID, getBannerBy } = useBanner();
 const { getBannerListBy } = useBannerList();
-
-
 const { public: publicCtx } = useRuntimeConfig()
 
 const banner_lists = ref<BannerList[]>([])

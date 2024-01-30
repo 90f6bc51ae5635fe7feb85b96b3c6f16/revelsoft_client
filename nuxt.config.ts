@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   plugins: [
     '~/plugins/vue-scrollto.ts',
     '~/plugins/bootstrap.ts',
-    // '~/plugins/vue-carousel-3d.ts'
+    '~/plugins/swiper.ts',
   ],
   build: {
     // extractCSS: false,
@@ -14,7 +14,8 @@ export default defineNuxtConfig({
   },
   css: [
     "@/assets/scss/style.scss",
-    'bootstrap/dist/css/bootstrap.css'
+    'bootstrap/dist/css/bootstrap.css',
+    '@/node_modules/swiper/swiper.scss'
   ],
   vite: {
     define: {

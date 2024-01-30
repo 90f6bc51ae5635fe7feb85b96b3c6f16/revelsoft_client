@@ -1,5 +1,5 @@
 {
-  "name": "Revel Soft Office",
+  "name": "Revel Soft",
   "private": true,
   "scripts": {
     "build": "nuxt build",

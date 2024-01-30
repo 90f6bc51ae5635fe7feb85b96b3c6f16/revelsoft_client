@@ -21,7 +21,6 @@ onMounted(async () => {
         }
 
         products.value = await getProductBy({ product_id: query.id }).then(res => res.docs)
-        console.log("products.value", products.value)
     } catch (e) {
         console.log(e)
     }
