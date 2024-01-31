@@ -28,6 +28,8 @@ onMounted(async () => {
 
         banner.value = await getBannerBy({ banner_id: query.id }).then((res) => res.docs[0])
         banner_lists.value = await getBannerListBy({ banner_id: query.id }).then(res => res.docs)
+        console.log("banner", banner.value);
+
     } catch (e) {
         console.log(e)
     }
