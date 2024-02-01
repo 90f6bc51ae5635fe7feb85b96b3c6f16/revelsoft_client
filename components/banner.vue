@@ -28,8 +28,6 @@ onMounted(async () => {
 
         banner.value = await getBannerBy({ banner_id: query.id }).then((res) => res.docs[0])
         banner_lists.value = await getBannerListBy({ banner_id: query.id }).then(res => res.docs)
-        console.log("banner", banner.value);
-
     } catch (e) {
         console.log(e)
     }
@@ -118,6 +116,8 @@ onMounted(async () => {
 .banner-img {
     min-width: 250px;
     max-width: 80%;
+    min-height: 250px;
+    max-height: 80%;
     object-fit: cover;
 }
 

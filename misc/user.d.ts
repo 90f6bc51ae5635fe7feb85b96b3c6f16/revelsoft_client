@@ -74,9 +74,8 @@ export type PortfolioList = {
 
 export type Skill = {
   skill_id: string;
+  skill_list_id?: string;
   skill_name: string;
-  skill_detail: string;
-  skill_Lists?: SkillList[];
   addby?: string,
   adddate?: Date,
   updateby?: string,
@@ -85,10 +84,10 @@ export type Skill = {
 
 export type SkillList = {
   skill_list_id: string,
-  skill_id: string,
   skill_list_name: string
+  skill_list_detail: string
   skill_list_img?: string;
-  images?: { skill_list_img: { src: string, name: string , skill_list_id: string } };
+  images?: { skill_list_img: Array<{ src: string, name: string, skill_list_id: string }> };
   addby?: string
   adddate?: Date,
   updateby?: string
@@ -116,8 +115,3 @@ export type Product = {
   updateby?: string,
   lastupdate?: string,
 };
-
-// export type ListImg = {
-//   list_img?: string;
-//   images?: { product_img: { src: string, name: string } };
-// };

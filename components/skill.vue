@@ -1,39 +1,37 @@
 <script lang="ts" setup>
 import { Skill, SkillList } from "~~/misc/types"
-const defaultImage = "https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
 import errorImage from "@/assets/images/error.png"
+const defaultImage = "https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
 
 definePageMeta({ middleware: ["auth"] });
+const { public: publicCtx } = useRuntimeConfig()
 
 const { getSkillBy } = useSkill();
 const { getSkillListBy } = useSkillList();
-const { public: publicCtx } = useRuntimeConfig();
-
-const skill = ref<Skill[]>([])
-
-const skill_lists = ref<SkillList[]>([])
+const skill = ref<Skill[]>([]);
+const skill_list = ref<SkillList[]>([]);
 
 onMounted(async () => {
-
-
     try {
         const params = new URLSearchParams(window.location.search);
         const query: { [key: number | string]: string } = {};
-        const reader = new FileReader();
+
         for (const [key, value] of params) {
             query[key] = value;
         }
+        // skill.value = await getSkillBy({ skill_id: query.id }).then(res => res.docs)
+        // skill_list.value = await getSkillListBy({ skill_list_id: query.id }).then(res => res.docs)
+        const skill_result = await getSkillBy({ skill_id: query.id });
+        skill.value = skill_result.docs;
 
-
-
-        skill.value = await getSkillBy({ skill_id: query.id }).then((res) => res.docs)
-        skill_lists.value = await getSkillListBy({ skill_id: query.id }).then(res => res.docs)
-        console.log('IMG', skill.value)
+        const skill_list_result = await getSkillListBy({ skill_list_id: query.id });
+        skill_list.value = skill_list_result.docs;
+        console.log("skill.value", skill.value);
+        console.log("skill_list.value", skill_list.value);
     } catch (e) {
         console.log(e)
     }
 })
-
 </script>
 
 <template>
@@ -43,45 +41,72 @@ onMounted(async () => {
             <h1 class="ml-3">Skill</h1>
         </v-row>
         <v-col>
-            <v-row class=" d-flex justify-space-evenly  h-100">
+            <!-- v-for="(list, idx) in skill " :key="idx" -->
+            <v-row class=" d-flex justify-space-evenly  h-100" v-if="skill.length > 0">
                 <div class="skill-item">
                     <div class="circle-img d-block w-100 ">
-                        <div class="skill-title w-100 h-100 d-flex justify-center align-center ">
+                        <div class="skill-title w-100 h-100 d-flex justify-center align-center"
+                            v-if="skill_list.length > 0">
                             <div class="above-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-1 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Frontend/html.png"
-                                        alt="">
-                                    <p>html</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                                 <div
                                     class="circle-sm-2 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Frontend/react.png"
-                                        alt="">
-                                    <p>react</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                             </div>
-                            <h2>Frontend</h2>
+                            <h2 v-if="skill.length > 0">{{ skill[0].skill_name }}</h2>
                             <div class="middle-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-3 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100"
-                                        src="@/assets/images/skills/Frontend/javascript.png" alt="">
-                                    <p>javascript</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                                 <div
                                     class="circle-sm-4 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Frontend/flutter.png"
-                                        alt="">
-                                    <p>flutter</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                             </div>
                             <div class="under-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-5 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100"
-                                        src="@/assets/images/skills/Frontend/typescript.png" alt="">
-                                    <p>typescript</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                             </div>
                         </div>
@@ -93,38 +118,63 @@ onMounted(async () => {
                             <div class="above-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-1 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Backend/golang.png"
-                                        alt="">
-                                    <p>html</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                                 <div
                                     class="circle-sm-2 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Backend/nodejs.png"
-                                        alt="">
-                                    <p>react</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                             </div>
-                            <h2>Backend</h2>
+                            <h2 v-if="skill.length > 0">{{ skill[1].skill_name }}</h2>
                             <div class="middle-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-3 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Backend/dotnet.png"
-                                        alt="">
-                                    <p>javascript</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                                 <div
                                     class="circle-sm-4 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Backend/ruby.png"
-                                        alt="">
-                                    <p>flutter</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                             </div>
                             <div class="under-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-5 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Backend/php.png"
-                                        alt="">
-                                    <p>typescript</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                             </div>
                         </div>
@@ -136,38 +186,63 @@ onMounted(async () => {
                             <div class="above-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-1 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Database/mysql.png"
-                                        alt="">
-                                    <p>html</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                                 <div
                                     class="circle-sm-2 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Database/mangodb.png"
-                                        alt="">
-                                    <p>react</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                             </div>
-                            <h2>Database</h2>
+                            <h2 v-if="skill.length > 0">{{ skill[2].skill_name }}</h2>
                             <div class="middle-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-3 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Database/redis.png"
-                                        alt="">
-                                    <p>javascript</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                                 <div
                                     class="circle-sm-4 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100"
-                                        src="@/assets/images/skills/Database/postgresql.png" alt="">
-                                    <p>flutter</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                             </div>
                             <div class="under-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-5 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Database/oracle.png"
-                                        alt="">
-                                    <p>typescript</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                             </div>
                         </div>
@@ -181,38 +256,63 @@ onMounted(async () => {
                             <div class="above-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-1 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Framework/nuxtjs.png"
-                                        alt="">
-                                    <p>html</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                                 <div
                                     class="circle-sm-2 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Framework/nextjs.png"
-                                        alt="">
-                                    <p>react</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                             </div>
-                            <h2>Framework</h2>
+                            <h2 v-if="skill.length > 0">{{ skill[3].skill_name }}</h2>
                             <div class="middle-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-3 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Framework/vuejs.png"
-                                        alt="">
-                                    <p>javascript</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                                 <div
                                     class="circle-sm-4 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100" src="@/assets/images/skills/Framework/strapi.png"
-                                        alt="">
-                                    <p>flutter</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                             </div>
                             <div class="under-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-5 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100"
-                                        src="@/assets/images/skills/Framework/wordpress.png" alt="">
-                                    <p>typescript</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                             </div>
                         </div>
@@ -224,38 +324,63 @@ onMounted(async () => {
                             <div class="above-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-1 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100"
-                                        src="@/assets/images/skills/Infrastructure/docker.png" alt="">
-                                    <p>html</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                                 <div
                                     class="circle-sm-2 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100"
-                                        src="@/assets/images/skills/Infrastructure/cloudflare.png" alt="">
-                                    <p>react</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                             </div>
-                            <h2>Infrastructure</h2>
+                            <h2 v-if="skill.length > 0">{{ skill[4].skill_name }}</h2>
                             <div class="middle-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-3 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100"
-                                        src="@/assets/images/skills/Infrastructure/kubernetes.png" alt="">
-                                    <p>javascript</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                                 <div
                                     class="circle-sm-4 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100"
-                                        src="@/assets/images/skills/Infrastructure/monitoring.png" alt="">
-                                    <p>flutter</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                             </div>
                             <div class="under-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-5 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
-                                    <img class="skill-img d-block w-100"
-                                        src="@/assets/images/skills/Infrastructure/nginx.png" alt="">
-                                    <p>typescript</p>
+                                    <v-img class="skill-img d-block w-100"
+                                        :src="`${skill_list[0].skill_list_img ? `${publicCtx.apiBaseUrl}${skill_list[0].skill_list_img}` : defaultImage}`"
+                                        cover alt="skill_list">
+                                        <template v-slot:error>
+                                            <v-img :src="errorImage" cover alt="error"></v-img>
+                                        </template>
+                                    </v-img>
+                                    <p>{{ skill_list[0].skill_list_detail }}</p>
                                 </div>
                             </div>
                         </div>
@@ -282,8 +407,6 @@ onMounted(async () => {
 .skill-img {
     max-width: 40px;
     max-height: 40px;
-    /* position: absolute; */
-
 }
 
 .circle-sm-1 {

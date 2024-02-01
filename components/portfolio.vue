@@ -26,9 +26,6 @@ onMounted(async () => {
 
         portfolio.value = await getPortfolioBy({ portfolio_id: query.id }).then((res) => res.docs)
         portfolio_lists.value = await getPortfolioListBy({ portfolio_id: query.id }).then(res => res.docs)
-        console.log("portfolio", portfolio.value);
-        console.log("portfolio_lists", portfolio_lists.value.length);
-
     } catch (e) {
         console.log(e)
     }
