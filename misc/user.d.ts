@@ -41,7 +41,7 @@ export type Banner = {
 export type BannerList = {
   banner_list_id: string,
   banner_id: string,
-  banner_list_name: string
+  banner_list_name: string;
   addby?: string
   adddate?: Date,
   updateby?: string
@@ -50,10 +50,8 @@ export type BannerList = {
 
 export type Portfolio = {
   portfolio_id: string;
+  portfolio_list_id?: string;
   portfolio_name: string;
-  portfolio_detail: string;
-  portfolio_lists?: PortfolioList[];
-  images?: { portfolio_img: { src: string, name: string } };
   addby?: string,
   adddate?: Date,
   updateby?: string,
@@ -61,9 +59,9 @@ export type Portfolio = {
 };
 
 export type PortfolioList = {
-  portfolio_list_id: string,
-  portfolio_id: string,
-  portfolio_list_detail: string
+  portfolio_list_id: string;
+  portfolio_id: string;
+  portfolio_list_detail: string;
   portfolio_list_img?: string;
   images?: { portfolio_list_img: { src: string, name: string } };
   addby?: string
@@ -83,14 +81,14 @@ export type Skill = {
 };
 
 export type SkillList = {
-  skill_list_id: string,
-  skill_list_name: string
-  skill_list_detail: string
+  skill_list_id: string;
+  skill_list_name: string;
+  skill_list_detail: string;
   skill_list_img?: string;
   images?: { skill_list_img: Array<{ src: string, name: string, skill_list_id: string }> };
   addby?: string
   adddate?: Date,
-  updateby?: string
+  updateby?: string,
   lastupdate?: string,
 };
 
