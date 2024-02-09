@@ -3,8 +3,7 @@
         <nav
             class="navbar navbar-expand-md navbar-dark bg-themecolor border border-navtail rounded-5 fixed-top mt-5 mx-5 p-0">
             <div class="container p-0">
-                <img id="nav-img" class="navbar-brand d-block " src="@/assets/images/logos/logo.png" cover height="70"
-                    alt="logo" />
+                <img id="nav-img" class="navbar-brand " src="@/assets/images/logos/logo.png" cover height="70" alt="logo" />
                 <a href="#header" class="navbar-brand fs-2 ">REVELSOFT</a>
                 <button class="navbar-toggler " data-bs-toggle="collapse" data-bs-target="#navbar1">
                     <span class="navbar-toggler-icon "></span>
@@ -45,11 +44,6 @@ export default {
 </script>
 
 <style scoped>
-.navbar {
-    border-radius: #fff solid 5px;
-    /* border-radius: #25AAE2 solid 5px; */
-}
-
 .nav-item {
     align-self: center;
 }
@@ -64,13 +58,9 @@ export default {
     background-color: #25AAE2;
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 380px) {
     .navbar-brand {
-        padding-left: 0;
+        padding: 0;
     }
-
-    /* .nav-item {
-        data-bs-toggle="modal" data-bs-target="#myModal"
-    } */
 }
 </style>

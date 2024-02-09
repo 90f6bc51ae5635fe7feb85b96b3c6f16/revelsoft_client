@@ -1,6 +1,6 @@
 
 <script lang="ts" setup>
-import { Banner, BannerList } from "~~/misc/types"
+import type { Banner, BannerList } from "~~/misc/types"
 import errorImage from "@/assets/images/error.png"
 
 const defaultImage = "https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
@@ -9,6 +9,7 @@ const { getBannerByID, getBannerBy } = useBanner();
 const { getBannerListBy } = useBannerList();
 const { public: publicCtx } = useRuntimeConfig()
 
+let popupfrom = ref<boolean>(false)
 const banner_lists = ref<BannerList[]>([])
 const banner = ref<Banner>({
     banner_id: '',
@@ -16,6 +17,9 @@ const banner = ref<Banner>({
     banner_detail: '',
     banner_img: '',
 });
+const openFrom = () => {
+    popupfrom.value = !popupfrom.value
+}
 
 onMounted(async () => {
     try {
@@ -25,7 +29,6 @@ onMounted(async () => {
         for (const [key, value] of params) {
             query[key] = value;
         }
-
         banner.value = await getBannerBy({ banner_id: query.id }).then((res) => res.docs[0])
         banner_lists.value = await getBannerListBy({ banner_id: query.id }).then(res => res.docs)
     } catch (e) {
@@ -54,12 +57,13 @@ onMounted(async () => {
                         </div>
                     </v-col>
                 </v-col>
-                <v-row class=" mt-10 pl-10 mx-5 gap-2">
+                <v-row class="mt-10 mx-3 gap-2">
                     <v-hover>
                         <template v-slot:default="{ isHovering, props }">
-                            <v-btn class="text-none rounded-pill bg-greenblue ml-5 border border-3 border-greenblue"
+                            <v-btn @click="openFrom"
+                                class="text-none rounded-pill bg-greenblue ml-5 border border-3 border-greenblue"
                                 v-bind="props" :color="isHovering ? 'themecolor' : undefined">
-                                Get In Touch
+                                Get In Touch With Us
                             </v-btn>
                         </template>
                     </v-hover>
@@ -73,8 +77,8 @@ onMounted(async () => {
                     </v-hover>
                 </v-row>
             </v-col>
-            <v-col class="banner-img-containner">
-                <v-img class="banner-img d-block w-100 h-100"
+            <v-col class="banner-img-containner justify-center">
+                <v-img class="banner-img d-block w-100"
                     :src="`${banner.banner_img ? `${publicCtx.apiBaseUrl}${banner.banner_img}` : defaultImage}`" cover
                     alt="banner">
                     <template v-slot:error>
@@ -84,6 +88,27 @@ onMounted(async () => {
             </v-col>
         </v-row>
     </div>
+    <v-dialog v-model="popupfrom">
+        <v-card class=" bg-themecolor ">
+            <v-row class=" ">
+                <v-col class="d-flex flex-column justify-space-evenly gap-5 m-5">
+                    <v-text-field class="bg-surface border rounded-xl " name="name" id="userName" placeholder="Name"
+                        variant="outline"></v-text-field>
+                    <v-text-field class="bg-surface border rounded-xl" name="name" id="userName" placeholder="Email"
+                        variant="outline"></v-text-field>
+                    <v-text-field class="bg-surface border rounded-xl" name="name" id="userName" placeholder="Number"
+                        variant="outline"></v-text-field>
+                    <v-textarea class="bg-surface border rounded-xl" name="name" id="userName" placeholder="Massage"
+                        variant="outline"></v-textarea>
+                </v-col>
+                <v-col class="d-flex justify-center mt-5">
+                    <span class="text-h1 text-txtcolor">CONTACT</span>
+                    <span class="text-h1"> US</span>
+                    <v-img src="@/assets/images/Saly-12.png"></v-img>
+                </v-col>
+            </v-row>
+        </v-card>
+    </v-dialog>
 </template>
 
 <style scoped>
@@ -114,11 +139,18 @@ onMounted(async () => {
 }
 
 .banner-img {
-    min-width: 250px;
+    min-width: 18em;
     max-width: 80%;
-    min-height: 250px;
-    max-height: 80%;
+    min-height: 12em;
+    max-height: 350px;
     object-fit: cover;
+}
+
+.banner-img-containner {
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .containner-title {
@@ -139,6 +171,15 @@ onMounted(async () => {
 .banner-text-2 {
     animation: fade-in 0.8s 1.5s forwards cubic-bezier(0.11, 0, 0.5, 0);
 }
+
+.banner-text-3 {
+    animation: fade-in 0.8s 2s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
+.banner-text-4 {
+    animation: fade-in 0.8s 2.5s forwards cubic-bezier(0.11, 0, 0.5, 0);
+}
+
 
 
 @keyframes scale {

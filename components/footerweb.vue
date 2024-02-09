@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import Swal from "sweetalert2";
-import { Footer } from "~/misc/types";
+import type { Footer } from "~/misc/types";
 
 definePageMeta({
     middleware: ["auth"],

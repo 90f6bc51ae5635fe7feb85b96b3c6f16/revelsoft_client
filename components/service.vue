@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Product } from "~~/misc/types"
+import type { Product } from "~~/misc/types"
 import errorImage from "@/assets/images/error.png"
 
 const defaultImage = "https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"

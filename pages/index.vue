@@ -103,7 +103,7 @@ export default {
 
 .circle-sm-2 {
   position: absolute;
-  top: 2em;
+  top: 1em;
   left: 15%;
 }
 
