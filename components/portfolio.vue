@@ -29,10 +29,6 @@ onMounted(async () => {
         }
         portfolio.value = await getPortfolioBy({ portfolio_id: query.id }).then((res) => res.docs)
         portfolio_lists.value = await getPortfolioListBy({ portfolio_id: query.id }).then(res => res.docs)
-        console.log("allvisible", allvisible);
-        console.log("industryvisible", industryvisible);
-        console.log("educationvisible", educationvisible);
-        console.log("outsourcevisible", outsourcevisible);
     } catch (e) {
         console.log(e)
     }
@@ -100,7 +96,7 @@ const prevSlide = () => {
             <hr class="mx-16 mb-10">
             <div class="container w-50 h-50">
                 <div class="row">
-                    <div class="col-lg-8 m-auto">
+                    <div class="col-lg-8 m-auto" style="min-width: 11em;">
                         <div v-if="allvisible" id="carouselExampleIndicators" class="carousel slide carousel-fade"
                             data-bs-ride="carousel">
                             <ol class="carousel-indicators">

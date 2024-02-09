@@ -34,7 +34,6 @@ onMounted(async () => {
             <h1 class="ml-3">Service</h1>
         </v-row>
         <v-row class="d-flex justify-space-evenly m-16 py-7 px-2">
-            <!-- <v-containner v-for="(list, idx) in products.slice(1, 5) " :key="idx" class="rounded-xl bg-service_2"> -->
             <v-containner v-for="(list, idx) in products " :key="idx" class="rounded-xl bg-service_2 ">
                 <v-col id="service-containner" class="d-flex flex-column align-center mt-12">
                     <div class="circle pa-6 bg-service_circle rounded-circle d-inline-block">
