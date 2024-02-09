@@ -23,7 +23,7 @@ onMounted(async () => {
 </script>
 
 <template>
-    <div id="about" class="mt-16 pt-16 ">
+    <div id="about" class="about mt-16 pt-16 ">
         <v-row class="d-flex justify-center ">
             <h1 class="text-txtcolor ">About</h1>
             <h1 class="ml-3">Us</h1>
@@ -55,6 +55,10 @@ onMounted(async () => {
 </template>
 
 <style scoped>
+.about-us {
+    z-index: 4;
+}
+
 .about-img {
     min-width: 18em;
     max-width: 80%;

@@ -119,6 +119,7 @@ onMounted(async () => {
 .banner-bg1 {
     width: 100%;
     height: 99.99%;
+    max-height: 50em;
     z-index: 3;
     position: absolute;
     top: 0;
@@ -127,6 +128,7 @@ onMounted(async () => {
 
 .banner-bg2 {
     width: 100%;
+    max-height: 52em;
     z-index: 2;
     position: absolute;
     top: 0;
@@ -142,12 +144,12 @@ onMounted(async () => {
     min-width: 18em;
     max-width: 80%;
     min-height: 12em;
-    max-height: 350px;
+    max-height: 100%;
     object-fit: cover;
 }
 
 .banner-img-containner {
-    height: 350px;
+    height: 410px;
     display: flex;
     justify-content: center;
     align-items: center;
