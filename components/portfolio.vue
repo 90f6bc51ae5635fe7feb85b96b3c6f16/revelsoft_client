@@ -1,8 +1,15 @@
 <script lang="ts" setup>
 import type { Portfolio, PortfolioList } from "~~/misc/types"
-const defaultImage = "https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
+import { defineComponent, ref, onMounted } from 'vue';
 import errorImage from "@/assets/images/error.png"
-import Swiper from "swiper";
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import { EffectCoverflow, Pagination } from 'swiper/modules';
+const defaultImage = "https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
+
+const modules = [EffectCoverflow, Pagination];
 
 definePageMeta({ middleware: ["auth"] });
 const { getPortfolioBy } = usePortfolio();
@@ -17,7 +24,6 @@ let outsourcevisible = ref<Boolean>(false)
 
 const portfolio_lists = ref<PortfolioList[]>([])
 const portfolio = ref<Portfolio[]>([])
-let tabs = portfolio.value.length
 
 onMounted(async () => {
     try {
@@ -94,133 +100,92 @@ const prevSlide = () => {
                 </template>
             </div>
             <hr class="mx-16 mb-10">
-            <div class="container w-50 h-50">
-                <div class="row">
-                    <div class="col-lg-8 m-auto" style="min-width: 11em;">
-                        <div v-if="allvisible" id="carouselExampleIndicators" class="carousel slide carousel-fade"
-                            data-bs-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <button v-for="(list, idx) in portfolio_lists" :key="idx" data-bs-target="#slider1"
-                                    :data-bs-slide-to="idx" :class="{ 'active': idx === activeIndex }">
-                                </button>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div v-for="(list, idx) in portfolio_lists" :key="idx"
-                                    :class="{ 'carousel-item': true, 'active': idx === activeIndex }">
-                                    <v-img class="banner-img d-block w-100 h-100"
-                                        :src="`${list.portfolio_list_img ? `${publicCtx.apiBaseUrl}${list.portfolio_list_img}` : defaultImage}`"
-                                        cover alt="portfolio_list">
-                                        <template v-slot:error>
-                                            <v-img :src="errorImage" cover alt="error"></v-img>
-                                        </template>
-                                    </v-img>
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                        <div v-if="industryvisible" id="carouselExampleIndicators" class="carousel slide carousel-fade"
-                            data-bs-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <button v-for="(list, idx) in portfolio_lists.slice(0, 4)" :key="idx"
-                                    data-bs-target="#slider1" :data-bs-slide-to="idx"
-                                    :class="{ 'active': idx === activeIndex }">
-                                </button>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div v-for="(list, idx) in portfolio_lists.slice(0, 4)" :key="idx"
-                                    :class="{ 'carousel-item': true, 'active': idx === activeIndex }">
-                                    <v-img class="banner-img d-block w-100 h-100"
-                                        :src="`${list.portfolio_list_img ? `${publicCtx.apiBaseUrl}${list.portfolio_list_img}` : defaultImage}`"
-                                        cover alt="portfolio_list">
-                                        <template v-slot:error>
-                                            <v-img :src="errorImage" cover alt="error"></v-img>
-                                        </template>
-                                    </v-img>
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                        <div v-if="educationvisible" id="carouselExampleIndicators" class="carousel slide carousel-fade"
-                            data-bs-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <button v-for="(list, idx) in portfolio_lists.slice(1, 3)" :key="idx"
-                                    data-bs-target="#slider1" :data-bs-slide-to="idx"
-                                    :class="{ 'active': idx === activeIndex }">
-                                </button>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div v-for="(list, idx) in portfolio_lists.slice(1, 3)" :key="idx"
-                                    :class="{ 'carousel-item': true, 'active': idx === activeIndex }">
-                                    <v-img class="banner-img d-block w-100 h-100"
-                                        :src="`${list.portfolio_list_img ? `${publicCtx.apiBaseUrl}${list.portfolio_list_img}` : defaultImage}`"
-                                        cover alt="portfolio_list">
-                                        <template v-slot:error>
-                                            <v-img :src="errorImage" cover alt="error"></v-img>
-                                        </template>
-                                    </v-img>
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                        <div v-if="outsourcevisible" id="carouselExampleIndicators" class="carousel slide carousel-fade"
-                            data-bs-ride="carousel">
-                            <ol class="carousel-indicators">
-                                <button v-for="(list, idx) in portfolio_lists.slice(0, 3)" :key="idx"
-                                    data-bs-target="#slider1" :data-bs-slide-to="idx"
-                                    :class="{ 'active': idx === activeIndex }">
-                                </button>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div v-for="(list, idx) in portfolio_lists.slice(0, 3)" :key="idx"
-                                    :class="{ 'carousel-item': true, 'active': idx === activeIndex }">
-                                    <v-img class="banner-img d-block w-100 h-100"
-                                        :src="`${list.portfolio_list_img ? `${publicCtx.apiBaseUrl}${list.portfolio_list_img}` : defaultImage}`"
-                                        cover alt="portfolio_list">
-                                        <template v-slot:error>
-                                            <v-img :src="errorImage" cover alt="error"></v-img>
-                                        </template>
-                                    </v-img>
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                    </div>
+            <div v-if="allvisible" class="col-lg-8 m-auto w-100">
+                <div class="swiper-containner w-100 h-100 ">
+                    <swiper effect="coverflow" :grabCursor="true" :centeredSlides="true" slidesPerView="auto"
+                        :coverflowEffect="{
+                            rotate: 50,
+                            stretch: 2,
+                            depth: 100,
+                            modifier: 1,
+                            slideShadows: true,
+                        }" :pagination="true" :modules="modules" class="mySwiper ">
+                        <swiper-slide class=" w-25 h-25" v-for="(list, idx) in portfolio_lists" :key="idx">
+                            <v-img class=" banner-img d-block w-100 h-100"
+                                :src="`${list.portfolio_list_img ? `${publicCtx.apiBaseUrl}${list.portfolio_list_img}` : defaultImage}`"
+                                cover alt="banner">
+                                <template v-slot:error>
+                                    <v-img :src="errorImage" cover alt="error"></v-img>
+                                </template>
+                            </v-img>
+                        </swiper-slide>
+                    </swiper>
+                </div>
+            </div>
+            <div v-if="industryvisible" class="col-lg-8 m-auto w-100">
+                <div class="swiper-containner w-100 h-100 ">
+                    <swiper effect="coverflow" :grabCursor="true" :centeredSlides="true" slidesPerView="auto"
+                        :coverflowEffect="{
+                            rotate: 50,
+                            stretch: 2,
+                            depth: 100,
+                            modifier: 1,
+                            slideShadows: true,
+                        }" :pagination="true" :modules="modules" class="mySwiper ">
+                        <swiper-slide class=" w-25 h-25" v-for="(list, idx) in portfolio_lists.slice(0, 3)" :key="idx">
+                            <v-img class=" banner-img d-block w-100 h-100"
+                                :src="`${list.portfolio_list_img ? `${publicCtx.apiBaseUrl}${list.portfolio_list_img}` : defaultImage}`"
+                                cover alt="banner">
+                                <template v-slot:error>
+                                    <v-img :src="errorImage" cover alt="error"></v-img>
+                                </template>
+                            </v-img>
+                        </swiper-slide>
+                    </swiper>
+                </div>
+            </div>
+            <div v-if="educationvisible" class="col-lg-8 m-auto w-100">
+                <div class="swiper-containner w-100 h-100 ">
+                    <swiper effect="coverflow" :grabCursor="true" :centeredSlides="true" slidesPerView="auto"
+                        :coverflowEffect="{
+                            rotate: 50,
+                            stretch: 2,
+                            depth: 100,
+                            modifier: 1,
+                            slideShadows: true,
+                        }" :pagination="true" :modules="modules" class="mySwiper ">
+                        <swiper-slide class=" w-25 h-25" v-for="(list, idx) in portfolio_lists.slice(0, 2)" :key="idx">
+                            <v-img class=" banner-img d-block w-100 h-100"
+                                :src="`${list.portfolio_list_img ? `${publicCtx.apiBaseUrl}${list.portfolio_list_img}` : defaultImage}`"
+                                cover alt="banner">
+                                <template v-slot:error>
+                                    <v-img :src="errorImage" cover alt="error"></v-img>
+                                </template>
+                            </v-img>
+                        </swiper-slide>
+                    </swiper>
+                </div>
+            </div>
+            <div v-if="outsourcevisible" class="col-lg-8 m-auto w-100">
+                <div class="swiper-containner w-100 h-100 ">
+                    <swiper effect="coverflow" :grabCursor="true" :centeredSlides="true" slidesPerView="auto"
+                        :coverflowEffect="{
+                            rotate: 50,
+                            stretch: 2,
+                            depth: 100,
+                            modifier: 1,
+                            slideShadows: true,
+                        }" :pagination="true" :modules="modules" class="mySwiper ">
+                        <swiper-slide class=" w-25 h-25" v-for="(list, idx) in portfolio_lists.slice(2, 5)" :key="idx">
+                            <v-img class=" banner-img d-block w-100 h-100"
+                                :src="`${list.portfolio_list_img ? `${publicCtx.apiBaseUrl}${list.portfolio_list_img}` : defaultImage}`"
+                                cover alt="banner">
+                                <template v-slot:error>
+                                    <v-img :src="errorImage" cover alt="error"></v-img>
+                                </template>
+                            </v-img>
+                        </swiper-slide>
+                    </swiper>
                 </div>
             </div>
         </v-col>
@@ -236,5 +201,9 @@ const prevSlide = () => {
     z-index: 4;
     text-decoration: none;
     color: white;
+}
+
+.swiper-containner {
+    height: 120%;
 }
 </style>

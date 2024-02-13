@@ -30,13 +30,13 @@ onMounted(async () => {
         </v-row>
         <v-col cols="12" class="my-10 ps-16 d-flex justify-center">
             <v-row class="about-us ">
-                <v-col id="about-info" class="pt-16 pl-10">
-                    <v-row class="d-flex align-center">
+                <v-col id="about-info" class="pt-16 ">
+                    <v-row class=" align-center">
                         <v-icon class=" text-greenblue">mdi-36px mdi-checkbox-marked-circle-outline</v-icon>
                         <h1 class="text-greenblue px-4">10 years experience</h1>
                     </v-row>
                     <v-col class="containner ">
-                        <div class="text-h4 pl-7" style="white-space: pre-line;">{{
+                        <div class="text-h4" style="white-space: pre-line;">{{
                             abouts.about_detail }} </div>
                     </v-col>
                 </v-col>
@@ -63,7 +63,7 @@ onMounted(async () => {
     min-width: 18em;
     max-width: 80%;
     min-height: 12em;
-    max-height: 350px;
+    max-height: 30em;
     object-fit: cover;
 }
 

@@ -1,5 +1,6 @@
 
 <script lang="ts" setup>
+import popupform from '~/components/popupform.vue';
 import type { Product, Banner, BannerList } from "~~/misc/types"
 import errorImage from "@/assets/images/error.png"
 
@@ -11,13 +12,10 @@ const { getProductBy } = useProduct();
 const { public: publicCtx } = useRuntimeConfig()
 
 let activeIndex = 0;
-let popupfrom = ref<boolean>(false)
 const banner_lists = ref<BannerList[]>([])
 const products = ref<Product[]>([]);
 const banner = ref<Banner[]>([]);
-const openFrom = () => {
-    popupfrom.value = !popupfrom.value
-}
+const dialog = ref<{ show: boolean }>({ show: false })
 
 onMounted(async () => {
     try {
@@ -30,11 +28,13 @@ onMounted(async () => {
         banner.value = await getBannerBy({ banner_id: query.id }).then(res => res.docs)
         products.value = await getProductBy({ product_id: query.id }).then(res => res.docs)
         banner_lists.value = await getBannerListBy({ banner_id: query.id }).then(res => res.docs)
-        console.log(banner.value);
     } catch (e) {
         console.log(e)
     }
 })
+const openFrom = () => {
+    dialog.value.show = true
+}
 </script>
 
 <template>
@@ -104,78 +104,14 @@ onMounted(async () => {
             </v-col>
         </v-row>
     </div>
-
-    <v-dialog v-model="popupfrom">
-        <td class="align-middle text-center" style="position: absolute; z-index: 5; right: 1%;top: 1%;">
-            <v-icon class="fs-2" clickable @click="openFrom" color="error">
-                mdi mdi-close-thick</v-icon>
-        </td>
-        <v-card class="bg-fromcolor  rounded-xl h-100">
-            <v-row class="card-from">
-                <v-col class="m-5 d-flex justify-center" style="position: relative;">
-                    <v-row class="d-flex justify-center">
-                        <span class="text-h1 text-txtcolor"> CONTACT</span>
-                        <span class="text-h1">US</span>
-                    </v-row>
-                    <v-col class="contact-img-1  w-100 h-100 "></v-col>
-                    <v-col class="contact-img-2  w-100 h-100 "></v-col>
-                    <v-col class="contact-img-3  w-100 h-100 "></v-col>
-                    <v-col class="contact-img-4  w-100 h-100 "></v-col>
-                    <v-col class="contact-img-5  w-100 h-100 "></v-col>
-                </v-col>
-                <v-col class="m-5">
-                    <v-col style="position: relative;">
-                        <div class="mb-4">
-                            <input type="email" class="form-control w-100" id="formName" placeholder="Name">
-                        </div>
-                        <div class="mb-4">
-                            <input type="email" class="form-control w-100" id="formEmail" placeholder="Email">
-                        </div>
-                        <div class="mb-4">
-                            <input type="email" class="form-control w-100" id="formNumber" placeholder="Number">
-                        </div>
-                        <div>
-                            <textarea class="form-control w-100" id="formMassage" rows="3" placeholder="Massage"></textarea>
-                        </div>
-                    </v-col>
-                    <v-col class="p-2">
-                        <div>
-                            <v-item-group class="d-flex justify-space-evenly py-3" multiple selected-class="bg-primary">
-                                <v-item v-for="(list, idx) in products " :key="idx" v-slot="{ selectedClass, toggle }">
-                                    <v-chip class="bg-surface text-uppercase" :class="selectedClass" @click="toggle">
-                                        {{ list.product_name }}
-                                    </v-chip>
-                                </v-item>
-                            </v-item-group>
-                        </div>
-                        <div class="d-flex justify-center">
-                            <v-hover>
-                                <template v-slot:default="{ isHovering, props }">
-                                    <v-btn
-                                        class="text-none text-center rounded-pill bg-surface ml-5 border border-2 border-surface"
-                                        href="#" v-bind="props" :color="isHovering ? 'greenblue' : undefined">
-                                        SEND
-                                    </v-btn>
-                                </template>
-                            </v-hover>
-                        </div>
-                    </v-col>
-                </v-col>
-            </v-row>
-        </v-card>
-    </v-dialog>
+    <div>
+        <template>
+            <popupform v-model="dialog" />
+        </template>
+    </div>
 </template>
 
 <style scoped>
-.card-from {
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-.form-control {
-    /* max-width: 50em; */
-}
-
 #banner {
     padding-top: 200px;
 }
@@ -246,60 +182,6 @@ onMounted(async () => {
     animation: fade-in 0.8s 2.5s forwards cubic-bezier(0.11, 0, 0.5, 0);
 }
 
-.contact-img-1 {
-    background-image: url("../assets/images/fromimg/Saly-12.png");
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    max-width: 50%;
-    max-height: 80%;
-    bottom: 10%;
-}
-
-.contact-img-2 {
-    background-image: url("../assets/images/fromimg/Saly-44.png");
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    max-width: 20%;
-    max-height: 35%;
-    top: 5%;
-    left: 5%;
-}
-
-.contact-img-3 {
-    background-image: url("../assets/images/fromimg/Saly-21.png");
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    max-width: 20%;
-    max-height: 20%;
-    top: 0;
-    right: 5%;
-}
-
-.contact-img-4 {
-    background-image: url("../assets/images/fromimg/Saly-31.png");
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    max-width: 20%;
-    max-height: 20%;
-    bottom: 5%;
-    left: 5%;
-}
-
-.contact-img-5 {
-    background-image: url("../assets/images/fromimg/Saly-43.png");
-    background-size: cover;
-    background-position: center;
-    position: absolute;
-    max-width: 20%;
-    max-height: 45%;
-    bottom: 5%;
-    right: 5%;
-}
-
 @keyframes scale {
     100% {
         transform: scale(1);
@@ -310,33 +192,6 @@ onMounted(async () => {
     100% {
         opacity: 1;
         filter: blur(0);
-    }
-}
-
-@media only screen and (max-width: 1280px) {
-    .card-from {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .contact-img-1 {
-        display: none;
-    }
-
-    .contact-img-2 {
-        display: none;
-    }
-
-    .contact-img-3 {
-        display: none;
-    }
-
-    .contact-img-4 {
-        display: none;
-    }
-
-    .contact-img-5 {
-        display: none;
     }
 }
 </style>

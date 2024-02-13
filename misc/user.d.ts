@@ -102,8 +102,22 @@ export type Experience = {
   lastupdate?: string,
 };
 
+export type ConTact = {
+  contact_id: string;
+  contact_name: string;
+  contact_email: string;
+  contact_number: string;
+  contact_detail: string;
+  product_lists?: Product[];
+  addby?: string,
+  adddate?: Date,
+  updateby?: string,
+  lastupdate?: string,
+};
+
 export type Product = {
   product_id: string;
+  contact_id: string;
   product_name: string;
   product_detail: string;
   product_img?: string;
