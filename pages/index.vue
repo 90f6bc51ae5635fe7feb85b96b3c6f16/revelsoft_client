@@ -2,6 +2,7 @@
   <v-col id="topweb" class="bg-themecolor text-surface">
 
     <navbar />
+
     <!-- <<<<******************************** #circle 1  **********************************>>>>  -->
     <div style="position: relative;">
       <circle-lg class="circle-lg-1" />
@@ -9,7 +10,6 @@
         <circle-sm class="circle-sm-1" />
       </div>
     </div>
-    <!-- <<<<******************************** #circle 1  **********************************>>>> -->
 
     <div>
       <banner />
@@ -20,7 +20,10 @@
     </div>
 
     <div style="position: relative;">
-      <circle-sm style="position: absolute;" />
+      <circle-sm style="position: absolute; left: 10%;" />
+      <div style="position: relative;">
+        <circle-xs style="position: absolute; left: 8%;" />
+      </div>
     </div>
 
     <div class="pt-3">
@@ -29,6 +32,12 @@
 
     <div>
       <service />
+      <div style="position: relative;">
+        <circle-sm style="position: absolute; right: 10%;" />
+        <div style="position: relative;">
+          <circle-xs style="position: absolute; right: 11%;" />
+        </div>
+      </div>
     </div>
 
     <div>
@@ -38,17 +47,21 @@
     <div style="position: relative;">
       <circle-blur style="position: absolute; left: -15%; top: -50px;" />
     </div>
+
+
     <!-- <<<<******************************** #circle 2  **********************************>>>> -->
     <div style="position: relative;">
       <circle-lg class="circle-lg-2" />
       <div style="position: relative;">
-        <circle-sm class="circle-sm-2" />
+        <circle-md class="circle-md-2" />
       </div>
     </div>
-    <!-- <<<<******************************** #circle 2  **********************************>>>> -->
 
     <div style="position: relative;">
       <circle-sm class="circle-sm-portfolio" />
+      <div style="position: relative;">
+        <circle-xs style="position: absolute; right: 11%; top: 10%;" />
+      </div>
     </div>
 
     <div>
@@ -64,6 +77,13 @@
     <!-- <div style="position: relative;">
       <circle-sm style="position: absolute; right: 10%; bottom: 5em;" />
     </div> -->
+
+    <div style="position: relative;">
+      <circle-sm style="position: absolute; right: 15%;" />
+      <div style="position: relative;">
+        <circle-xs style="position: absolute; right: 11%;" />
+      </div>
+    </div>
 
     <div>
       <footerweb />
@@ -101,10 +121,10 @@ export default {
   left: -15%
 }
 
-.circle-sm-2 {
+.circle-md-2 {
   position: absolute;
-  top: 1em;
   left: 15%;
+  z-index: 0;
 }
 
 .circle-sm-portfolio {
@@ -132,10 +152,10 @@ export default {
     left: -20%
   }
 
-  .circle-sm-2 {
+  .circle-md-2 {
     position: absolute;
-    top: 2em;
-    left: 20%;
+    left: 15%;
+    z-index: 0;
   }
 
   .circle-sm-portfolio {

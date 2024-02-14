@@ -9,10 +9,12 @@ definePageMeta({
 const { getFooterByID, updateFooterBy } = useFooter();
 const router = useRouter();
 const submitting = ref(false)
+const dialog = ref<{ show: boolean }>({ show: false })
 const footer = ref<Footer>({
     id: '',
     footer_detail: '',
 })
+
 
 const icons = [
     'mdi-facebook',
@@ -20,7 +22,9 @@ const icons = [
     'mdi-twitter',
 ]
 
-
+const openFrom = () => {
+    dialog.value.show = true
+}
 
 onMounted(async () => {
     footer.value = await getFooterByID({ id: 'DEFAULT' })
@@ -29,18 +33,12 @@ onMounted(async () => {
 
 <template>
     <div id="footer">
-        <v-row class="footer-info d-flex mt-10 pl-16">
-            <!-- <div class="bg-footer w-100 h-100" style="position: absolute; left: 0; top: 0;">
-                <div class="bg-1 border"></div>
-                <div class="bg-2"></div>
-                <div class="bg-3"></div>
-                <div class="bg-4"></div>
-            </div> -->
-            <img class="footer-bg1  w-100" src="@/assets/images/footer/footer.png">
+        <v-row class="footer-info d-flex mt-10 pl-16" style="position: relative;">
+            <img class="footer-bg1 d-block w-100" src="@/assets/images/footer/footer.png">
             <img class="footer-bg2 d-block w-100" src="@/assets/images/footer/footer.png">
             <v-col>
                 <h2 class="my-10">Let's make your <span class="text-txtcolor px-1">Dream</span> come true</h2>
-                <v-btn class=" rounded-lg mb-16 bg-service_3 text-surface">
+                <v-btn class=" rounded-lg mb-16 bg-service_3 text-surface" @click="openFrom">
                     CONTRACT US
                 </v-btn>
             </v-col>
@@ -48,12 +46,16 @@ onMounted(async () => {
                 <p class="py-1 text-txtcolor"> support@revelsoft.co.th</p>
                 <p class="fs-5 py-1">044011494</p>
                 <v-row>
-                    <v-btn v-for="icon in icons" :key="icon" class="rounded-circle bg-surface mx-2" :icon="icon"
-                        variant="text"></v-btn>
+                    <v-btn v-model="icons[0]" class="rounded-circle bg-surface mx-2"></v-btn>
                 </v-row>
                 <p class="py-1">2023 All Rights Reserved by Revel Soft Inc. </p>
             </v-col>
         </v-row>
+    </div>
+    <div>
+        <template>
+            <popupform v-model="dialog" />
+        </template>
     </div>
 </template>
 
@@ -67,10 +69,9 @@ onMounted(async () => {
 
 .footer-bg1 {
     position: absolute;
-    left: -20%;
+    left: -50%;
     z-index: -1;
     opacity: 0.3;
-    border: red solid 5px;
     bottom: 0;
 }
 
@@ -79,8 +80,7 @@ onMounted(async () => {
     left: -20%;
     z-index: -1;
     opacity: 0.5;
-    left: 20%;
+    left: 50%;
     bottom: 0;
-    /* border: black solid 5px; */
 }
 </style>

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { VDataTable } from 'vuetify/labs/components'
+import { VDataTable } from 'vuetify/components'
 import Swal from "sweetalert2"; import errorImage from "@/assets/images/error.png"
 
 definePageMeta({ middleware: ["auth"] });
@@ -139,8 +139,8 @@ const confirmSearch = () => {
         <template v-slot:[`item.no`]="{ index }">{{ pageItemNo(pagination, index) }}</template>
         <template v-slot:[`item.banner_img`]="{ item }">
           <v-avatar>
-            <v-img v-if="item.raw.banner_img" class="mx-auto" :src="`${publicCtx.apiBaseUrl}${item.raw.banner_img}`"
-              width="50px" height="50px" cover alt="Avatar">
+            <v-img v-if="item.banner_img" class="mx-auto" :src="`${publicCtx.apiBaseUrl}${item.banner_img}`" width="50px"
+              height="50px" cover alt="Avatar">
               <template v-slot:error>
                 <v-img class="mx-auto" :src="errorImage" width="50px" height="50px" cover alt="error"></v-img>
               </template>
@@ -156,21 +156,21 @@ const confirmSearch = () => {
             </template>
             <v-list>
               <v-list-item class="cursor-pointer" density="compact"
-                :to="{ path: '/banner/detail', query: { id: item.raw.banner_id } }">
+                :to="{ path: '/banner/detail', query: { id: item.banner_id } }">
                 <v-list-item-title>
                   <v-icon> mdi-chat-processing-outline</v-icon> ดูรายละเอียด
                 </v-list-item-title>
               </v-list-item>
               <template v-if="permission_edit">
                 <v-list-item class="cursor-pointer" density="compact"
-                  :to="{ path: '/banner/update', query: { id: item.raw.banner_id } }">
+                  :to="{ path: '/banner/update', query: { id: item.banner_id } }">
                   <v-list-item-title>
                     <v-icon> mdi-square-edit-outline</v-icon> แก้ไข
                   </v-list-item-title>
                 </v-list-item>
               </template>
               <template v-if="permission_delete">
-                <v-list-item class="cursor-pointer" density="compact" @click="onDelete(item.raw.banner_id)">
+                <v-list-item class="cursor-pointer" density="compact" @click="onDelete(item.banner_id)">
                   <v-list-item-title>
                     <v-icon> mdi-trash-can-outline</v-icon> ลบ
                   </v-list-item-title>

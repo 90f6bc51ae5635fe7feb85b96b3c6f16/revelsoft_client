@@ -83,7 +83,7 @@ const prevSlide = () => {
         </div>
         <div id="circle-portfolio-sm" class="rounded-circle"></div>
         <h1 class="display-6 text-center ">PORTFOLIO</h1>
-        <v-col id="All" class="portfolio-item">
+        <v-col class="portfolio-item">
             <hr class="mx-16">
             <div class="display-6 fs-3 d-flex flex-row justify-space-evenly text-h4 py-3">
                 <template v-if="portfolio.length > 0">
@@ -100,12 +100,12 @@ const prevSlide = () => {
                 </template>
             </div>
             <hr class="mx-16 mb-10">
-            <div v-if="allvisible" class="col-lg-8 m-auto w-100">
+            <div v-if="allvisible" id="All" class="col-lg-8 m-auto w-100">
                 <div class="swiper-containner w-100 h-100 ">
                     <swiper effect="coverflow" :grabCursor="true" :centeredSlides="true" slidesPerView="auto"
                         :coverflowEffect="{
                             rotate: 50,
-                            stretch: 2,
+                            stretch: 0,
                             depth: 100,
                             modifier: 1,
                             slideShadows: true,
@@ -122,12 +122,12 @@ const prevSlide = () => {
                     </swiper>
                 </div>
             </div>
-            <div v-if="industryvisible" class="col-lg-8 m-auto w-100">
+            <div v-if="industryvisible" id="Industry" class="col-lg-8 m-auto w-100">
                 <div class="swiper-containner w-100 h-100 ">
                     <swiper effect="coverflow" :grabCursor="true" :centeredSlides="true" slidesPerView="auto"
                         :coverflowEffect="{
                             rotate: 50,
-                            stretch: 2,
+                            stretch: 0,
                             depth: 100,
                             modifier: 1,
                             slideShadows: true,
@@ -144,12 +144,12 @@ const prevSlide = () => {
                     </swiper>
                 </div>
             </div>
-            <div v-if="educationvisible" class="col-lg-8 m-auto w-100">
+            <div v-if="educationvisible" id="Education" class="col-lg-8 m-auto w-100">
                 <div class="swiper-containner w-100 h-100 ">
                     <swiper effect="coverflow" :grabCursor="true" :centeredSlides="true" slidesPerView="auto"
                         :coverflowEffect="{
                             rotate: 50,
-                            stretch: 2,
+                            stretch: 0,
                             depth: 100,
                             modifier: 1,
                             slideShadows: true,
@@ -166,12 +166,12 @@ const prevSlide = () => {
                     </swiper>
                 </div>
             </div>
-            <div v-if="outsourcevisible" class="col-lg-8 m-auto w-100">
+            <div v-if="outsourcevisible" id="Outsource" class="col-lg-8 m-auto w-100">
                 <div class="swiper-containner w-100 h-100 ">
                     <swiper effect="coverflow" :grabCursor="true" :centeredSlides="true" slidesPerView="auto"
                         :coverflowEffect="{
                             rotate: 50,
-                            stretch: 2,
+                            stretch: 0,
                             depth: 100,
                             modifier: 1,
                             slideShadows: true,

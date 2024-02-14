@@ -41,7 +41,7 @@ export type Banner = {
 export type BannerList = {
   banner_list_id: string,
   banner_id: string,
-  banner_list_name: string;
+  banner_list_name: string
   addby?: string
   adddate?: Date,
   updateby?: string
@@ -50,7 +50,7 @@ export type BannerList = {
 
 export type Portfolio = {
   portfolio_id: string;
-  portfolio_list_id?: string;
+  portfolio_list_id?: PortfolioList.portfolio_list_id;
   portfolio_name: string;
   addby?: string,
   adddate?: Date,
@@ -59,9 +59,9 @@ export type Portfolio = {
 };
 
 export type PortfolioList = {
-  portfolio_list_id: string;
-  portfolio_id: string;
-  portfolio_list_detail: string;
+  portfolio_list_id: string,
+  portfolio_list_name: string;
+  portfolio_list_detail: string
   portfolio_list_img?: string;
   images?: { portfolio_list_img: { src: string, name: string } };
   addby?: string
@@ -72,7 +72,7 @@ export type PortfolioList = {
 
 export type Skill = {
   skill_id: string;
-  skill_list_id?: string;
+  skill_list_id?: SkillList.skill_list_id,
   skill_name: string;
   addby?: string,
   adddate?: Date,
@@ -81,14 +81,14 @@ export type Skill = {
 };
 
 export type SkillList = {
-  skill_list_id: string;
-  skill_list_name: string;
-  skill_list_detail: string;
+  skill_list_id: string,
+  skill_list_name: string
+  skill_list_detail: string
   skill_list_img?: string;
-  images?: { skill_list_img: Array<{ src: string, name: string, skill_list_id: string }> };
+  images?: { portfolio_list_img: { src: string, name: string } };
   addby?: string
   adddate?: Date,
-  updateby?: string,
+  updateby?: string
   lastupdate?: string,
 };
 
@@ -104,11 +104,11 @@ export type Experience = {
 
 export type ConTact = {
   contact_id: string;
+  product_id: string;
   contact_name: string;
   contact_email: string;
   contact_number: string;
   contact_detail: string;
-  product_lists?: Product[];
   addby?: string,
   adddate?: Date,
   updateby?: string,
@@ -117,7 +117,6 @@ export type ConTact = {
 
 export type Product = {
   product_id: string;
-  contact_id: string;
   product_name: string;
   product_detail: string;
   product_img?: string;

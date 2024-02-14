@@ -26,6 +26,7 @@ const contact = ref<ConTact>({
     contact_email: '',
     contact_number: '',
     contact_detail: '',
+    product_id: '',
 });
 
 onMounted(async () => {
@@ -46,33 +47,33 @@ onMounted(async () => {
 })
 
 async function onSubmit() {
-    if (submitting.value || !validateForm()) return
+    if (submitting.value || !validateForm()) return;
 
     try {
-        submitting.value = true
+        submitting.value = true;
 
         await insertConTact(contact.value);
-        console.log("contact", contact.value);
-
-        void Swal.fire({ title: 'สำเร็จ', text: 'บันทึกข้อมูลแล้ว', icon: "success" })
-        await router.push({ path: '/' });
+        void Swal.fire({
+            title: "สำเร็จ",
+            text: "ส่งข้อความแล้ว",
+            icon: "success",
+        });
+        await router.push({ path: "/" });
     } catch (e) {
-        console.log(e)
-        submitting.value = false
+        console.log(e);
+        submitting.value = false;
     }
 }
 
 function validateForm(): boolean {
-    // const {
-    //     contact_id,
-    //     contact_name,
-    // } = contact.value
+    const { contact_email, contact_name, contact_detail
+    } = contact.value;
 
-    // if (!(contact_id && contact_name)) {
-    //     void Swal.fire({ text: 'กรุณากรอกข้อมูลให้ครบถ้วน', icon: "warning" })
-    //     return false
-    // }
-    return true
+    if (!(contact_email && contact_name && contact_detail)) {
+        void Swal.fire({ text: "กรุณากรอกข้อมูลให้ครบถ้วน", icon: "warning" });
+        return false;
+    }
+    return true;
 }
 const closeForm = () => {
     props.modelValue.show = false
@@ -96,10 +97,10 @@ const fullScreen = () => {
         </td>
         <v-card class="bg-fromcolor  rounded-xl h-100">
             <v-row class="card-from">
-                <v-col lg="" class=" m-5 d-flex justify-center " style="position: relative;">
+                <v-col lg="4" class=" m-5 d-flex justify-center " style="position: relative;">
                     <v-row class="d-flex justify-center" style="position: absolute; top: -5%;">
                         <span class="text-h1 text-txtcolor"> CONTACT</span>
-                        <span class="text-h1">US</span>
+                        <span class="text-h1 ml-3">US</span>
                     </v-row>
                     <v-col class="contact-img-1  w-100 h-100 "></v-col>
                     <v-col class="contact-img-2  w-100 h-100 "></v-col>
@@ -140,9 +141,8 @@ const fullScreen = () => {
                         <div class="d-flex justify-center">
                             <v-hover>
                                 <template v-slot:default="{ isHovering, props }">
-                                    <v-btn
-                                        class="text-none text-center rounded-pill bg-save ml-5 border border-2 border-surface"
-                                        @click="onSubmit" v-bind="props" :color="isHovering ? 'greenblue' : undefined">
+                                    <v-btn class="text-none text-center rounded-pill bg-primary ml-5 " @click="onSubmit"
+                                        v-bind="props" :color="isHovering ? 'greenblue' : undefined">
                                         SEND
                                     </v-btn>
                                 </template>
@@ -176,7 +176,7 @@ const fullScreen = () => {
     background-size: cover;
     background-position: center;
     position: absolute;
-    max-width: 15%;
+    max-width: 20%;
     max-height: 35%;
     top: 5%;
     left: 5%;
