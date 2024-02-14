@@ -104,15 +104,16 @@ export type Experience = {
 
 export type ConTact = {
   contact_id: string;
-  product_id: string;
   contact_name: string;
   contact_email: string;
   contact_number: string;
   contact_detail: string;
+  web_develop: boolean;
+  iot_develop: boolean;
+  app_develop: boolean;
+  out_source: boolean;
   addby?: string,
   adddate?: Date,
-  updateby?: string,
-  lastupdate?: string,
 };
 
 export type Product = {

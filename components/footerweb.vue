@@ -64,7 +64,6 @@ onMounted(async () => {
     background-image: url('../assets/images/footer/footer.png');
     background-size: cover;
     z-index: 4;
-
 }
 
 .footer-bg1 {

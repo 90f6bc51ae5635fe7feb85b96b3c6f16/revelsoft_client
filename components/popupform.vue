@@ -21,13 +21,17 @@ const router = useRouter();
 
 const submitting = ref(false);
 const contact = ref<ConTact>({
-    contact_id: '',
-    contact_name: '',
-    contact_email: '',
-    contact_number: '',
-    contact_detail: '',
-    product_id: '',
+    contact_id: "",
+    contact_name: "",
+    contact_email: "",
+    contact_number: "",
+    contact_detail: "",
+    web_develop: false,
+    app_develop: false,
+    out_source: false,
+    iot_develop: false,
 });
+
 
 onMounted(async () => {
     try {
@@ -86,6 +90,18 @@ const fullScreen = () => {
         isFullScreen.value = false
     }
 }
+const toggleweb = () => {
+    contact.value.web_develop = !contact.value.web_develop
+}
+const toggleapp = () => {
+    contact.value.app_develop = !contact.value.app_develop
+}
+const toggleiot = () => {
+    contact.value.iot_develop = !contact.value.iot_develop
+}
+const toggleout_source = () => {
+    contact.value.out_source = !contact.value.out_source
+}
 
 </script>
 
@@ -110,15 +126,15 @@ const fullScreen = () => {
                 </v-col>
                 <v-col class="m-5">
                     <v-col sm="11" :md="isFullScreen ? 12 : 11" style="position: relative;">
-                        <div class="mb-4">
+                        <div class="mb-3">
                             <input v-model="contact.contact_name" type="name" class="form-control w-100" id="formName"
                                 placeholder="Name">
                         </div>
-                        <div class="mb-4">
+                        <div class="mb-3">
                             <input v-model="contact.contact_email" type="email" class="form-control w-100" id="formEmail"
                                 placeholder="Email">
                         </div>
-                        <div class="mb-4">
+                        <div class="mb-3">
                             <input v-model="contact.contact_number" type="text" class="form-control w-100" id="formNumber"
                                 placeholder="Number">
                         </div>
@@ -128,21 +144,36 @@ const fullScreen = () => {
                         </div>
                     </v-col>
                     <v-col sm="11" :md="isFullScreen ? 12 : 11" class="p-2">
-                        <div>
-                            <v-item-group class="d-flex justify-space-evenly py-3" multiple
-                                selected-class="bg-service_circle">
-                                <v-item v-for="(list, idx) in products " :key="idx" v-slot="{ selectedClass, toggle }">
-                                    <v-chip class="bg-surface text-uppercase" :class="selectedClass" @click="toggle">
-                                        {{ list.product_name }}
-                                    </v-chip>
-                                </v-item>
-                            </v-item-group>
-                        </div>
+                        <v-col>
+                            <h4 class="text-center py-1">ข้อความเกี่ยวกับ</h4>
+                            <v-btn-toggle class="d-flex justify-space-between " multiple
+                                selected-class="text-primary bg-primary" variant="outlined" divided>
+                                <v-btn class="bg-surface border rounded-xl border-0 border-primary"
+                                    v-model="contact.web_develop" @click="toggleweb">
+                                    Web evelopment
+                                </v-btn>
+                                <v-btn class="bg-surface border rounded-xl border-0 border-primary"
+                                    v-model="contact.app_develop" @click="toggleapp">
+                                    Application Development
+                                </v-btn>
+                            </v-btn-toggle>
+                            <v-btn-toggle class="d-flex justify-space-between mt-2 " multiple
+                                selected-class="text-primary bg-primary" variant="outlined" divided>
+                                <v-btn class="bg-surface border rounded-xl border-0 border-primary"
+                                    v-model="contact.iot_develop" @click="toggleout_source">
+                                    Out Source
+                                </v-btn>
+                                <v-btn class="bg-surface border rounded-xl border-0 border-primary"
+                                    v-model="contact.out_source" @click="toggleiot">
+                                    Iot Development
+                                </v-btn>
+                            </v-btn-toggle>
+                        </v-col>
                         <div class="d-flex justify-center">
                             <v-hover>
                                 <template v-slot:default="{ isHovering, props }">
-                                    <v-btn class="text-none text-center rounded-pill bg-primary ml-5 " @click="onSubmit"
-                                        v-bind="props" :color="isHovering ? 'greenblue' : undefined">
+                                    <v-btn class="text-none text-center border border-greenblue rounded-pill bg-save ml-5 "
+                                        @click="onSubmit" v-bind="props" :color="isHovering ? 'themecolor' : undefined">
                                         SEND
                                     </v-btn>
                                 </template>
@@ -166,7 +197,7 @@ const fullScreen = () => {
     background-size: cover;
     background-position: center;
     position: absolute;
-    max-width: 50%;
+    max-width: 65%;
     max-height: 95%;
     bottom: 0;
 }
@@ -176,8 +207,8 @@ const fullScreen = () => {
     background-size: cover;
     background-position: center;
     position: absolute;
-    max-width: 20%;
-    max-height: 35%;
+    max-width: 25%;
+    max-height: 30%;
     top: 5%;
     left: 5%;
 }
@@ -209,13 +240,13 @@ const fullScreen = () => {
     background-size: cover;
     background-position: center;
     position: absolute;
-    max-width: 15%;
+    max-width: 25%;
     max-height: 45%;
     bottom: 5%;
     right: 5%;
 }
 
-@media only screen and (max-width: 1280px) {
+@media only screen and (max-width: 1080px) {
     .card-from {
         display: flex;
         flex-direction: column;
