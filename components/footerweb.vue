@@ -60,9 +60,24 @@ onMounted(async () => {
             <v-col class="d-flex flex-column align-end my-10 pr-7">
                 <p class="py-1 text-txtcolor"> support@revelsoft.co.th</p>
                 <p class="fs-5 py-1">044011494</p>
-                <v-row>
-                    <v-btn v-for="icon in icons" :key="icon" class="rounded-circle bg-surface mx-2" :icon="icon"
-                        variant="text"></v-btn>
+                <v-row v-if="icons.length > 0" class="fs-5">
+                    <!-- <v-btn v-for="icon in icons" :key="icon" class="rounded-circle bg-surface mx-2" :icon="icon"
+                        variant="text"></v-btn> -->
+                    <a class="rounded-circle bg-surface mx-2" href="https://www.facebook.com/revelsoft">
+                        <v-icon class="p-4">
+                            {{ icons[0] }}
+                        </v-icon>
+                    </a>
+                    <a class=" rounded-circle bg-surface  mx-2" href="#">
+                        <v-icon class="p-4">
+                            {{ icons[1] }}
+                        </v-icon>
+                    </a>
+                    <a class=" rounded-circle bg-surface  mx-2" href="#">
+                        <v-icon class="p-4">
+                            {{ icons[2] }}
+                        </v-icon>
+                    </a>
                 </v-row>
                 <p class="py-1">2023 All Rights Reserved by Revel Soft Inc. </p>
             </v-col>
