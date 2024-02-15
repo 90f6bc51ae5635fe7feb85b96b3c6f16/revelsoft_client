@@ -106,7 +106,7 @@ onMounted(async () => {
                         </div>
                     </div>
                 </div>
-                <div class="skill-item">
+                <div class="skill-item border">
                     <div class="circle-img d-block w-100 d-flex justify-center align-center">
                         <div class="skill-box w-100 h-100 d-flex justify-center align-center ">
                             <div class="above-circle d-flex justify-space-between">

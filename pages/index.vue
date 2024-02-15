@@ -74,10 +74,6 @@
       <circle-blur style="position: absolute; right: 0; top: -200px;" />
     </div>
 
-    <!-- <div style="position: relative;">
-      <circle-sm style="position: absolute; right: 10%; bottom: 5em;" />
-    </div> -->
-
     <div style="position: relative;">
       <circle-sm style="position: absolute; right: 15%;" />
       <div style="position: relative;">

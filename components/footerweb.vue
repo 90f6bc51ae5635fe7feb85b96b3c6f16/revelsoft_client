@@ -61,7 +61,8 @@ onMounted(async () => {
                 <p class="py-1 text-txtcolor"> support@revelsoft.co.th</p>
                 <p class="fs-5 py-1">044011494</p>
                 <v-row>
-                    <v-btn v-model="icons[0]" class="rounded-circle bg-surface mx-2"></v-btn>
+                    <v-btn v-for="icon in icons" :key="icon" class="rounded-circle bg-surface mx-2" :icon="icon"
+                        variant="text"></v-btn>
                 </v-row>
                 <p class="py-1">2023 All Rights Reserved by Revel Soft Inc. </p>
             </v-col>
