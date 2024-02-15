@@ -16,9 +16,9 @@ let isFullScreen = ref<boolean>(true)
 const products = ref<Product[]>([]);
 
 definePageMeta({ middleware: ["auth"] });
-const { generateConTactID, insertConTact, } = useConTact();
+const { generateConTactID, insertConTact, getConTactBy } = useConTact();
 const router = useRouter();
-
+const issubmitting = ref(false);
 const submitting = ref(false);
 const contact = ref<ConTact>({
     contact_id: "",
@@ -31,7 +31,6 @@ const contact = ref<ConTact>({
     out_source: false,
     iot_develop: false,
 });
-
 
 onMounted(async () => {
     try {
@@ -51,17 +50,20 @@ onMounted(async () => {
 })
 
 async function onSubmit() {
+    if (issubmitting.value) {
+        alert("คุณส่งข้อความไปเเล้ว")
+        return
+    }
     if (submitting.value || !validateForm()) return;
-
     try {
         submitting.value = true;
-
         await insertConTact(contact.value);
         void Swal.fire({
             title: "สำเร็จ",
             text: "ส่งข้อความแล้ว",
             icon: "success",
         });
+        issubmitting.value = true
         await router.push({ path: "/" });
     } catch (e) {
         console.log(e);
@@ -81,6 +83,10 @@ function validateForm(): boolean {
 }
 const closeForm = () => {
     props.modelValue.show = false
+}
+
+const resetFrom = () => {
+    location.reload();
 }
 
 const fullScreen = () => {
@@ -175,6 +181,14 @@ const toggleout_source = () => {
                                     <v-btn class="text-none text-center border border-greenblue rounded-pill bg-save ml-5 "
                                         @click="onSubmit" v-bind="props" :color="isHovering ? 'themecolor' : undefined">
                                         SEND
+                                    </v-btn>
+                                </template>
+                            </v-hover>
+                            <v-hover>
+                                <template v-slot:default="{ isHovering, props }">
+                                    <v-btn class="text-none text-center border rounded-pill ml-5 " @click="resetFrom"
+                                        v-bind="props" :color="isHovering ? 'gray100' : undefined">
+                                        RESEND
                                     </v-btn>
                                 </template>
                             </v-hover>

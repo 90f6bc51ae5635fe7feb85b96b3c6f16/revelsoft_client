@@ -15,6 +15,21 @@ const footer = ref<Footer>({
     footer_detail: '',
 })
 
+const pagination = ref({
+    page: 1,
+    size: 20,
+})
+const search = ref<{
+    is_show: boolean,
+    text: string,
+    columns: string[],
+    condition: string,
+}>({
+    is_show: false,
+    text: '',
+    columns: [],
+    condition: 'LIKE',
+});
 
 const icons = [
     'mdi-facebook',
