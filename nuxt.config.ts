@@ -4,7 +4,6 @@ import path from "path";
 export default defineNuxtConfig({
   ssr: false,
   plugins: [
-    '~/plugins/vue-scrollto.ts',
     '~/plugins/bootstrap.ts',
   ],
   build: {

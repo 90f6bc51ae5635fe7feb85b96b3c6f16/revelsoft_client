@@ -1,9 +1,9 @@
 <template >
   <v-col id="topweb" class="bg-themecolor text-surface">
 
+    <!-- <<<<******************************** navbar  **********************************>>>> -->
     <navbar />
 
-    <!-- <<<<******************************** #circle 1  **********************************>>>>  -->
     <div style="position: relative;">
       <circle-lg class="circle-lg-1" />
       <div style="position: relative;">
@@ -11,6 +11,7 @@
       </div>
     </div>
 
+    <!-- <<<<******************************** banner  **********************************>>>> -->
     <div>
       <banner />
     </div>
@@ -26,36 +27,41 @@
       </div>
     </div>
 
+    <!-- <<<<******************************** about  **********************************>>>> -->
     <div class="pt-3">
       <about />
     </div>
 
+    <!-- <<<<******************************** service  **********************************>>>> -->
     <div>
       <service />
+    </div>
+
+    <div style="position: relative;">
+      <circle-sm style="position: absolute; right: 10%;" />
       <div style="position: relative;">
-        <circle-sm style="position: absolute; right: 10%;" />
-        <div style="position: relative;">
-          <circle-xs style="position: absolute; right: 11%;" />
-        </div>
+        <circle-xs style="position: absolute; right: 11%;" />
       </div>
     </div>
 
+    <!-- <<<<******************************** skill  **********************************>>>> -->
     <div>
       <skill />
     </div>
+
 
     <div style="position: relative;">
       <circle-blur style="position: absolute; left: -15%; top: -50px;" />
     </div>
 
 
-    <!-- <<<<******************************** #circle 2  **********************************>>>> -->
     <div style="position: relative;">
       <circle-lg class="circle-lg-2" />
       <div style="position: relative;">
         <circle-md class="circle-md-2" />
       </div>
     </div>
+
 
     <div style="position: relative;">
       <circle-sm class="circle-sm-portfolio" />
@@ -64,11 +70,10 @@
       </div>
     </div>
 
+    <!-- <<<<******************************** portfolio  **********************************>>>> -->
     <div>
       <portfolio />
     </div>
-
-
 
     <div style="position: relative;">
       <circle-blur style="position: absolute; right: 0; top: -200px;" />
@@ -81,6 +86,7 @@
       </div>
     </div>
 
+    <!-- <<<<******************************** footerweb  **********************************>>>> -->
     <div>
       <footerweb />
     </div>
@@ -89,15 +95,9 @@
 </template> 
 
 <script>
-import CircleBlur from '~/components/circle-blur.vue';
-import footerweb from '~/components/footerweb.vue';
-export default {
-  components: { footerweb, CircleBlur },
-};
 </script>
 
 <style scoped>
-/* <<<<******************************** #circle 1  **********************************>>>> */
 .circle-lg-1 {
   position: absolute;
   top: -20em;
@@ -110,7 +110,6 @@ export default {
   left: 40%
 }
 
-/* <<<<******************************** #circle 2  **********************************>>>> */
 .circle-lg-2 {
   position: absolute;
   top: -15em;
