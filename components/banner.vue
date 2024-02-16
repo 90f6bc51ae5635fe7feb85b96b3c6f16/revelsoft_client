@@ -41,16 +41,16 @@ const openFrom = () => {
     <img class="banner-bg1  w-100" src="@/assets/images/Curve1.png">
     <img class="banner-bg2 d-block w-100" src="@/assets/images/Curve2.png">
     <div id="banner" class="d-flex justify-center ">
-        <v-row class=" py-2 banner-info">
+        <v-row class=" py-2 banner-info ">
             <v-col class="py-10">
-                <v-col v-if="banner.length > 0">
-                    <v-col class="containner-title py-2  w-100">
+                <v-col cols="12" v-if="banner.length > 0">
+                    <v-col class="containner-title py-2 w-100">
                         <div class="banner-title banner-text-1 fs-1 text-h1 " style="white-space: pre-line;">
                             {{ banner[0].banner_name }}
                         </div>
                     </v-col>
-                    <v-col class="containner-title py-2  w-100">
-                        <div class="banner-title banner-text-2 text-h4 fs-6" style="white-space: pre-line;">
+                    <v-col class="containner-title py-2 p-0 m-0 w-100 ">
+                        <div class="banner-title banner-text-2 text-h3 fs-5" style="white-space: pre-line;">
                             {{
                                 banner[0].banner_detail
                             }}
@@ -61,7 +61,7 @@ const openFrom = () => {
                     <v-hover>
                         <template v-slot:default="{ isHovering, props }">
                             <v-btn @click="openFrom"
-                                class="text-none rounded-pill bg-greenblue ml-5 border border-2 border-greenblue"
+                                class="text-none text-surface rounded-pill bg-greenblue ml-5 px-4 border border-2 border-greenblue"
                                 v-bind="props" :color="isHovering ? 'themecolor' : undefined">
                                 Get In Touch With Us
                             </v-btn>
@@ -69,7 +69,7 @@ const openFrom = () => {
                     </v-hover>
                     <v-hover>
                         <template v-slot:default="{ isHovering, props }">
-                            <v-btn class="text-none rounded-pill bg-themecolor ml-5 border border-2 border-surface"
+                            <v-btn class="text-none rounded-pill bg-themecolor ml-5 px-4 border border-2 border-surface"
                                 href="#service" v-bind="props" :color="isHovering ? 'greenblue' : undefined">
                                 Our Service
                             </v-btn>

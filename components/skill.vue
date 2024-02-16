@@ -33,15 +33,15 @@ onMounted(async () => {
 <template>
     <div id="skill" class="pb-16">
         <v-row class="d-flex justify-center py-10">
-            <h1 class="text-txtcolor ">Our</h1>
-            <h1 class="ml-3">Skill</h1>
+            <h1>Our</h1>
+            <h1 class="ml-3 text-txtcolor">Skill</h1>
         </v-row>
         <v-col>
             <v-row class=" d-flex justify-space-evenly  h-100" v-if="skill.length > 0 && skill_list.length > 0">
-                <div class="skill-item">
-                    <div class="circle-img d-block w-100 ">
+                <div class="skill-item ">
+                    <div class="circle-img  d-block w-100 ">
                         <div class="skill-box w-100 h-100 d-flex justify-center align-center">
-                            <div class="above-circle d-flex justify-space-between border">
+                            <div class="above-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-1 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
                                     <v-img class="skill-img d-block w-100"
@@ -106,7 +106,7 @@ onMounted(async () => {
                         </div>
                     </div>
                 </div>
-                <div class="skill-item border">
+                <div class="skill-item">
                     <div class="circle-img d-block w-100 d-flex justify-center align-center">
                         <div class="skill-box w-100 h-100 d-flex justify-center align-center ">
                             <div class="above-circle d-flex justify-space-between">

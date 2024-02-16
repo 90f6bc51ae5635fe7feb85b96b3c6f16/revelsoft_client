@@ -11,6 +11,8 @@ const { public: publicCtx } = useRuntimeConfig()
 const products = ref<Product[]>([]);
 
 
+
+
 onMounted(async () => {
     try {
         const params = new URLSearchParams(window.location.search);
@@ -25,6 +27,13 @@ onMounted(async () => {
         console.log(e)
     }
 })
+
+const color: string[] = ["service_1", "service_2", "service_3", "service_4"]
+
+const getColor = (idx: number): string => {
+    return color[idx % color.length]
+}
+
 </script>
 
 <template>
@@ -34,7 +43,8 @@ onMounted(async () => {
             <h1 class="ml-3">Service</h1>
         </v-row>
         <v-row class="d-flex justify-space-evenly m-16 py-7 px-2">
-            <v-containner v-for="(list, idx) in products " :key="idx" class="rounded-xl bg-service_2 ">
+            <v-containner v-for="(list, idx) in products " :key="idx" :class="`rounded-xl bg-${getColor(idx)} containner`"
+                style="position: relative;">
                 <v-col id="service-containner" class="d-flex flex-column align-center mt-12">
                     <div class="circle pa-6 bg-service_circle rounded-circle d-inline-block">
                         <v-img class="service-img"
@@ -45,7 +55,7 @@ onMounted(async () => {
                             </template>
                         </v-img>
                     </div>
-                    <div class="service-title" style="text-transform: uppercase; white-space: pre; font-size: 1.1rem;">
+                    <div class="service-title text-surface text-uppercase" style="white-space: pre; font-size: 1.1rem;">
                         {{
                             list.product_name }}
                     </div>
@@ -63,6 +73,10 @@ onMounted(async () => {
 #service-containner {
     width: 250px;
     height: 200px;
+}
+
+.containner {
+    box-shadow: 3px 3px rgba(255, 255, 255, 0.2);
 }
 
 .circle {
