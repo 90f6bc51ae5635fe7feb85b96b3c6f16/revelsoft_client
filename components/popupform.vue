@@ -151,7 +151,7 @@ const toggleout_source = () => {
                     </v-col>
                     <v-col sm="11" :md="isFullScreen ? 12 : 11" class="p-2">
                         <v-col>
-                            <h4 class="text-center py-1">ข้อความเกี่ยวกับ</h4>
+                            <h4 class="text-center py-1">Contact Us About</h4>
                             <v-btn-toggle class="d-flex justify-space-between " multiple
                                 selected-class="text-primary bg-primary" variant="outlined" divided>
                                 <v-btn class="bg-surface border rounded-xl border-0 border-primary"
