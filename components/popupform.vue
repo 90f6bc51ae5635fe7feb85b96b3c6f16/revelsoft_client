@@ -32,6 +32,8 @@ const contact = ref<ConTact>({
     iot_develop: false,
 });
 
+const dialog = ref<{ show: boolean }>({ show: false })
+
 onMounted(async () => {
     try {
         const params = new URLSearchParams(window.location.search);
@@ -81,12 +83,22 @@ function validateForm(): boolean {
     }
     return true;
 }
+
+const openFrom = () => {
+    dialog.value.show = true
+}
+
+const reloadpage = () => {
+    location.reload();
+}
+
 const closeForm = () => {
     props.modelValue.show = false
 }
 
 const resetFrom = () => {
-    location.reload();
+    reloadpage();
+    openFrom();
 }
 
 const fullScreen = () => {
@@ -117,7 +129,7 @@ const toggleout_source = () => {
             <v-icon class="fs-2" clickable @click="closeForm" color="error">
                 mdi mdi-close-thick</v-icon>
         </td>
-        <v-card class="bg-fromcolor  rounded-xl h-100">
+        <v-card class="bg-formcolor  rounded-xl h-100">
             <v-row class="card-from">
                 <v-col lg="4" class=" m-5 d-flex justify-center " style="position: relative;">
                     <v-row class="d-flex justify-center" style="position: absolute; top: -5%;">
@@ -156,7 +168,7 @@ const toggleout_source = () => {
                                 selected-class="text-primary bg-primary" variant="outlined" divided>
                                 <v-btn class="bg-surface border rounded-xl border-0 border-primary"
                                     v-model="contact.web_develop" @click="toggleweb">
-                                    Web evelopment
+                                    Web Development
                                 </v-btn>
                                 <v-btn class="bg-surface border rounded-xl border-0 border-primary"
                                     v-model="contact.app_develop" @click="toggleapp">
@@ -286,4 +298,6 @@ const toggleout_source = () => {
         display: none;
     }
 }
+
+@media only screen and (max-width: 720px) {}
 </style>

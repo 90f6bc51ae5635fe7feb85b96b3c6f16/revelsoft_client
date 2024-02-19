@@ -28,7 +28,7 @@ const PurpleTheme: ThemeTypes = {
     service_4: '#1C82AD',
     service_circle: '#70B4E8',
     navtail: '#25AAE2',
-    fromcolor: '#193259',
+    formcolor: '#193259',
     lightprimary: '#fadae4',
     lightsecondary: '#E8F7FF',
     lightsuccess: '#E6FFFA',

@@ -21,7 +21,7 @@ export type ThemeTypes = {
         service_4?: string;
         service_circle?: string;
         navtail?: string;
-        fromcolor?: string;
+        formcolor?: string;
         lightprimary?: string;
         lightsecondary?: string;
         lightsuccess?: string;
