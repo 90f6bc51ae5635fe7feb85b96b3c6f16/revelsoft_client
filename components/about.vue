@@ -29,9 +29,9 @@ onMounted(async () => {
             <h1 class="ml-3">Us</h1>
         </v-row>
         <v-col cols="12" class="d-flex justify-center">
-            <v-row class="about-us ">
-                <v-row class="d-flex justify-center mx-15 ">
-                    <v-col id="about-info" class="pt-16 ">
+            <v-row cols="12" class="about-us ">
+                <v-row cols="12" class="d-flex justify-center mx-15">
+                    <v-col cols="8" lg="7" id="about-info" class="pt-16 ">
                         <v-row class=" align-center">
                             <v-icon class=" text-greenblue">mdi-36px mdi-checkbox-marked-circle-outline</v-icon>
                             <h1 class="text-greenblue px-4">10 years experience</h1>
@@ -41,7 +41,7 @@ onMounted(async () => {
                                 abouts.about_detail }} </div>
                         </v-col>
                     </v-col>
-                    <v-col class="about-image-containner  w-100 h-100 my-6 d-flex align-center">
+                    <v-col cols="4" lg="5" class="about-image-containner  w-100 h-100 my-6 d-flex align-center ">
                         <v-img class="about-img  align-center justify-center d-block w-100"
                             :src="`${abouts.about_img ? `${publicCtx.apiBaseUrl}${abouts.about_img}` : defaultImage}`" cover
                             alt="about">

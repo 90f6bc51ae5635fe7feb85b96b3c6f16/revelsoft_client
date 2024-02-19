@@ -43,13 +43,13 @@ const openFrom = () => {
     <div id="banner" class="d-flex justify-center ">
         <v-row class=" py-2 banner-info mx-5 ">
             <v-col class="py-10 w-100 h-auto ">
-                <v-col class="banner-text" v-if="banner.length > 0">
-                    <v-col class="containner-title d-flex justify-center py-2 w-100">
+                <v-col class="banner-text " v-if="banner.length > 0">
+                    <v-col class="containner-title  d-flex justify-center py-2 w-100">
                         <div class="banner-title banner-text-1 fs-1 text-h1 " style="white-space: pre-line;">
                             {{ banner[0].banner_name }}
                         </div>
                     </v-col>
-                    <v-col class="containner-title d-flex justify-center py-2 w-100 ">
+                    <v-col class="containner-title pl-8 d-flex justify-center py-2 w-100 ">
                         <div class="banner-title banner-text-2 text-h3 fs-5" style="white-space: pre-line;">
                             {{
                                 banner[0].banner_detail

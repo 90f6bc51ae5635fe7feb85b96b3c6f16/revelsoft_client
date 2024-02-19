@@ -21,9 +21,9 @@
     </div>
 
     <div style="position: relative;">
-      <circle-sm style="position: absolute; left: 15%;" />
+      <circle-sm style="position: absolute; left: 5em; bottom: 5em;" />
       <div style="position: relative;">
-        <circle-xs style="position: absolute; left: 13%;" />
+        <circle-xs style="position: absolute; left: 10em; bottom: 2em;" />
       </div>
     </div>
 

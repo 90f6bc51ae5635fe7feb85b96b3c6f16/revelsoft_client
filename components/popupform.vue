@@ -223,8 +223,8 @@ const toggleout_source = () => {
     background-size: cover;
     background-position: center;
     position: absolute;
-    max-width: 65%;
-    max-height: 95%;
+    max-width: 23em;
+    max-height: 25em;
     bottom: 0;
 }
 
@@ -233,10 +233,10 @@ const toggleout_source = () => {
     background-size: cover;
     background-position: center;
     position: absolute;
-    max-width: 25%;
-    max-height: 30%;
-    top: 5%;
-    left: 5%;
+    max-width: 9em;
+    max-height: 10em;
+    top: 0%;
+    left: 0%;
 }
 
 .contact-img-3 {
@@ -247,7 +247,7 @@ const toggleout_source = () => {
     max-width: 20%;
     max-height: 20%;
     top: 0;
-    right: 5%;
+    right: 0%;
 }
 
 .contact-img-4 {
@@ -257,8 +257,8 @@ const toggleout_source = () => {
     position: absolute;
     max-width: 20%;
     max-height: 20%;
-    bottom: 5%;
-    left: 5%;
+    bottom: 0%;
+    left: 0%;
 }
 
 .contact-img-5 {
@@ -268,8 +268,8 @@ const toggleout_source = () => {
     position: absolute;
     max-width: 25%;
     max-height: 45%;
-    bottom: 5%;
-    right: 5%;
+    bottom: 0%;
+    right: 0%;
 }
 
 @media only screen and (max-width: 1080px) {

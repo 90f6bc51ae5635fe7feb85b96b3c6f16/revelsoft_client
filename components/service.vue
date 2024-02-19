@@ -42,9 +42,9 @@ const getColor = (idx: number): string => {
             <h1 class="text-txtcolor ">Our</h1>
             <h1 class="ml-3">Service</h1>
         </v-row>
-        <v-row class="d-flex justify-space-evenly m-16 py-7 px-2">
-            <v-containner v-for="(list, idx) in products " :key="idx" :class="`rounded-xl bg-${getColor(idx)} containner`"
-                style="position: relative;">
+        <v-row class="d-flex justify-space-evenly m-15 py-7 px-2">
+            <v-containner v-for="(list, idx) in products " :key="idx"
+                :class="`m-2 rounded-xl bg-${getColor(idx)} containner`" style="position: relative;">
                 <v-col id="service-containner" class="d-flex flex-column align-center mt-12">
                     <div class="circle pa-6 bg-service_circle rounded-circle d-inline-block">
                         <v-img class="service-img"

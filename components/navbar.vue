@@ -3,7 +3,8 @@
         <nav
             class="navbar navbar-expand-lg navbar-dark bg-themecolor border border-navtail rounded-5 fixed-top mt-5 mx-5 p-0">
             <div class="container p-0">
-                <img id="nav-img" class="navbar-brand " src="@/assets/images/logos/logo.png" cover height="70" alt="logo" />
+                <a href="#header"> <img id="nav-img" class="navbar-brand " src="@/assets/images/logos/logo.png" cover
+                        height="70" alt="logo" /></a>
                 <a href="#header" class="navbar-brand fs-2 ">REVELSOFT</a>
                 <button class="navbar-toggler " data-bs-toggle="collapse" data-bs-target="#navbar1">
                     <span class="navbar-toggler-icon "></span>

@@ -104,7 +104,7 @@ const prevSlide = () => {
                 <div class="swiper-containner w-100 h-100 ">
                     <swiper effect="coverflow" :grabCursor="true" :centeredSlides="true" slidesPerView="auto"
                         :coverflowEffect="{
-                            rotate: 50,
+                            rotate: 45,
                             stretch: 0,
                             depth: 100,
                             modifier: 1,
@@ -126,7 +126,7 @@ const prevSlide = () => {
                 <div class="swiper-containner w-100 h-100 ">
                     <swiper effect="coverflow" :grabCursor="true" :centeredSlides="true" slidesPerView="auto"
                         :coverflowEffect="{
-                            rotate: 50,
+                            rotate: 45,
                             stretch: 0,
                             depth: 100,
                             modifier: 1,
@@ -148,7 +148,7 @@ const prevSlide = () => {
                 <div class="swiper-containner w-100 h-100 ">
                     <swiper effect="coverflow" :grabCursor="true" :centeredSlides="true" slidesPerView="auto"
                         :coverflowEffect="{
-                            rotate: 50,
+                            rotate: 45,
                             stretch: 0,
                             depth: 100,
                             modifier: 1,
@@ -167,17 +167,17 @@ const prevSlide = () => {
                 </div>
             </div>
             <div v-if="outsourcevisible" id="Outsource" class="col-lg-8 m-auto w-100">
-                <div class="swiper-containner w-100 h-100 ">
+                <div class="swiper-containner w-100 h-100">
                     <swiper effect="coverflow" :grabCursor="true" :centeredSlides="true" slidesPerView="auto"
                         :coverflowEffect="{
-                            rotate: 50,
+                            rotate: 45,
                             stretch: 0,
                             depth: 100,
                             modifier: 1,
                             slideShadows: true,
                         }" :pagination="true" :modules="modules" class="mySwiper ">
                         <swiper-slide class=" w-25 h-25" v-for="(list, idx) in portfolio_lists.slice(2, 5)" :key="idx">
-                            <v-img class=" banner-img d-block w-100 h-100"
+                            <v-img class=" banner-img d-block w-100 h-100 "
                                 :src="`${list.portfolio_list_img ? `${publicCtx.apiBaseUrl}${list.portfolio_list_img}` : defaultImage}`"
                                 cover alt="banner">
                                 <template v-slot:error>
@@ -193,6 +193,8 @@ const prevSlide = () => {
 </template>
 
 <style scoped>
+swiper {}
+
 .portfolio-item {
     z-index: 5;
 }
