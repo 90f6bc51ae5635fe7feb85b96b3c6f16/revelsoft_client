@@ -23,32 +23,34 @@ onMounted(async () => {
 </script>
 
 <template>
-    <div id="about" class="about mt-16 pt-16 ">
+    <div id="about" class="about mt-16  ">
         <v-row class="d-flex justify-center ">
             <h1 class="text-txtcolor ">About</h1>
             <h1 class="ml-3">Us</h1>
         </v-row>
-        <v-col cols="12" class="my-10 ps-16 d-flex justify-center">
+        <v-col cols="12" class="d-flex justify-center">
             <v-row class="about-us ">
-                <v-col id="about-info" class="pt-16 ">
-                    <v-row class=" align-center">
-                        <v-icon class=" text-greenblue">mdi-36px mdi-checkbox-marked-circle-outline</v-icon>
-                        <h1 class="text-greenblue px-4">10 years experience</h1>
-                    </v-row>
-                    <v-col class="containner ">
-                        <div class="text-h4" style="white-space: pre-line;">{{
-                            abouts.about_detail }} </div>
+                <v-row class="d-flex justify-center mx-15 ">
+                    <v-col id="about-info" class="pt-16 ">
+                        <v-row class=" align-center">
+                            <v-icon class=" text-greenblue">mdi-36px mdi-checkbox-marked-circle-outline</v-icon>
+                            <h1 class="text-greenblue px-4">10 years experience</h1>
+                        </v-row>
+                        <v-col class="containner ">
+                            <div class="text-h4" style="white-space: pre-line;">{{
+                                abouts.about_detail }} </div>
+                        </v-col>
                     </v-col>
-                </v-col>
-                <v-col cols="6" md="4" class="about-img-containner">
-                    <v-img class="about-img d-block w-100"
-                        :src="`${abouts.about_img ? `${publicCtx.apiBaseUrl}${abouts.about_img}` : defaultImage}`" cover
-                        alt="about">
-                        <template v-slot:error>
-                            <v-img :src="errorImage" cover alt="error"></v-img>
-                        </template>
-                    </v-img>
-                </v-col>
+                    <v-col class="about-image-containner  w-100 h-100 my-6 d-flex align-center">
+                        <v-img class="about-img  align-center justify-center d-block w-100"
+                            :src="`${abouts.about_img ? `${publicCtx.apiBaseUrl}${abouts.about_img}` : defaultImage}`" cover
+                            alt="about">
+                            <template v-slot:error>
+                                <v-img :src="errorImage" cover alt="error"></v-img>
+                            </template>
+                        </v-img>
+                    </v-col>
+                </v-row>
             </v-row>
         </v-col>
     </div>
@@ -60,17 +62,27 @@ onMounted(async () => {
 }
 
 .about-img {
-    min-width: 18em;
+    /* min-width: 1em;
     max-width: 80%;
     min-height: 12em;
     max-height: 30em;
-    object-fit: cover;
+    object-fit: cover; */
 }
 
-.about-img-containner {
-    height: 350px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.about-image-containner {
+    max-width: 25em;
+    min-width: 25em;
+    max-height: 25em;
+    min-height: 20em;
 }
+
+
+/* @media only screen and (max-width: 900px) {
+    .about-us {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+} */
 </style>

@@ -37,7 +37,7 @@ const getColor = (idx: number): string => {
 </script>
 
 <template>
-    <v-col id="service" class="pb-16">
+    <v-col id="service" class="py-16">
         <v-row class="d-flex justify-center ">
             <h1 class="text-txtcolor ">Our</h1>
             <h1 class="ml-3">Service</h1>

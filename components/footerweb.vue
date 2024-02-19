@@ -63,17 +63,17 @@ onMounted(async () => {
                 <v-row v-if="icons.length > 0" class="fs-5">
                     <!-- <v-btn v-for="icon in icons" :key="icon" class="rounded-circle bg-surface mx-2" :icon="icon"
                         variant="text"></v-btn> -->
-                    <a class="rounded-circle bg-surface mx-2" href="https://www.facebook.com/revelsoft">
+                    <a class="icons rounded-circle bg-surface mx-2" href="https://www.facebook.com/revelsoft">
                         <v-icon class="p-4">
                             {{ icons[0] }}
                         </v-icon>
                     </a>
-                    <a class=" rounded-circle bg-surface  mx-2" href="##">
+                    <a class="icons rounded-circle bg-surface  mx-2" href="##">
                         <v-icon class="p-4">
                             {{ icons[1] }}
                         </v-icon>
                     </a>
-                    <a class=" rounded-circle bg-surface  mx-2" href="##">
+                    <a class="icons rounded-circle bg-surface  mx-2" href="##">
                         <v-icon class="p-4">
                             {{ icons[2] }}
                         </v-icon>
@@ -112,5 +112,9 @@ onMounted(async () => {
     opacity: 0.5;
     left: 50%;
     bottom: 0;
+}
+
+.icons {
+    align-self: center;
 }
 </style>

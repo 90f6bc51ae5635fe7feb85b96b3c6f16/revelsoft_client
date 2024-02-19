@@ -1,7 +1,7 @@
 <template>
     <header id="header">
         <nav
-            class="navbar navbar-expand-md navbar-dark bg-themecolor border border-navtail rounded-5 fixed-top mt-5 mx-5 p-0">
+            class="navbar navbar-expand-lg navbar-dark bg-themecolor border border-navtail rounded-5 fixed-top mt-5 mx-5 p-0">
             <div class="container p-0">
                 <img id="nav-img" class="navbar-brand " src="@/assets/images/logos/logo.png" cover height="70" alt="logo" />
                 <a href="#header" class="navbar-brand fs-2 ">REVELSOFT</a>
@@ -11,24 +11,24 @@
                 <div id="navbar1" class="collapse navbar-collapse fs-5">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item px-1">
-                            <a href="#header" class="nav-link px-1.5">Home</a>
+                            <a href="#header" class="nav-link rounded-xl px-3">Home</a>
                         </li>
                         <li class="nav-item px-1">
-                            <a href="#service" class="nav-link px-1.5">Service</a>
+                            <a href="#service" class="nav-link rounded-xl px-3">Service</a>
                         </li>
                         <li class="nav-item px-1">
-                            <a href="#skill" class="nav-link px-1.5">Skill</a>
+                            <a href="#skill" class="nav-link rounded-xl px-3">Skill</a>
                         </li>
                         <li class="nav-item px-1">
-                            <a href="#portfolio" class="nav-link px-1.5">Portfolio</a>
+                            <a href="#portfolio" class="nav-link rounded-xl px-3">Portfolio</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto ">
                         <li class="nav-item border border-navtail rounded-5">
-                            <a href="#footer" class="nav-link px-3 ">Contect Us</a>
+                            <a href="#footer" class="nav-link rounded-xl px-3 " style="white-space:nowrap;">Contect Us</a>
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link" data-bs-toggle="modal" data-bs-target="#myModal"></a>
+                            <a class="nav-link rounded-xl" data-bs-toggle="modal" data-bs-target="#myModal"></a>
                         </li>
                     </ul>
                 </div>
@@ -49,7 +49,6 @@ export default {
 }
 
 .nav-link {
-    border-radius: 20px;
     transition: all 2s ease;
     color: #fff;
 }

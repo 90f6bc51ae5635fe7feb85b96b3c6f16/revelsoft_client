@@ -38,6 +38,8 @@ onMounted(async () => {
         </v-row>
         <v-col>
             <v-row class=" d-flex justify-space-evenly  h-100" v-if="skill.length > 0 && skill_list.length > 0">
+                <circle-sm style="position: absolute; right: 40%;" />
+                <circle-xs style="position: absolute; right: 35%;" />
                 <div class="skill-item ">
                     <div class="circle-img  d-block w-100 ">
                         <div class="skill-box w-100 h-100 d-flex justify-center align-center">
@@ -243,7 +245,8 @@ onMounted(async () => {
                     </div>
                 </div>
             </v-row>
-            <v-row class=" d-flex justify-space-evenly " v-if="skill.length > 0 && skill_list.length > 0">
+            <v-row class=" d-flex justify-space-evenly " v-if="skill.length > 0 && skill_list.length > 0"
+                style="position: relative;">
                 <div class="skill-item">
                     <div class="circle-img d-block w-100 d-flex justify-center align-center">
                         <div class="skill-box w-100 h-100 d-flex justify-center align-center ">
@@ -312,8 +315,10 @@ onMounted(async () => {
                         </div>
                     </div>
                 </div>
-                <div class="skill-item ">
-                    <div class="circle-img d-block w-100  d-flex justify-center align-center">
+                <circle-sm style="position: absolute; left: 30%;" />
+                <circle-xs style="position: absolute; left: 29%;" />
+                <div class=" skill-item ">
+                    <div class=" circle-img d-block w-100 d-flex justify-center align-center">
                         <div class="skill-box w-100 h-100 d-flex justify-center align-center ">
                             <div class="above-circle d-flex justify-space-between">
                                 <div

@@ -41,15 +41,15 @@ const openFrom = () => {
     <img class="banner-bg1  w-100" src="@/assets/images/Curve1.png">
     <img class="banner-bg2 d-block w-100" src="@/assets/images/Curve2.png">
     <div id="banner" class="d-flex justify-center ">
-        <v-row class=" py-2 banner-info ">
-            <v-col class="py-10">
-                <v-col cols="12" v-if="banner.length > 0">
-                    <v-col class="containner-title py-2 w-100">
+        <v-row class=" py-2 banner-info mx-5 ">
+            <v-col class="py-10 w-100 h-auto ">
+                <v-col class="banner-text" v-if="banner.length > 0">
+                    <v-col class="containner-title d-flex justify-center py-2 w-100">
                         <div class="banner-title banner-text-1 fs-1 text-h1 " style="white-space: pre-line;">
                             {{ banner[0].banner_name }}
                         </div>
                     </v-col>
-                    <v-col class="containner-title py-2 p-0 m-0 w-100 ">
+                    <v-col class="containner-title d-flex justify-center py-2 w-100 ">
                         <div class="banner-title banner-text-2 text-h3 fs-5" style="white-space: pre-line;">
                             {{
                                 banner[0].banner_detail
@@ -57,11 +57,11 @@ const openFrom = () => {
                         </div>
                     </v-col>
                 </v-col>
-                <v-row class="mt-10 mx-3 gap-2">
+                <v-row class="justify-center mt-10 gap-2">
                     <v-hover>
                         <template v-slot:default="{ isHovering, props }">
                             <v-btn @click="openFrom"
-                                class="text-none text-surface rounded-pill bg-greenblue ml-5 px-4 border border-2 border-greenblue"
+                                class="text-none text-surface rounded-pill bg-greenblue px-4 border border-2 border-greenblue"
                                 v-bind="props" :color="isHovering ? 'themecolor' : undefined">
                                 Get In Touch With Us
                             </v-btn>
@@ -77,13 +77,13 @@ const openFrom = () => {
                     </v-hover>
                 </v-row>
             </v-col>
-            <v-col class="banner-img-containner justify-center">
-                <div id="carouselExampleIndicators" class="carousel slide carousel-fade w-100 h-100 "
+            <v-col class="banner-img-containner d-flex justify-center">
+                <div id="carouselExampleIndicators" class=" carousel slide carousel-fade w-100 h-100 "
                     data-bs-ride="carousel">
-                    <div class="carousel-inner">
+                    <div class="  carousel-inner  w-100  px-3">
                         <div v-for="(list, idx) in banner" :key="idx"
-                            :class="{ 'carousel-item': true, 'active': idx === activeIndex }">
-                            <v-img class="banner-img d-block w-100 h-100"
+                            :class="{ 'carousel-item d-flex justify-center': true, 'active': idx === activeIndex }">
+                            <v-img class="my-5 banner-img  d-block w-100 h-100"
                                 :src="`${list.banner_img ? `${publicCtx.apiBaseUrl}${list.banner_img}` : defaultImage}`"
                                 cover alt="banner">
                                 <template v-slot:error>
@@ -116,6 +116,11 @@ const openFrom = () => {
     padding-top: 200px;
 }
 
+.banner-text {
+    min-width: 25em;
+    align-self: center;
+}
+
 .banner-bg1 {
     width: 100%;
     height: 99.99%;
@@ -136,23 +141,15 @@ const openFrom = () => {
 }
 
 .banner-info {
-    margin: 0 10%;
     z-index: 4;
 }
 
 .banner-img {
-    min-width: 18em;
-    max-width: 80%;
-    min-height: 12em;
+    min-width: 20em;
+    max-width: 30em;
+    min-height: 15em;
     max-height: 100%;
     object-fit: cover;
-}
-
-.banner-img-containner {
-    height: 410px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .containner-title {
@@ -161,6 +158,7 @@ const openFrom = () => {
 }
 
 .banner-title {
+    align-self: center;
     display: inline-block;
     opacity: 0;
     filter: blur(4px);
@@ -174,13 +172,6 @@ const openFrom = () => {
     animation: fade-in 0.8s 1.5s forwards cubic-bezier(0.11, 0, 0.5, 0);
 }
 
-.banner-text-3 {
-    animation: fade-in 0.8s 2s forwards cubic-bezier(0.11, 0, 0.5, 0);
-}
-
-.banner-text-4 {
-    animation: fade-in 0.8s 2.5s forwards cubic-bezier(0.11, 0, 0.5, 0);
-}
 
 @keyframes scale {
     100% {
