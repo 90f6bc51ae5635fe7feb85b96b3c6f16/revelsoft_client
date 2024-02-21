@@ -23,25 +23,25 @@ onMounted(async () => {
 </script>
 
 <template>
-    <div id="about" class="about mt-16  ">
-        <v-row class="d-flex justify-center ">
+    <div class="about mt-16  ">
+        <v-row id="about" class="d-flex justify-center ">
             <h1 class="text-txtcolor ">About</h1>
             <h1 class="ml-3">Us</h1>
         </v-row>
         <v-col cols="12" class="d-flex justify-center">
             <v-row cols="12" class="about-us ">
                 <v-row cols="12" class="d-flex justify-center mx-15">
-                    <v-col cols="8" lg="7" id="about-info" class="pt-16 ">
+                    <v-col cols="8" lg="8" id="about-info" class="pt-16 ">
                         <v-row class=" align-center">
                             <v-icon class=" text-greenblue">mdi-36px mdi-checkbox-marked-circle-outline</v-icon>
-                            <h1 class="text-greenblue px-4">10 years experience</h1>
+                            <h1 class="text-greenblue px-2">10 years experience</h1>
                         </v-row>
                         <v-col class="containner ">
                             <div class="text-h4" style="white-space: pre-line;">{{
                                 abouts.about_detail }} </div>
                         </v-col>
                     </v-col>
-                    <v-col cols="4" lg="5" class="about-image-containner  w-100 h-100 my-6 d-flex align-center ">
+                    <v-col cols="4" lg="4" class="about-image-containner  w-100 h-100 my-6 d-flex align-center ">
                         <v-img class="about-img  align-center justify-center d-block w-100"
                             :src="`${abouts.about_img ? `${publicCtx.apiBaseUrl}${abouts.about_img}` : defaultImage}`" cover
                             alt="about">
@@ -61,14 +61,6 @@ onMounted(async () => {
     z-index: 4;
 }
 
-.about-img {
-    /* min-width: 1em;
-    max-width: 80%;
-    min-height: 12em;
-    max-height: 30em;
-    object-fit: cover; */
-}
-
 .about-image-containner {
     max-width: 25em;
     min-width: 25em;
@@ -76,13 +68,8 @@ onMounted(async () => {
     min-height: 20em;
 }
 
-
-/* @media only screen and (max-width: 900px) {
-    .about-us {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-} */
+#about,
+#about-info {
+    font-family: "Outfit", sans-serif;
+}
 </style>

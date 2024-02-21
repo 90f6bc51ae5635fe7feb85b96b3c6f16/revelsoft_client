@@ -98,6 +98,10 @@
 </script>
 
 <style scoped>
+body {
+  font-family: 'Outfit';
+}
+
 .circle-lg-1 {
   position: absolute;
   top: -20em;

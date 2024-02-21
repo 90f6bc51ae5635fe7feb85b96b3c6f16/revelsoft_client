@@ -47,17 +47,20 @@ onMounted(async () => {
 </script>
 
 <template>
+    <img class="footer-bg-0  w-100" src="@/assets/images/footer/footer.png" alt="">
+    <img class="footer-bg-1" src="@/assets/images/footer/footer.png" alt="">
+    <img class="footer-bg-2" src="@/assets/images/footer/footer.png" alt="">
+    <img class="footer-bg-3" src="@/assets/images/footer/footer.png" alt="">
+    <img class="footer-bg-4" src="@/assets/images/footer/footer.png" alt="">
     <div id="footer">
-        <v-row class="footer-info d-flex mt-10 pl-16" style="position: relative;">
-            <img class="footer-bg1 d-block w-100" src="@/assets/images/footer/footer.png">
-            <img class="footer-bg2 d-block w-100" src="@/assets/images/footer/footer.png">
-            <v-col class="pt-5">
+        <v-row class="footer mt-10 px-10 ">
+            <v-col class="pt-5 footer-info">
                 <h2 class="my-10">Let's make your <span class="text-txtcolor px-1">Dream</span> come true</h2>
                 <v-btn class=" rounded-lg mb-16 bg-service_3 text-surface" @click="openFrom">
-                    CONTRACT US
+                    CONTACT US
                 </v-btn>
             </v-col>
-            <v-col class="d-flex flex-column align-end my-10 pr-7">
+            <v-col class="footer-info d-flex flex-column align-end my-10 pr-7">
                 <p class="py-1 text-txtcolor"> support@revelsoft.co.th</p>
                 <p class="fs-5 py-1">044-011-494</p>
                 <v-row v-if="icons.length > 0" class="fs-5">
@@ -91,27 +94,73 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-.footer-info {
-    background-image: url('../assets/images/footer/footer.png');
-    background-size: cover;
-    z-index: 4;
+.footer {
+    font-family: "Outfit", sans-serif;
 }
 
-.footer-bg1 {
+.footer-bg-0 {
+    object-fit: cover;
     position: absolute;
-    left: -50%;
-    z-index: -1;
+    z-index: 1;
+    left: 1;
+    right: 1;
+    bottom: 1;
+    z-index: 10;
+}
+
+.footer-bg-1 {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    opacity: 0.3;
+    bottom: 1;
+    right: 1;
+    z-index: 10;
+}
+
+.footer-bg-2 {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    opacity: 0.3;
+    bottom: 1;
+    left: 0;
+    z-index: 10;
+}
+
+.footer-bg-3 {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    opacity: 0.3;
+    bottom: 1;
+    right: 1;
+    z-index: 10;
+}
+
+.footer-bg-4 {
+    position: absolute;
+    z-index: 1;
+    right: 25em;
+    opacity: 0.3;
+    left: 0;
+    bottom: 1;
+    right: 1;
+}
+
+/*.footer-bg-3 {
+    background-image: url('../assets//images//footer/footer.png');
+    background-size: cover;
+    position: absolute;
+    z-index: 1;
+    left: -25%;
+    width: 50%;
     opacity: 0.3;
     bottom: 0;
-}
+}*/
 
-.footer-bg2 {
-    position: absolute;
-    left: -20%;
-    z-index: -1;
-    opacity: 0.5;
-    left: 50%;
-    bottom: 0;
+.footer-info {
+    z-index: 10;
 }
 
 .icons {

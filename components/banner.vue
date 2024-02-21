@@ -44,13 +44,13 @@ const openFrom = () => {
         <v-row class=" py-2 banner-info mx-5 ">
             <v-col class="py-10 w-100 h-auto ">
                 <v-col class="banner-text " v-if="banner.length > 0">
-                    <v-col class="containner-title  d-flex justify-center py-2 w-100">
-                        <div class="banner-title banner-text-1 fs-1 text-h1 " style="white-space: pre-line;">
+                    <v-col class="containner-title ps-0 d-flex justify-center py-2 w-100 ">
+                        <div class="banner-title banner-text-1 fs-1 text-h1" style="white-space: pre-line;">
                             {{ banner[0].banner_name }}
                         </div>
                     </v-col>
-                    <v-col class="containner-title pl-8 d-flex justify-center py-2 w-100 ">
-                        <div class="banner-title banner-text-2 text-h3 fs-5" style="white-space: pre-line;">
+                    <v-col class="containner-title d-flex justify-center py-2 w-100 ">
+                        <div class="banner-title banner-text-2 text-h3 fs-5 " style="white-space: pre-line;">
                             {{
                                 banner[0].banner_detail
                             }}
@@ -61,7 +61,7 @@ const openFrom = () => {
                     <v-hover>
                         <template v-slot:default="{ isHovering, props }">
                             <v-btn @click="openFrom"
-                                class="text-none text-surface rounded-pill bg-greenblue px-4 border border-2 border-greenblue"
+                                class="banner-button text-none text-surface rounded-pill bg-greenblue p-4 px-5 border border-2 border-greenblue"
                                 v-bind="props" :color="isHovering ? 'themecolor' : undefined">
                                 Get In Touch With Us
                             </v-btn>
@@ -69,7 +69,8 @@ const openFrom = () => {
                     </v-hover>
                     <v-hover>
                         <template v-slot:default="{ isHovering, props }">
-                            <v-btn class="text-none rounded-pill bg-themecolor ml-5 px-4 border border-2 border-surface"
+                            <v-btn
+                                class="banner-button text-none rounded-pill bg-themecolor ml-5 p-4 border border-2 border-surface"
                                 href="#service" v-bind="props" :color="isHovering ? 'greenblue' : undefined">
                                 Our Service
                             </v-btn>
@@ -141,7 +142,12 @@ const openFrom = () => {
 }
 
 .banner-info {
+    font-family: "Outfit", sans-serif;
     z-index: 4;
+}
+
+.banner-button {
+    align-content: center;
 }
 
 .banner-img {

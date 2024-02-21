@@ -38,7 +38,7 @@ const getColor = (idx: number): string => {
 
 <template>
     <v-col id="service" class="py-16">
-        <v-row class="d-flex justify-center ">
+        <v-row class="service d-flex justify-center ">
             <h1 class="text-txtcolor ">Our</h1>
             <h1 class="ml-3">Service</h1>
         </v-row>
@@ -55,7 +55,8 @@ const getColor = (idx: number): string => {
                             </template>
                         </v-img>
                     </div>
-                    <div class="service-title text-surface text-uppercase" style="white-space: pre; font-size: 1.1rem;">
+                    <div class="service-title text-surface text-uppercase text-center"
+                        style="white-space: pre-line; font-size: 1.1rem;">
                         {{
                             list.product_name }}
                     </div>
@@ -67,7 +68,12 @@ const getColor = (idx: number): string => {
 
 <style scoped>
 .service-title {
-    margin-top: 15%;
+    margin-top: 10%;
+}
+
+.service,
+.service-title {
+    font-family: "Outfit", sans-serif;
 }
 
 #service-containner {

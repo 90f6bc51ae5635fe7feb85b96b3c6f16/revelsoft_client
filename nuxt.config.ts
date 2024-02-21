@@ -25,7 +25,8 @@ export default defineNuxtConfig({
   ],
   runtimeConfig: {
     public: {
-      apiBaseUrl: 'http://localhost:5260',
+      apiBaseUrl: 'https://rvscs-develop.com/revel-service',
+      // apiBaseUrl: 'http://localhost:5260',
       // apiChatUrl: 'http://localhost:5861',
       // apiExportUrl: 'http://localhost/eng/eng-brain-export/',
       // apiBaseUrl: 'https://rvscs-develop.com/engbrain',

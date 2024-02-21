@@ -32,7 +32,7 @@ onMounted(async () => {
 
 <template>
     <div id="skill" class="pb-16">
-        <v-row class="d-flex justify-center py-10">
+        <v-row class="skill d-flex justify-center py-10">
             <h1>Our</h1>
             <h1 class="ml-3 text-txtcolor">Skill</h1>
         </v-row>
@@ -41,7 +41,7 @@ onMounted(async () => {
                 <circle-sm style="position: absolute; right: 40%;" />
                 <circle-xs style="position: absolute; right: 35%;" />
                 <div class="skill-item ">
-                    <div class="circle-img  d-block w-100 ">
+                    <div class="circle-img d-block w-100 ">
                         <div class="skill-box w-100 h-100 d-flex justify-center align-center">
                             <div class="above-circle d-flex justify-space-between">
                                 <div
@@ -67,7 +67,7 @@ onMounted(async () => {
                                     <p>{{ skill_list[1].skill_list_detail }}</p>
                                 </div>
                             </div>
-                            <h2 id="frontend">{{ skill[0].skill_name }}</h2>
+                            <h2 class="pb-16" id="frontend">{{ skill[0].skill_name }}</h2>
                             <div class="middle-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-3 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
@@ -135,7 +135,7 @@ onMounted(async () => {
                                     <p>{{ skill_list[6].skill_list_detail }}</p>
                                 </div>
                             </div>
-                            <h2 id="backend">{{ skill[1].skill_name }}</h2>
+                            <h2 class="pb-16" id="backend">{{ skill[1].skill_name }}</h2>
                             <div class="middle-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-3 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
@@ -178,7 +178,7 @@ onMounted(async () => {
                 </div>
                 <div class="skill-item ">
                     <div class="circle-img d-block w-100 d-flex justify-center align-center">
-                        <div class="skill-box w-100 h-100 d-flex justify-center align-center ">
+                        <div class="skill-box  w-100 h-100 d-flex justify-center align-center ">
                             <div class="above-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-1 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
@@ -203,7 +203,7 @@ onMounted(async () => {
                                     <p>{{ skill_list[11].skill_list_detail }}</p>
                                 </div>
                             </div>
-                            <h2 id="database">{{ skill[2].skill_name }}</h2>
+                            <h2 class="pb-16" id="database">{{ skill[2].skill_name }}</h2>
                             <div class="middle-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-3 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
@@ -274,7 +274,7 @@ onMounted(async () => {
                                     <p>{{ skill_list[16].skill_list_detail }}</p>
                                 </div>
                             </div>
-                            <h2 id="framework">{{ skill[3].skill_name }}</h2>
+                            <h2 class="pb-16" id="framework">{{ skill[3].skill_name }}</h2>
                             <div class="middle-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-3 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
@@ -344,7 +344,7 @@ onMounted(async () => {
                                     <p>{{ skill_list[21].skill_list_detail }}</p>
                                 </div>
                             </div>
-                            <h2 id="infrastructure">{{ skill[4].skill_name }}</h2>
+                            <h2 class="pb-16" id="infrastructure">{{ skill[4].skill_name }}</h2>
                             <div class="middle-circle d-flex justify-space-between">
                                 <div
                                     class="circle-sm-3 rounded-circle d-flex flex-column justify-center align-center pt-3 ">
@@ -391,9 +391,19 @@ onMounted(async () => {
 </template>
 
 <style scoped>
+.skill,
+.circle-sm-1 p,
+.circle-sm-2 p,
+.circle-sm-3 p,
+.circle-sm-4 p,
+.circle-sm-5 p {
+    font-family: "Outfit", sans-serif;
+    font-size: 14px;
+}
+
 .skill-box {
-    min-width: 337px;
-    min-height: 323px;
+    min-width: 350px;
+    min-height: 350px;
 }
 
 .circle-img {
@@ -413,7 +423,7 @@ onMounted(async () => {
     width: 85px;
     height: 85px;
     top: 0;
-    left: 10%;
+    left: 9%;
 }
 
 .circle-sm-2 {
@@ -421,14 +431,14 @@ onMounted(async () => {
     width: 85px;
     height: 85px;
     top: 0;
-    right: 10%;
+    right: 13%;
 }
 
 .circle-sm-3 {
     position: absolute;
     width: 85px;
     height: 85px;
-    bottom: 27%;
+    bottom: 33%;
     left: 0;
 }
 
@@ -436,17 +446,16 @@ onMounted(async () => {
     position: absolute;
     width: 85px;
     height: 85px;
-    right: 0;
-    bottom: 27%;
+    right: 4%;
+    bottom: 33%;
 }
 
 .circle-sm-5 {
     position: absolute;
     width: 85px;
     height: 85px;
-    bottom: 0;
-    left: 50%;
-    right: 50%;
+    bottom: 8%;
+    left: 48%;
     transform: translate(-50%);
 }
 </style>

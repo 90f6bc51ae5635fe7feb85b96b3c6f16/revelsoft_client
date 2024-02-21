@@ -2,14 +2,14 @@
     <header id="header">
         <nav
             class="navbar navbar-expand-lg navbar-dark bg-themecolor border border-navtail rounded-5 fixed-top mt-5 mx-5 p-0">
-            <div class="container p-0">
+            <div class="nav-containner d-flex flex-row justify-space-between px-6 w-100">
                 <a href="#header"> <img id="nav-img" class="navbar-brand " src="@/assets/images/logos/logo.png" cover
                         height="70" alt="logo" /></a>
                 <a href="#header" class="navbar-brand fs-2 ">REVELSOFT</a>
                 <button class="navbar-toggler " data-bs-toggle="collapse" data-bs-target="#navbar1">
                     <span class="navbar-toggler-icon "></span>
                 </button>
-                <div id="navbar1" class="collapse navbar-collapse fs-5">
+                <div id="navbar1" class="collapse navbar-collapse fs-5 ">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item px-1">
                             <a href="#header" class="nav-link rounded-xl px-3">Home</a>
@@ -26,7 +26,7 @@
                     </ul>
                     <ul class="navbar-nav ms-auto ">
                         <li class="nav-item border border-navtail rounded-5">
-                            <a href="#footer" class="nav-link rounded-xl px-3 " style="white-space:nowrap;">Contect Us</a>
+                            <a href="#footer" class="nav-link rounded-xl px-3 " style="white-space:nowrap;">Contact Us</a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link rounded-xl" data-bs-toggle="modal" data-bs-target="#myModal"></a>
@@ -45,6 +45,14 @@ export default {
 </script>
 
 <style scoped>
+.nav-containner {
+    font-family: "Outfit", sans-serif;
+}
+
+.navbar-brand {
+    align-self: center;
+}
+
 .nav-item {
     align-self: center;
 }

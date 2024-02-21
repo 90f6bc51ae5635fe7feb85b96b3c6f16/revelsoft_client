@@ -110,8 +110,9 @@ const prevSlide = () => {
                             modifier: 1,
                             slideShadows: true,
                         }" :pagination="true" :modules="modules" class="mySwiper ">
-                        <swiper-slide class=" w-25 h-25" v-for="(list, idx) in portfolio_lists" :key="idx">
-                            <v-img class=" banner-img d-block w-100 h-100"
+                        <swiper-slide class=" swiper-slide-containner w-25 h-25" v-for="(list, idx) in portfolio_lists"
+                            :key="idx">
+                            <v-img class="swiper-slide banner-img d-block w-100 h-100"
                                 :src="`${list.portfolio_list_img ? `${publicCtx.apiBaseUrl}${list.portfolio_list_img}` : defaultImage}`"
                                 cover alt="banner">
                                 <template v-slot:error>
@@ -193,8 +194,6 @@ const prevSlide = () => {
 </template>
 
 <style scoped>
-swiper {}
-
 .portfolio-item {
     z-index: 5;
 }
@@ -203,9 +202,5 @@ swiper {}
     z-index: 4;
     text-decoration: none;
     color: white;
-}
-
-.swiper-containner {
-    height: 120%;
 }
 </style>
