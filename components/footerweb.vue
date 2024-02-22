@@ -131,6 +131,7 @@ onMounted(async () => {
 }
 
 .icons {
+    padding: 0.5em;
     align-self: center;
 }
 </style>

@@ -1,4 +1,4 @@
-import { SkillList } from "~~/misc/types"
+import type { SkillList } from "~~/misc/types"
 const prefix = 'skill-list'
 
 const generateSkillListID = (): Promise<string> => secureFetch(`${useRuntimeConfig().public.apiBaseUrl}/${prefix}/generateSkillListID`, { method: "POST", })

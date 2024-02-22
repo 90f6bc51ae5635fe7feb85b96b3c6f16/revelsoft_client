@@ -1,4 +1,4 @@
-import { Portfolio } from "~~/misc/types"
+import type { Portfolio } from "~~/misc/types"
 
 const prefix = 'portfolio'
 

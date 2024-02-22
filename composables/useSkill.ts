@@ -1,4 +1,4 @@
-import { Skill } from "~~/misc/types"
+import type { Skill } from "~~/misc/types"
 
 const prefix = 'skill'
 

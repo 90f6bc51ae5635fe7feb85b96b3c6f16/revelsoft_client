@@ -1,4 +1,4 @@
-import { PortfolioList } from "~~/misc/types"
+import type { PortfolioList } from "~~/misc/types"
 const prefix = 'portfolio-list'
 
 const generatePortfolioListID = (): Promise<string> => secureFetch(`${useRuntimeConfig().public.apiBaseUrl}/${prefix}/generatePortfolioListID`, { method: "POST", })
