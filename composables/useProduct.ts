@@ -1,7 +1,7 @@
 import { Product } from "~~/misc/types"
 const prefix = 'product'
 
-const generateProductID = (): Promise<string> => secureFetch(`${useRuntimeConfig().public.apiBaseUrl}/${prefix}/generateProductID`, { method: "POST", })
+const generateProductClientID = (): Promise<string> => secureFetch(`${useRuntimeConfig().public.apiBaseUrl}/${prefix}/generateProductClientID`, { method: "POST", })
 
 const getProductClientBy = (data?: any): Promise<{ docs: Product[], totalDocs: number, }> => secureFetch(
     `${useRuntimeConfig().public.apiBaseUrl}/${prefix}/getProductClientBy`, {
@@ -50,7 +50,7 @@ const deleteProduct = (data: any): Promise<Product> => secureFetch(
 
 export default function useProduct() {
     return {
-        generateProductID,
+        generateProductClientID,
         getProductClientBy,
         getProductByID,
         insertProduct,

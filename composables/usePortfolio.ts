@@ -2,7 +2,7 @@ import type { Portfolio } from "~~/misc/types"
 
 const prefix = 'portfolio'
 
-const generatePortfolioID = (): Promise<string> => secureFetch(`${useRuntimeConfig().public.apiBaseUrl}/${prefix}/generatePortfolioID`, { method: "POST", })
+const generatePortfolioClientID = (): Promise<string> => secureFetch(`${useRuntimeConfig().public.apiBaseUrl}/${prefix}/generatePortfolioClientID`, { method: "POST", })
 
 const getPortfolioClientBy = (data?: any): Promise<{ docs: Portfolio[], totalDocs: number, }> => secureFetch(
     `${useRuntimeConfig().public.apiBaseUrl}/${prefix}/getPortfolioClientBy`, {
@@ -36,7 +36,7 @@ const deletePortfolio = (data: any): Promise<Portfolio> => secureFetch(
 
 export default function usePortfolio() {
     return {
-        generatePortfolioID,
+        generatePortfolioClientID,
         getPortfolioClientBy,
         getPortfolioByID,
         insertPortfolio,

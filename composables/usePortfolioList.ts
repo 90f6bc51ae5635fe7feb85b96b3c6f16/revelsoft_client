@@ -1,7 +1,7 @@
 import type { PortfolioList } from "~~/misc/types"
 const prefix = 'portfolio-list'
 
-const generatePortfolioListID = (): Promise<string> => secureFetch(`${useRuntimeConfig().public.apiBaseUrl}/${prefix}/generatePortfolioListID`, { method: "POST", })
+const generatePortfolioListClientID = (): Promise<string> => secureFetch(`${useRuntimeConfig().public.apiBaseUrl}/${prefix}/generatePortfolioListClientID`, { method: "POST", })
 
 const getPortfolioListClientBy = (data?: any): Promise<{ docs: PortfolioList[], totalDocs: number, }> => secureFetch(
     `${useRuntimeConfig().public.apiBaseUrl}/${prefix}/getPortfolioListBy`, {
@@ -50,7 +50,7 @@ const deletePortfolioList = (data: any): Promise<PortfolioList> => secureFetch(
 
 export default function usePortfolioList() {
     return {
-        generatePortfolioListID,
+        generatePortfolioListClientID,
         getPortfolioListClientBy,
         getPortfolioListByID,
         insertPortfolioList,

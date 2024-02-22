@@ -2,7 +2,7 @@ import type { Skill } from "~~/misc/types"
 
 const prefix = 'skill'
 
-const generateSkillID = (): Promise<string> => secureFetch(`${useRuntimeConfig().public.apiBaseUrl}/${prefix}/generateSkillID`, { method: "POST", })
+const generateSkillClientID = (): Promise<string> => secureFetch(`${useRuntimeConfig().public.apiBaseUrl}/${prefix}/generateSkillClientID`, { method: "POST", })
 
 const getSkillClientBy = (data?: any): Promise<{ docs: Skill[], totalDocs: number, }> => secureFetch(
   `${useRuntimeConfig().public.apiBaseUrl}/${prefix}/getSkillClientBy`, {
@@ -36,7 +36,7 @@ const deleteSkill = (data: any): Promise<Skill> => secureFetch(
 
 export default function useSkill() {
   return {
-    generateSkillID,
+    generateSkillClientID,
     getSkillClientBy,
     getSkillByID,
     insertSkill,

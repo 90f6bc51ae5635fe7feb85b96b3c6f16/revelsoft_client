@@ -1,7 +1,7 @@
 import type { Banner, BannerList } from "~~/misc/types"
 const prefix = 'banner'
 
-const generateBannerID = (): Promise<string> => secureFetch(`${useRuntimeConfig().public.apiBaseUrl}/${prefix}/generateBannerID`, { method: "POST", })
+const generateBannerClientID = (): Promise<string> => secureFetch(`${useRuntimeConfig().public.apiBaseUrl}/${prefix}/generateBannerClientID`, { method: "POST", })
 
 const getBannerClientBy = (data?: any): Promise<{ docs: Banner[], totalDocs: number, }> => secureFetch(
     `${useRuntimeConfig().public.apiBaseUrl}/${prefix}/getBannerClientBy`, {
@@ -54,7 +54,7 @@ const deleteBanner = (data: any): Promise<Banner> => secureFetch(
 
 export default function useBanner() {
     return {
-        generateBannerID,
+        generateBannerClientID,
         getBannerClientBy,
         getBannerByID,
         insertBanner,

@@ -2,7 +2,7 @@ import type { ConTact } from "~~/misc/types"
 
 const prefix = 'contact'
 
-const generateConTactID = (): Promise<string> => secureFetch(`${useRuntimeConfig().public.apiBaseUrl}/${prefix}/generateConTactID`, { method: "POST", })
+const generateConTactClientID = (): Promise<string> => secureFetch(`${useRuntimeConfig().public.apiBaseUrl}/${prefix}/generateConTactClientID`, { method: "POST", })
 
 const getConTactBy = (data?: any): Promise<{ docs: ConTact[], totalDocs: number, }> => secureFetch(
     `${useRuntimeConfig().public.apiBaseUrl}/${prefix}/getConTactBy`, {
@@ -37,7 +37,7 @@ const deleteConTact = (data: any): Promise<ConTact> => secureFetch(
 
 export default function useConTact() {
     return {
-        generateConTactID,
+        generateConTactClientID,
         getConTactBy,
         getConTactByID,
         insertConTactClient,

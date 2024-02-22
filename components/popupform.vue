@@ -16,7 +16,7 @@ let isFullScreen = ref<boolean>(true)
 const products = ref<Product[]>([]);
 
 definePageMeta({ middleware: ["auth"] });
-const { generateConTactID, insertConTactClient } = useConTact();
+const { generateConTactClientID, insertConTactClient } = useConTact();
 const router = useRouter();
 const issubmitting = ref(false);
 const submitting = ref(false);
@@ -42,7 +42,7 @@ onMounted(async () => {
         for (const [key, value] of params) {
             query[key] = value;
         }
-        const id = await generateConTactID()
+        const id = await generateConTactClientID()
         contact.value.contact_id = id
         products.value = await getProductClientBy({ product_id: query.id }).then(res => res.docs)
         fullScreen()

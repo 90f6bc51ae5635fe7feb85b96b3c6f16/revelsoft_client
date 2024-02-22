@@ -1,7 +1,7 @@
 import type { SkillList } from "~~/misc/types"
 const prefix = 'skill-list'
 
-const generateSkillListID = (): Promise<string> => secureFetch(`${useRuntimeConfig().public.apiBaseUrl}/${prefix}/generateSkillListID`, { method: "POST", })
+const generateSkillListClientID = (): Promise<string> => secureFetch(`${useRuntimeConfig().public.apiBaseUrl}/${prefix}/generateSkillListClientID`, { method: "POST", })
 
 const getSkillListClientBy = (data?: any): Promise<{ docs: SkillList[], totalDocs: number, }> => secureFetch(
   `${useRuntimeConfig().public.apiBaseUrl}/${prefix}/getSkillListClientBy`, {
@@ -50,7 +50,7 @@ const deleteSkillList = (data: any): Promise<SkillList> => secureFetch(
 
 export default function useSkillList() {
   return {
-    generateSkillListID,
+    generateSkillListClientID,
     getSkillListClientBy,
     getSkillListByID,
     insertSkillList,
