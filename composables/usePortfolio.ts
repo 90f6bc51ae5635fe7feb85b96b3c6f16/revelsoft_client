@@ -4,8 +4,8 @@ const prefix = 'portfolio'
 
 const generatePortfolioID = (): Promise<string> => secureFetch(`${useRuntimeConfig().public.apiBaseUrl}/${prefix}/generatePortfolioID`, { method: "POST", })
 
-const getPortfolioBy = (data?: any): Promise<{ docs: Portfolio[], totalDocs: number, }> => secureFetch(
-    `${useRuntimeConfig().public.apiBaseUrl}/${prefix}/getPortfolioBy`, {
+const getPortfolioClientBy = (data?: any): Promise<{ docs: Portfolio[], totalDocs: number, }> => secureFetch(
+    `${useRuntimeConfig().public.apiBaseUrl}/${prefix}/getPortfolioClientBy`, {
     method: "POST",
     body: JSON.stringify(data),
 })
@@ -37,7 +37,7 @@ const deletePortfolio = (data: any): Promise<Portfolio> => secureFetch(
 export default function usePortfolio() {
     return {
         generatePortfolioID,
-        getPortfolioBy,
+        getPortfolioClientBy,
         getPortfolioByID,
         insertPortfolio,
         updatePortfolioBy,

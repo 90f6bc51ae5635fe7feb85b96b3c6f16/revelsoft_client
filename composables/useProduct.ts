@@ -3,8 +3,8 @@ const prefix = 'product'
 
 const generateProductID = (): Promise<string> => secureFetch(`${useRuntimeConfig().public.apiBaseUrl}/${prefix}/generateProductID`, { method: "POST", })
 
-const getProductBy = (data?: any): Promise<{ docs: Product[], totalDocs: number, }> => secureFetch(
-    `${useRuntimeConfig().public.apiBaseUrl}/${prefix}/getProductBy`, {
+const getProductClientBy = (data?: any): Promise<{ docs: Product[], totalDocs: number, }> => secureFetch(
+    `${useRuntimeConfig().public.apiBaseUrl}/${prefix}/getProductClientBy`, {
     method: "POST",
     body: JSON.stringify(data),
 })
@@ -51,7 +51,7 @@ const deleteProduct = (data: any): Promise<Product> => secureFetch(
 export default function useProduct() {
     return {
         generateProductID,
-        getProductBy,
+        getProductClientBy,
         getProductByID,
         insertProduct,
         updateProductBy,

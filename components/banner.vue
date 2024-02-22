@@ -1,18 +1,16 @@
 
 <script lang="ts" setup>
 import popupform from '~/components/popupform.vue';
-import type { Product, Banner, BannerList } from "~~/misc/types"
+import type { Product, Banner } from "~~/misc/types"
 import errorImage from "@/assets/images/error.png"
 
 const defaultImage = "https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
 definePageMeta({ middleware: ["auth"] });
-const { getBannerByID, getBannerBy } = useBanner();
-const { getBannerListBy } = useBannerList();
-const { getProductBy } = useProduct();
+const { getBannerClientBy } = useBanner();
+const { getProductClientBy } = useProduct();
 const { public: publicCtx } = useRuntimeConfig()
 
 let activeIndex = 0;
-const banner_lists = ref<BannerList[]>([])
 const products = ref<Product[]>([]);
 const banner = ref<Banner[]>([]);
 const dialog = ref<{ show: boolean }>({ show: false })
@@ -25,9 +23,8 @@ onMounted(async () => {
         for (const [key, value] of params) {
             query[key] = value;
         }
-        banner.value = await getBannerBy({ banner_id: query.id }).then(res => res.docs)
-        products.value = await getProductBy({ product_id: query.id }).then(res => res.docs)
-        banner_lists.value = await getBannerListBy({ banner_id: query.id }).then(res => res.docs)
+        banner.value = await getBannerClientBy({ banner_id: query.id }).then(res => res.docs)
+        products.value = await getProductClientBy({ product_id: query.id }).then(res => res.docs)
     } catch (e) {
         console.log(e)
     }

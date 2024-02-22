@@ -3,8 +3,8 @@ const prefix = 'skill-list'
 
 const generateSkillListID = (): Promise<string> => secureFetch(`${useRuntimeConfig().public.apiBaseUrl}/${prefix}/generateSkillListID`, { method: "POST", })
 
-const getSkillListBy = (data?: any): Promise<{ docs: SkillList[], totalDocs: number, }> => secureFetch(
-  `${useRuntimeConfig().public.apiBaseUrl}/${prefix}/getSkillListBy`, {
+const getSkillListClientBy = (data?: any): Promise<{ docs: SkillList[], totalDocs: number, }> => secureFetch(
+  `${useRuntimeConfig().public.apiBaseUrl}/${prefix}/getSkillListClientBy`, {
   method: "POST",
   body: JSON.stringify(data),
 })
@@ -51,7 +51,7 @@ const deleteSkillList = (data: any): Promise<SkillList> => secureFetch(
 export default function useSkillList() {
   return {
     generateSkillListID,
-    getSkillListBy,
+    getSkillListClientBy,
     getSkillListByID,
     insertSkillList,
     updateSkillListBy,

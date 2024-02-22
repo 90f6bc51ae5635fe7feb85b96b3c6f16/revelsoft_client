@@ -6,8 +6,8 @@ const defaultImage = "https://coffective.com/wp-content/uploads/2018/06/default-
 definePageMeta({ middleware: ["auth"] });
 const { public: publicCtx } = useRuntimeConfig()
 
-const { getSkillBy } = useSkill();
-const { getSkillListBy } = useSkillList();
+const { getSkillClientBy } = useSkill();
+const { getSkillListClientBy } = useSkillList();
 const skill = ref<Skill[]>([]);
 const skill_list = ref<SkillList[]>([]);
 
@@ -20,9 +20,9 @@ onMounted(async () => {
             query[key] = value;
         }
 
-        const skill_result = await getSkillBy({ skill_id: query.id });
+        const skill_result = await getSkillClientBy({ skill_id: query.id });
         skill.value = skill_result.docs;
-        const skill_list_result = await getSkillListBy({ skill_list_id: query.id });
+        const skill_list_result = await getSkillListClientBy({ skill_list_id: query.id });
         skill_list.value = skill_list_result.docs;
     } catch (e) {
         console.log(e)

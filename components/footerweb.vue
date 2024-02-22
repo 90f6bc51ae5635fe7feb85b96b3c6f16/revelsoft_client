@@ -6,30 +6,12 @@ definePageMeta({
     middleware: ["auth"],
 });
 
-const { getFooterByID, updateFooterBy } = useFooter();
-const router = useRouter();
-const submitting = ref(false)
+const { getFooterByID } = useFooter();
 const dialog = ref<{ show: boolean }>({ show: false })
 const footer = ref<Footer>({
     id: '',
     footer_detail: '',
 })
-
-const pagination = ref({
-    page: 1,
-    size: 20,
-})
-const search = ref<{
-    is_show: boolean,
-    text: string,
-    columns: string[],
-    condition: string,
-}>({
-    is_show: false,
-    text: '',
-    columns: [],
-    condition: 'LIKE',
-});
 
 const icons = [
     'mdi-facebook',

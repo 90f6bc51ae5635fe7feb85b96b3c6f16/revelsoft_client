@@ -5,7 +5,7 @@ import errorImage from "@/assets/images/error.png"
 const defaultImage = "https://coffective.com/wp-content/uploads/2018/06/default-featured-image.png.jpg"
 
 definePageMeta({ middleware: ["auth"] });
-const { getProductBy } = useProduct();
+const { getProductClientBy } = useProduct();
 const { public: publicCtx } = useRuntimeConfig()
 
 const products = ref<Product[]>([]);
@@ -22,7 +22,7 @@ onMounted(async () => {
             query[key] = value;
         }
 
-        products.value = await getProductBy({ product_id: query.id }).then(res => res.docs)
+        products.value = await getProductClientBy({ product_id: query.id }).then(res => res.docs)
     } catch (e) {
         console.log(e)
     }

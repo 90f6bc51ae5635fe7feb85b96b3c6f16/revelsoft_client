@@ -12,8 +12,8 @@ const defaultImage = "https://coffective.com/wp-content/uploads/2018/06/default-
 const modules = [EffectCoverflow, Pagination];
 
 definePageMeta({ middleware: ["auth"] });
-const { getPortfolioBy } = usePortfolio();
-const { getPortfolioListBy } = usePortfolioList();
+const { getPortfolioClientBy } = usePortfolio();
+const { getPortfolioListClientBy } = usePortfolioList();
 const { public: publicCtx } = useRuntimeConfig()
 let activeIndex = 0;
 let allvisible = ref<Boolean>(true)
@@ -33,8 +33,8 @@ onMounted(async () => {
         for (const [key, value] of params) {
             query[key] = value;
         }
-        portfolio.value = await getPortfolioBy({ portfolio_id: query.id }).then((res) => res.docs)
-        portfolio_lists.value = await getPortfolioListBy({ portfolio_id: query.id }).then(res => res.docs)
+        portfolio.value = await getPortfolioClientBy({ portfolio_id: query.id }).then((res) => res.docs)
+        portfolio_lists.value = await getPortfolioListClientBy({ portfolio_id: query.id }).then(res => res.docs)
     } catch (e) {
         console.log(e)
     }

@@ -6,7 +6,7 @@ const defaultImage = "https://coffective.com/wp-content/uploads/2018/06/default-
 definePageMeta({
     middleware: ["auth"],
 });
-const { getProductBy } = useProduct();
+const { getProductClientBy } = useProduct();
 const { public: publicCtx } = useRuntimeConfig()
 
 const props = defineProps({
@@ -16,7 +16,7 @@ let isFullScreen = ref<boolean>(true)
 const products = ref<Product[]>([]);
 
 definePageMeta({ middleware: ["auth"] });
-const { generateConTactID, insertConTact, getConTactBy } = useConTact();
+const { generateConTactID, insertConTactClient } = useConTact();
 const router = useRouter();
 const issubmitting = ref(false);
 const submitting = ref(false);
@@ -44,7 +44,7 @@ onMounted(async () => {
         }
         const id = await generateConTactID()
         contact.value.contact_id = id
-        products.value = await getProductBy({ product_id: query.id }).then(res => res.docs)
+        products.value = await getProductClientBy({ product_id: query.id }).then(res => res.docs)
         fullScreen()
     } catch (e) {
         console.log(e)
@@ -59,7 +59,7 @@ async function onSubmit() {
     if (submitting.value || !validateForm()) return;
     try {
         submitting.value = true;
-        await insertConTact(contact.value);
+        await insertConTactClient(contact.value);
         void Swal.fire({
             title: "สำเร็จ",
             text: "ส่งข้อความแล้ว",
@@ -126,7 +126,7 @@ const toggleout_source = () => {
 <template>
     <v-dialog v-model="modelValue.show">
         <td class="align-middle text-center" style="position: absolute; z-index: 5; right: 1%;top: 1%;">
-            <v-icon class="fs-2" clickable @click="closeForm" color="error">
+            <v-icon class="fs-2" clickable @click="closeForm" color="surface">
                 mdi mdi-close-thick</v-icon>
         </td>
         <v-card class="bg-formcolor  rounded-xl h-100">
@@ -162,44 +162,44 @@ const toggleout_source = () => {
                         </div>
                     </v-col>
                     <v-col sm="11" :md="isFullScreen ? 12 : 11" class="p-2">
-                        <v-col>
+                        <v-col class="px-5">
                             <h4 class="text-center py-1">Contact Us About</h4>
-                            <v-btn-toggle class="d-flex justify-space-between " multiple
-                                selected-class="text-primary bg-primary" variant="outlined" divided>
-                                <v-btn class="bg-surface border rounded-xl border-0 border-primary"
-                                    v-model="contact.web_develop" @click="toggleweb">
-                                    Web Development
-                                </v-btn>
-                                <v-btn class="bg-surface border rounded-xl border-0 border-primary"
-                                    v-model="contact.app_develop" @click="toggleapp">
+                            <v-btn-toggle class="d-flex justify-space-between" multiple selected-class="bg-primary"
+                                variant="outlined" divided>
+                                <v-btn class=" bg-surface border rounded-xl border-0 border-primary"
+                                    v-model="contact.web_develop" @click="toggleapp">
                                     Application Development
                                 </v-btn>
-                            </v-btn-toggle>
-                            <v-btn-toggle class="d-flex justify-space-between mt-2 " multiple
-                                selected-class="text-primary bg-primary" variant="outlined" divided>
-                                <v-btn class="bg-surface border rounded-xl border-0 border-primary"
-                                    v-model="contact.iot_develop" @click="toggleout_source">
+                                <v-btn class=" bg-surface border rounded-xl border-0 border-primary"
+                                    v-model="contact.app_develop" @click="toggleout_source">
                                     Out Source
                                 </v-btn>
-                                <v-btn class="bg-surface border rounded-xl border-0 border-primary"
+                            </v-btn-toggle>
+                            <v-btn-toggle class="d-flex justify-space-between mt-2 " multiple selected-class="bg-primary"
+                                variant="outlined" divided>
+                                <v-btn class=" bg-surface border rounded-xl border-0 border-primary"
+                                    v-model="contact.iot_develop" @click="toggleweb">
+                                    Web Development
+                                </v-btn>
+                                <v-btn class="  bg-surface border rounded-xl border-0 border-primary"
                                     v-model="contact.out_source" @click="toggleiot">
                                     Iot Development
                                 </v-btn>
                             </v-btn-toggle>
                         </v-col>
-                        <div class="d-flex justify-center">
+                        <div class="d-flex justify-center mt-2">
                             <v-hover>
                                 <template v-slot:default="{ isHovering, props }">
-                                    <v-btn class="text-none text-center border border-greenblue rounded-pill bg-save ml-5 "
-                                        @click="onSubmit" v-bind="props" :color="isHovering ? 'themecolor' : undefined">
+                                    <v-btn class="text-none text-center border border-surface rounded-pill bg-surface ml-5 "
+                                        @click="onSubmit" v-bind="props" :color="isHovering ? 'grey' : undefined">
                                         SEND
                                     </v-btn>
                                 </template>
                             </v-hover>
                             <v-hover>
                                 <template v-slot:default="{ isHovering, props }">
-                                    <v-btn class="text-none text-center border rounded-pill ml-5 " @click="resetFrom"
-                                        v-bind="props" :color="isHovering ? 'gray100' : undefined">
+                                    <v-btn class="text-none text-center border rounded-pill ml-5 bg-primary"
+                                        @click="resetFrom" v-bind="props" :color="isHovering ? 'formcolor' : undefined">
                                         RESEND
                                     </v-btn>
                                 </template>
@@ -216,6 +216,10 @@ const toggleout_source = () => {
 .card-from {
     display: flex;
     flex-direction: row-reverse;
+}
+
+.toggle-box {
+    padding: 1em;
 }
 
 .contact-img-1 {
@@ -272,7 +276,7 @@ const toggleout_source = () => {
     right: 0%;
 }
 
-@media only screen and (max-width: 1080px) {
+@media only screen and (max-width: 1280px) {
     .card-from {
         display: flex;
         flex-direction: column;

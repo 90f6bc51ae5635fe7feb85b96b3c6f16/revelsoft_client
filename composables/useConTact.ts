@@ -16,8 +16,8 @@ const getConTactByID = (data: { ConTact_id: string }): Promise<ConTact> => secur
     body: JSON.stringify(data),
 })
 
-const insertConTact = (data: any): Promise<ConTact> => secureFetch(
-    `${useRuntimeConfig().public.apiBaseUrl}/${prefix}/insertConTact`, {
+const insertConTactClient = (data: any): Promise<ConTact> => secureFetch(
+    `${useRuntimeConfig().public.apiBaseUrl}/${prefix}/insertConTactClient`, {
 
     method: "POST",
     body: JSON.stringify(data),
@@ -40,7 +40,7 @@ export default function useConTact() {
         generateConTactID,
         getConTactBy,
         getConTactByID,
-        insertConTact,
+        insertConTactClient,
         updateConTactBy,
         deleteConTact
     };
