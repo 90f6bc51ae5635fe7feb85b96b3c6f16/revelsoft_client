@@ -39,8 +39,8 @@ const getColor = (idx: number): string => {
 <template>
     <v-col id="service" class="py-16">
         <v-row class="service d-flex justify-center ">
-            <h1 class="text-txtcolor ">Our</h1>
-            <h1 class="ml-3">Service</h1>
+            <h1 class="text-txtcolor font-weight-medium">Our</h1>
+            <h1 class="ml-3 font-weight-medium">Service</h1>
         </v-row>
         <v-row class="d-flex justify-space-evenly m-15 py-7 px-2">
             <v-containner v-for="(list, idx) in products " :key="idx"

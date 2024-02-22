@@ -25,8 +25,9 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto ">
-                        <li class="nav-item border border-navtail rounded-5">
-                            <a href="#footer" class="nav-link rounded-xl px-3 " style="white-space:nowrap;">Contact Us</a>
+                        <li class=" nav-item border border-navtail rounded-xl">
+                            <a href="#footer" class="nav-link rounded-xl px-5 py-1" style="white-space:nowrap;">Contact
+                                Us</a>
                         </li>
                         <li class="nav-item ">
                             <a class="nav-link rounded-xl" data-bs-toggle="modal" data-bs-target="#myModal"></a>

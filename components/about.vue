@@ -24,20 +24,21 @@ onMounted(async () => {
 
 <template>
     <div class="about mt-16  ">
-        <v-row id="about" class="d-flex justify-center ">
-            <h1 class="text-txtcolor ">About</h1>
-            <h1 class="ml-3">Us</h1>
+        <v-row id="about" class="d-flex justify-center">
+            <h1 class="text-txtcolor font-weight-bold">About</h1>
+            <h1 class="ml-3 font-weight-bold">Us</h1>
         </v-row>
         <v-col cols="12" class="d-flex justify-center">
             <v-row cols="12" class="about-us ">
                 <v-row cols="12" class="d-flex justify-center mx-15">
                     <v-col cols="8" lg="8" id="about-info" class="pt-16 ">
                         <v-row class=" align-center">
-                            <v-icon class=" text-greenblue">mdi-36px mdi-checkbox-marked-circle-outline</v-icon>
-                            <h1 class="text-greenblue px-2">10 years experience</h1>
+                            <v-icon class=" text-greenblue">mdi-36px
+                                mdi-checkbox-marked-circle-outline</v-icon>
+                            <h1 class="text-greenblue px-2 font-weight-bold">10 years experience</h1>
                         </v-row>
                         <v-col class="containner ">
-                            <div class="text-h4" style="white-space: pre-line;">{{
+                            <div class="text-h4 font-weight-regular" style="white-space: pre-line;">{{
                                 abouts.about_detail }} </div>
                         </v-col>
                     </v-col>

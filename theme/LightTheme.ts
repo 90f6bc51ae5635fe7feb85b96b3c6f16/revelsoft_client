@@ -42,6 +42,7 @@ const PurpleTheme: ThemeTypes = {
     hoverColor: '#f6f9fc',
     surface: '#fff',
     'on-surface-variant': '#fff',
+    grey: '#D2D2D2',
     grey100: '#F2F6FA',
     grey200: '#EAEFF4'
   }

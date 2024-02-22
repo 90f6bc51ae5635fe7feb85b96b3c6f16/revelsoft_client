@@ -82,7 +82,7 @@ const prevSlide = () => {
             <div id="circle-portfolio-lg" class="rounded-circle"></div>
         </div>
         <div id="circle-portfolio-sm" class="rounded-circle"></div>
-        <h1 class="display-6 text-center ">PORTFOLIO</h1>
+        <h1 class="text-center font-weight-light">PORTFOLIO</h1>
         <v-col class="portfolio-item">
             <hr class="mx-16">
             <div class="display-6 fs-3 d-flex flex-row justify-space-evenly text-h4 py-3">

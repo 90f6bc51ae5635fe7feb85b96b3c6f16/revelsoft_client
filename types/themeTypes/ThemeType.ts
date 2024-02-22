@@ -36,6 +36,7 @@ export type ThemeTypes = {
         containerBg?: string;
         surface?: string;
         'on-surface-variant'?: string;
+        grey?: string;
         grey100?: string;
         grey200?: string;
         muted?: string;

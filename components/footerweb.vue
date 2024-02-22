@@ -61,28 +61,28 @@ onMounted(async () => {
                 </v-btn>
             </v-col>
             <v-col class="footer-info d-flex flex-column align-end my-10 pr-7">
-                <p class="py-1 text-txtcolor"> support@revelsoft.co.th</p>
-                <p class="fs-5 py-1">044-011-494</p>
-                <v-row v-if="icons.length > 0" class="fs-5">
+                <p class="py-1 text-txtcolor font-weight-bold"> support@revelsoft.co.th</p>
+                <p class="fs-5 py-1 font-weight-bold">044-011-494</p>
+                <v-row v-if="icons.length > 0" class="fs-6">
                     <!-- <v-btn v-for="icon in icons" :key="icon" class="rounded-circle bg-surface mx-2" :icon="icon"
                         variant="text"></v-btn> -->
                     <a class="icons rounded-circle bg-surface mx-2" href="https://www.facebook.com/revelsoft">
-                        <v-icon class="p-4">
+                        <v-icon>
                             {{ icons[0] }}
                         </v-icon>
                     </a>
                     <a class="icons rounded-circle bg-surface  mx-2" href="##">
-                        <v-icon class="p-4">
+                        <v-icon>
                             {{ icons[1] }}
                         </v-icon>
                     </a>
                     <a class="icons rounded-circle bg-surface  mx-2" href="##">
-                        <v-icon class="p-4">
+                        <v-icon>
                             {{ icons[2] }}
                         </v-icon>
                     </a>
                 </v-row>
-                <p class="py-1">2023 All Rights Reserved by Revel Soft Inc. </p>
+                <p class="py-1 font-weight-light">2023 All Rights Reserved by Revel Soft Inc. </p>
             </v-col>
         </v-row>
     </div>
@@ -96,6 +96,7 @@ onMounted(async () => {
 <style scoped>
 .footer {
     font-family: "Outfit", sans-serif;
+    padding-top: 5em;
 }
 
 .footer-bg-0 {
@@ -111,7 +112,7 @@ onMounted(async () => {
 .footer-bg-1 {
     position: absolute;
     overflow-x: hidden;
-    right: 50em;
+    right: 50%;
     opacity: 0.3;
     bottom: 0;
     z-index: 7;
@@ -120,7 +121,7 @@ onMounted(async () => {
 .footer-bg-2 {
     position: absolute;
     overflow-x: hidden;
-    left: 50em;
+    left: 50%;
     opacity: 0.3;
     bottom: 0;
     z-index: 7;
@@ -129,7 +130,7 @@ onMounted(async () => {
 .footer-bg-3 {
     position: absolute;
     overflow-x: hidden;
-    right: 25em;
+    right: 25%;
     opacity: 0.3;
     bottom: 0;
     z-index: 7;
@@ -138,7 +139,7 @@ onMounted(async () => {
 .footer-bg-4 {
     position: absolute;
     overflow-x: hidden;
-    left: 25em;
+    left: 25%;
     opacity: 0.3;
     bottom: 0;
 }

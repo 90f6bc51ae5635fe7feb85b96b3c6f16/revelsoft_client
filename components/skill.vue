@@ -33,8 +33,8 @@ onMounted(async () => {
 <template>
     <div id="skill" class="pb-16">
         <v-row class="skill d-flex justify-center py-10">
-            <h1>Our</h1>
-            <h1 class="ml-3 text-txtcolor">Skill</h1>
+            <h1 class="font-weight-bold">Our</h1>
+            <h1 class="ml-3 text-txtcolor font-weight-bold">Skill</h1>
         </v-row>
         <v-col>
             <v-row class=" d-flex justify-space-evenly  h-100" v-if="skill.length > 0 && skill_list.length > 0">

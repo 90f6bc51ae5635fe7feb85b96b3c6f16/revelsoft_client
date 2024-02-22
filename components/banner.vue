@@ -61,17 +61,17 @@ const openFrom = () => {
                     <v-hover>
                         <template v-slot:default="{ isHovering, props }">
                             <v-btn @click="openFrom"
-                                class="banner-button text-none text-surface rounded-pill bg-greenblue border border-2 border-greenblue"
+                                class="banner-button px-5 text-none text-surface fs-6 rounded-pill bg-greenblue border border-2 border-greenblue font-weight-bold"
                                 v-bind="props" :color="isHovering ? 'themecolor' : undefined">
-                                Get In Touch With Us
+                                Get In Touch
                             </v-btn>
                         </template>
                     </v-hover>
                     <v-hover>
                         <template v-slot:default="{ isHovering, props }">
                             <v-btn
-                                class="banner-button text-none rounded-pill bg-themecolor ml-5  border border-2 border-surface"
-                                href="#service" v-bind="props" :color="isHovering ? 'greenblue' : undefined">
+                                class="banner-button px-5 text-none text-surface fs-6 rounded-pill bg-themecolor ml-5  border border-2 border-surface font-weight-bold"
+                                href="#service" v-bind="props" :color="isHovering ? 'grey' : undefined">
                                 Our Service
                             </v-btn>
                         </template>
@@ -147,7 +147,7 @@ const openFrom = () => {
 }
 
 .banner-button {
-    padding: 1.4em;
+    padding: 1.3em;
     align-content: center;
 }
 
