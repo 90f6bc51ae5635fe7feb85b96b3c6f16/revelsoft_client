@@ -2,7 +2,7 @@
     <header id="header">
         <nav
             class="navbar navbar-expand-lg navbar-dark bg-themecolor border border-navtail rounded-5 fixed-top mt-5 mx-5 p-0">
-            <div class="nav-containner d-flex flex-row justify-space-between px-6 w-100">
+            <div class="container p-0">
                 <a href="#header"> <img id="nav-img" class="navbar-brand " src="@/assets/images/logos/logo.png" cover
                         height="70" alt="logo" /></a>
                 <a href="#header" class="navbar-brand fs-2 ">REVELSOFT</a>
@@ -66,9 +66,14 @@ export default {
     background-color: #25AAE2;
 }
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 992px) {
     .navbar-brand {
         padding: 0;
+    }
+
+    .nav-containner {
+        display: flex;
+        flex-direction: column;
     }
 }
 </style>

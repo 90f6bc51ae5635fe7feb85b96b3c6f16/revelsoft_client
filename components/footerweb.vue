@@ -47,13 +47,13 @@ onMounted(async () => {
 </script>
 
 <template>
-    <img class="footer-bg-0  w-100" src="@/assets/images/footer/footer.png" alt="">
-    <img class="footer-bg-1" src="@/assets/images/footer/footer.png" alt="">
-    <img class="footer-bg-2" src="@/assets/images/footer/footer.png" alt="">
-    <img class="footer-bg-3" src="@/assets/images/footer/footer.png" alt="">
-    <img class="footer-bg-4" src="@/assets/images/footer/footer.png" alt="">
     <div id="footer">
-        <v-row class="footer mt-10 px-10 ">
+        <v-row class="footer mt-16 px-10" style="position: relative;">
+            <img class="footer-bg-0 d-block w-100 h-100" src="@/assets/images/footer/footer.png" alt="">
+            <img class="footer-bg-1 w-100 h-100" src="@/assets/images/footer/footer.png" alt="">
+            <img class="footer-bg-2 w-100 h-100" src="@/assets/images/footer/footer.png" alt="">
+            <img class="footer-bg-3 w-100 h-100" src="@/assets/images/footer/footer.png" alt="">
+            <img class="footer-bg-4 w-100 h-100" src="@/assets/images/footer/footer.png" alt="">
             <v-col class="pt-5 footer-info">
                 <h2 class="my-10">Let's make your <span class="text-txtcolor px-1">Dream</span> come true</h2>
                 <v-btn class=" rounded-lg mb-16 bg-service_3 text-surface" @click="openFrom">
@@ -101,63 +101,47 @@ onMounted(async () => {
 .footer-bg-0 {
     object-fit: cover;
     position: absolute;
-    z-index: 1;
-    left: 1;
-    right: 1;
-    bottom: 1;
-    z-index: 10;
+    overflow-x: hidden;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 7;
 }
 
 .footer-bg-1 {
     position: absolute;
-    z-index: 1;
-    left: 0;
+    overflow-x: hidden;
+    right: 50em;
     opacity: 0.3;
-    bottom: 1;
-    right: 1;
-    z-index: 10;
+    bottom: 0;
+    z-index: 7;
 }
 
 .footer-bg-2 {
     position: absolute;
-    z-index: 1;
-    right: 0;
+    overflow-x: hidden;
+    left: 50em;
     opacity: 0.3;
-    bottom: 1;
-    left: 0;
-    z-index: 10;
+    bottom: 0;
+    z-index: 7;
 }
 
 .footer-bg-3 {
     position: absolute;
-    z-index: 1;
-    left: 0;
+    overflow-x: hidden;
+    right: 25em;
     opacity: 0.3;
-    bottom: 1;
-    right: 1;
-    z-index: 10;
+    bottom: 0;
+    z-index: 7;
 }
 
 .footer-bg-4 {
     position: absolute;
-    z-index: 1;
-    right: 25em;
-    opacity: 0.3;
-    left: 0;
-    bottom: 1;
-    right: 1;
-}
-
-/*.footer-bg-3 {
-    background-image: url('../assets//images//footer/footer.png');
-    background-size: cover;
-    position: absolute;
-    z-index: 1;
-    left: -25%;
-    width: 50%;
+    overflow-x: hidden;
+    left: 25em;
     opacity: 0.3;
     bottom: 0;
-}*/
+}
 
 .footer-info {
     z-index: 10;
