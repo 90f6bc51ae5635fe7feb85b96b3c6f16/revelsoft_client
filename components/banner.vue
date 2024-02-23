@@ -41,12 +41,12 @@ const openFrom = () => {
         <v-row class=" py-2 banner-info mx-5 ">
             <v-col class="py-10 w-100 h-auto ">
                 <v-col class="banner-text " v-if="banner.length > 0">
-                    <v-col class="containner-title ps-0 d-flex justify-center py-2 w-100 ">
+                    <v-col class="containner-title px-5 py-2 w-100 ">
                         <div class="banner-title banner-text-1 fs-1 text-h1" style="white-space: pre-line;">
                             {{ banner[0].banner_name }}
                         </div>
                     </v-col>
-                    <v-col class="containner-title d-flex justify-center py-2 w-100 ">
+                    <v-col class="containner-title px-5 py-2 w-100 ">
                         <div class="banner-title banner-text-2 text-h3 fs-5 " style="white-space: pre-line;">
                             {{
                                 banner[0].banner_detail
@@ -58,7 +58,7 @@ const openFrom = () => {
                     <v-hover>
                         <template v-slot:default="{ isHovering, props }">
                             <v-btn @click="openFrom"
-                                class="banner-button px-5 text-none text-surface fs-6 rounded-pill bg-greenblue border border-2 border-greenblue font-weight-bold"
+                                class="banner-button px-5 text-none text-surface fs-6 rounded-pill bg-greenblue mx-1 border border-2 border-greenblue font-weight-bold"
                                 v-bind="props" :color="isHovering ? 'themecolor' : undefined">
                                 Get In Touch
                             </v-btn>
@@ -67,7 +67,7 @@ const openFrom = () => {
                     <v-hover>
                         <template v-slot:default="{ isHovering, props }">
                             <v-btn
-                                class="banner-button px-5 text-none text-surface fs-6 rounded-pill bg-themecolor ml-5  border border-2 border-surface font-weight-bold"
+                                class="banner-button px-5 text-none text-surface fs-6 rounded-pill bg-themecolor mx-1 border border-2 border-surface font-weight-bold"
                                 href="#service" v-bind="props" :color="isHovering ? 'grey' : undefined">
                                 Our Service
                             </v-btn>

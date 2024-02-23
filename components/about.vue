@@ -30,12 +30,13 @@ onMounted(async () => {
         </v-row>
         <v-col cols="12" class="d-flex justify-center">
             <v-row cols="12" class="about-us ">
-                <v-row cols="12" class="d-flex justify-center mx-15">
+                <v-row cols="12" class="d-flex justify-center">
                     <v-col cols="8" lg="8" id="about-info" class="pt-16 ">
-                        <v-row class=" align-center">
-                            <v-icon class=" text-greenblue">mdi-36px
+                        <v-row class="align-center" style="position: relative;">
+                            <v-icon class=" text-greenblue " style="position: absolute; top: 0.4em; left: -0.9em;">mdi-36px
                                 mdi-checkbox-marked-circle-outline</v-icon>
-                            <h1 class="text-greenblue px-2 font-weight-bold">10 years experience</h1>
+
+                            <span class="text-greenblue text-h1 px-2 font-weight-bold ">10 years experience</span>
                         </v-row>
                         <v-col class="containner ">
                             <div class="text-h4 font-weight-regular" style="white-space: pre-line;">{{
@@ -59,6 +60,7 @@ onMounted(async () => {
 
 <style scoped>
 .about-us {
+    margin: 0 5%;
     z-index: 4;
 }
 
@@ -72,5 +74,18 @@ onMounted(async () => {
 #about,
 #about-info {
     font-family: "Outfit", sans-serif;
+}
+
+@media only screen and (max-width: 600px) {
+    .about-image-containner {
+        max-width: 20em;
+        min-width: 18em;
+        max-height: 25em;
+        min-height: 20em;
+    }
+
+    .about-us {
+        margin: 0 !important;
+    }
 }
 </style>

@@ -40,8 +40,8 @@ onMounted(async () => {
             <v-row class=" d-flex justify-space-evenly  h-100" v-if="skill.length > 0 && skill_list.length > 0">
                 <circle-sm style="position: absolute; right: 40%;" />
                 <circle-xs style="position: absolute; right: 35%;" />
-                <div class="skill-item ">
-                    <div class="circle-img d-block w-100 ">
+                <div class="skill-item">
+                    <div class="circle-img d-block w-100">
                         <div class="skill-box w-100 h-100 d-flex justify-center align-center">
                             <div class="above-circle d-flex justify-space-between">
                                 <div

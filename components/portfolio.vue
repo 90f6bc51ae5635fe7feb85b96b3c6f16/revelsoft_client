@@ -82,10 +82,10 @@ const prevSlide = () => {
             <div id="circle-portfolio-lg" class="rounded-circle"></div>
         </div>
         <div id="circle-portfolio-sm" class="rounded-circle"></div>
-        <h1 class="text-center font-weight-light">PORTFOLIO</h1>
+        <h1 class="text-center display-6">PORTFOLIO</h1>
         <v-col class="portfolio-item">
-            <hr class="mx-16">
-            <div class="display-6 fs-3 d-flex flex-row justify-space-evenly text-h4 py-3">
+            <hr class="mx-10">
+            <div class="display-6 fs-4 d-flex flex-row justify-space-evenly text-h4 py-3">
                 <template v-if="portfolio.length > 0">
                     <v-row class="d-flex justify-space-evenly">
                         <NuxtLink @click="toggleAll" :to="`#${portfolio[0].portfolio_name}`">{{ portfolio[0].portfolio_name
@@ -99,7 +99,7 @@ const prevSlide = () => {
                     </v-row>
                 </template>
             </div>
-            <hr class="mx-16 mb-10">
+            <hr class="mx-10 mb-10">
             <div v-if="allvisible" id="All" class="col-lg-8 m-auto w-100">
                 <div class="swiper-containner w-100 h-100 ">
                     <swiper effect="coverflow" :grabCursor="true" :centeredSlides="true" slidesPerView="auto"
@@ -110,8 +110,7 @@ const prevSlide = () => {
                             modifier: 1,
                             slideShadows: true,
                         }" :pagination="true" :modules="modules" class="mySwiper ">
-                        <swiper-slide class=" swiper-slide-containner w-25 h-25" v-for="(list, idx) in portfolio_lists"
-                            :key="idx">
+                        <swiper-slide class=" swiper-slide-containner" v-for="(list, idx) in portfolio_lists" :key="idx">
                             <v-img class="swiper-slide banner-img d-block w-100 h-100"
                                 :src="`${list.portfolio_list_img ? `${publicCtx.apiBaseUrl}${list.portfolio_list_img}` : defaultImage}`"
                                 cover alt="banner">
@@ -133,7 +132,8 @@ const prevSlide = () => {
                             modifier: 1,
                             slideShadows: true,
                         }" :pagination="true" :modules="modules" class="mySwiper ">
-                        <swiper-slide class=" w-25 h-25" v-for="(list, idx) in portfolio_lists.slice(0, 3)" :key="idx">
+                        <swiper-slide class="swiper-slide-containner" v-for="(list, idx) in portfolio_lists.slice(0, 3)"
+                            :key="idx">
                             <v-img class=" banner-img d-block w-100 h-100"
                                 :src="`${list.portfolio_list_img ? `${publicCtx.apiBaseUrl}${list.portfolio_list_img}` : defaultImage}`"
                                 cover alt="banner">
@@ -155,7 +155,8 @@ const prevSlide = () => {
                             modifier: 1,
                             slideShadows: true,
                         }" :pagination="true" :modules="modules" class="mySwiper ">
-                        <swiper-slide class=" w-25 h-25" v-for="(list, idx) in portfolio_lists.slice(0, 2)" :key="idx">
+                        <swiper-slide class="swiper-slide-containner" v-for="(list, idx) in portfolio_lists.slice(0, 2)"
+                            :key="idx">
                             <v-img class=" banner-img d-block w-100 h-100"
                                 :src="`${list.portfolio_list_img ? `${publicCtx.apiBaseUrl}${list.portfolio_list_img}` : defaultImage}`"
                                 cover alt="banner">
@@ -177,7 +178,8 @@ const prevSlide = () => {
                             modifier: 1,
                             slideShadows: true,
                         }" :pagination="true" :modules="modules" class="mySwiper ">
-                        <swiper-slide class=" w-25 h-25" v-for="(list, idx) in portfolio_lists.slice(2, 5)" :key="idx">
+                        <swiper-slide class="swiper-slide-containner" v-for="(list, idx) in portfolio_lists.slice(2, 5)"
+                            :key="idx">
                             <v-img class=" banner-img d-block w-100 h-100 "
                                 :src="`${list.portfolio_list_img ? `${publicCtx.apiBaseUrl}${list.portfolio_list_img}` : defaultImage}`"
                                 cover alt="banner">
@@ -194,6 +196,11 @@ const prevSlide = () => {
 </template>
 
 <style scoped>
+.swiper-slide-containner {
+    width: 25em;
+    height: auto;
+}
+
 .portfolio-item {
     z-index: 5;
 }
@@ -202,5 +209,12 @@ const prevSlide = () => {
     z-index: 4;
     text-decoration: none;
     color: white;
+}
+
+@media only screen and (max-width: 600px) {
+    .swiper-slide-containner {
+        width: 15em;
+        height: auto;
+    }
 }
 </style>

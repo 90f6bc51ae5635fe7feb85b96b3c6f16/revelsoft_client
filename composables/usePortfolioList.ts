@@ -4,7 +4,7 @@ const prefix = 'portfolio-list'
 const generatePortfolioListClientID = (): Promise<string> => secureFetch(`${useRuntimeConfig().public.apiBaseUrl}/${prefix}/generatePortfolioListClientID`, { method: "POST", })
 
 const getPortfolioListClientBy = (data?: any): Promise<{ docs: PortfolioList[], totalDocs: number, }> => secureFetch(
-    `${useRuntimeConfig().public.apiBaseUrl}/${prefix}/getPortfolioListBy`, {
+    `${useRuntimeConfig().public.apiBaseUrl}/${prefix}/getPortfolioListClientBy`, {
     method: "POST",
     body: JSON.stringify(data),
 })
