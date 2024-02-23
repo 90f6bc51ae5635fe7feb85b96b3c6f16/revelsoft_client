@@ -35,18 +35,18 @@ const openFrom = () => {
 </script>
 
 <template>
-    <img class="banner-bg1  w-100" src="@/assets/images/Curve1.png">
-    <img class="banner-bg2 d-block w-100" src="@/assets/images/Curve2.png">
+    <img class="banner-bg1  w-100" src="@/assets/images/Curve1.png" style="overflow: visible;">
+    <img class="banner-bg2 d-block w-100" src="@/assets/images/Curve2.png" style="overflow: visible;">
     <div id="banner" class="d-flex justify-center ">
         <v-row class=" py-2 banner-info mx-5 ">
             <v-col class="py-10 w-100 h-auto ">
-                <v-col class="banner-text " v-if="banner.length > 0">
-                    <v-col class="containner-title px-5 py-2 w-100 ">
+                <v-col class="banner-text" v-if="banner.length > 0">
+                    <v-col class="containner-title px-4 py-2 w-100 ">
                         <div class="banner-title banner-text-1 fs-1 text-h1" style="white-space: pre-line;">
                             {{ banner[0].banner_name }}
                         </div>
                     </v-col>
-                    <v-col class="containner-title px-5 py-2 w-100 ">
+                    <v-col class="containner-title px-4 py-2 w-100 ">
                         <div class="banner-title banner-text-2 text-h3 fs-5 " style="white-space: pre-line;">
                             {{
                                 banner[0].banner_detail
@@ -54,11 +54,11 @@ const openFrom = () => {
                         </div>
                     </v-col>
                 </v-col>
-                <v-row class="justify-center mt-10 gap-2">
+                <v-row class="hover-btn justify-center mt-10">
                     <v-hover>
                         <template v-slot:default="{ isHovering, props }">
                             <v-btn @click="openFrom"
-                                class="banner-button px-5 text-none text-surface fs-6 rounded-pill bg-greenblue mx-1 border border-2 border-greenblue font-weight-bold"
+                                class="banner-button px-5 my-2 text-none text-surface fs-6 rounded-pill bg-greenblue border border-2 border-greenblue font-weight-bold"
                                 v-bind="props" :color="isHovering ? 'themecolor' : undefined">
                                 Get In Touch
                             </v-btn>
@@ -67,7 +67,7 @@ const openFrom = () => {
                     <v-hover>
                         <template v-slot:default="{ isHovering, props }">
                             <v-btn
-                                class="banner-button px-5 text-none text-surface fs-6 rounded-pill bg-themecolor mx-1 border border-2 border-surface font-weight-bold"
+                                class="banner-button px-5 my-2 text-none text-surface fs-6 rounded-pill bg-themecolor border border-2 border-surface font-weight-bold"
                                 href="#service" v-bind="props" :color="isHovering ? 'grey' : undefined">
                                 Our Service
                             </v-btn>
@@ -75,13 +75,13 @@ const openFrom = () => {
                     </v-hover>
                 </v-row>
             </v-col>
-            <v-col class="banner-img-containner d-flex justify-center">
+            <v-col class="banner-img-containner d-flex justify-center ">
                 <div id="carouselExampleIndicators" class=" carousel slide carousel-fade w-100 h-100 "
                     data-bs-ride="carousel">
                     <div class="  carousel-inner  w-100  px-3">
                         <div v-for="(list, idx) in banner" :key="idx"
                             :class="{ 'carousel-item d-flex justify-center': true, 'active': idx === activeIndex }">
-                            <v-img class="my-5 banner-img  d-block w-100 h-100"
+                            <v-img class="my-5 banner-img  d-block"
                                 :src="`${list.banner_img ? `${publicCtx.apiBaseUrl}${list.banner_img}` : defaultImage}`"
                                 cover alt="banner">
                                 <template v-slot:error>
@@ -110,12 +110,16 @@ const openFrom = () => {
 </template>
 
 <style scoped>
+* {
+    padding: auto 0 !important;
+}
+
 #banner {
     padding-top: 200px;
 }
 
 .banner-text {
-    min-width: 25em;
+    min-width: 22em;
     align-self: center;
 }
 

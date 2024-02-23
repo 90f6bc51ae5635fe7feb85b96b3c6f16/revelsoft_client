@@ -37,12 +37,12 @@
       <service />
     </div>
 
-    <div style="position: relative;">
+    <!-- <div style="position: relative; overflow: visible ;">******************************************** responsive ********************>>>>
       <circle-sm style="position: absolute; right: 10%;" />
       <div style="position: relative;">
         <circle-xs style="position: absolute; right: 11%;" />
       </div>
-    </div>
+    </div> -->
 
     <!-- <<<<******************************** skill  **********************************>>>> -->
     <div class="">
@@ -63,31 +63,31 @@
     </div>
 
 
-    <div style="position: relative;">
-      <circle-sm class="circle-sm-portfolio" />
+    <!-- <div style="position: relative; overflow: visible ;">******************************************** responsive ********************>>>>
+      <circle-sm class=" circle-sm-portfolio" />
       <div style="position: relative;">
         <circle-xs style="position: absolute; right: 11%; top: 10%;" />
       </div>
-    </div>
+    </div> -->
 
     <!-- <<<<******************************** portfolio  **********************************>>>> -->
     <div class="">
       <portfolio />
     </div>
 
-    <div style="position: relative;">
+    <div style="position: relative; overflow: visible ;">
       <circle-blur style="position: absolute; right: 0; top: -200px;" />
     </div>
 
-    <div style="position: relative;">
+    <!-- <div style="position: relative; overflow: visible ;"> ******************************************* responsive *********************>>>>
       <circle-sm style="position: absolute; right: 15%;" />
       <div style="position: relative;">
         <circle-xs style="position: absolute; right: 11%;" />
       </div>
-    </div>
+    </div> -->
 
     <!-- <<<<******************************** footerweb  **********************************>>>> -->
-    <div class="">
+    <div class="" style="overflow: hidden;">
       <footerweb />
     </div>
 
@@ -99,6 +99,7 @@
 
 <style scoped>
 * {
+  margin: 0 !important;
   padding: 0 !important;
   box-sizing: border-box;
 }

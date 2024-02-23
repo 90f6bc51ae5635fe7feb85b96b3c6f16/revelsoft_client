@@ -28,7 +28,7 @@
                     </ul>
                     <ul class="navbar-nav ms-auto ">
                         <li class=" nav-item border border-navtail rounded-xl">
-                            <a href="#footer" class="nav-link rounded-xl px-5 py-1" style="white-space:nowrap;">Contact
+                            <a href="#contact-us" class="nav-link rounded-xl px-5 py-1" style="white-space:nowrap;">Contact
                                 Us</a>
                         </li>
                         <li class="nav-item ">

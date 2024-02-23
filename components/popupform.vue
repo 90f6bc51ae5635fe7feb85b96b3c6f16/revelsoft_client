@@ -132,7 +132,7 @@ const toggleout_source = () => {
         <v-card class="bg-formcolor  rounded-xl h-100">
             <v-row class="card-from">
                 <v-col lg="4" class=" m-5 d-flex justify-center " style="position: relative;">
-                    <v-row class="d-flex justify-center" style="position: absolute; top: -5%;">
+                    <v-row class="d-flex justify-center align-center text-center" style="position: absolute; top: -5%;">
                         <span class="text-h1 text-txtcolor"> CONTACT</span>
                         <span class="text-h1 ml-3">US</span>
                     </v-row>
@@ -142,30 +142,30 @@ const toggleout_source = () => {
                     <v-col class="contact-img-4  w-100 h-100 "></v-col>
                     <v-col class="contact-img-5  w-100 h-100 "></v-col>
                 </v-col>
-                <v-col class="m-5">
-                    <v-col sm="11" :md="isFullScreen ? 12 : 11" style="position: relative;">
-                        <div class="mb-3">
-                            <input v-model="contact.contact_name" type="name" class="form-control w-100" id="formName"
+                <v-col class="form m-4 my-5">
+                    <v-col cols="12" xs="11" md="12" lg="12" style="position: relative;">
+                        <v-row sm="11" class="mb-3 w-100">
+                            <input v-model="contact.contact_name" type="name" class="form-control" id="formName"
                                 placeholder="Name">
-                        </div>
-                        <div class="mb-3">
-                            <input v-model="contact.contact_email" type="email" class="form-control w-100" id="formEmail"
+                        </v-row>
+                        <v-row class="mb-3 row w-100">
+                            <input v-model="contact.contact_email" type="email" class="form-control " id="formEmail"
                                 placeholder="Email">
-                        </div>
-                        <div class="mb-3">
-                            <input v-model="contact.contact_number" type="text" class="form-control w-100" id="formNumber"
+                        </v-row>
+                        <v-row class="mb-3 row w-100">
+                            <input v-model="contact.contact_number" type="text" class="form-control 0" id="formNumber"
                                 placeholder="Number">
-                        </div>
-                        <div>
-                            <textarea v-model="contact.contact_detail" class="form-control w-100" id="formMassage" rows="3"
+                        </v-row>
+                        <v-row class="row w-100">
+                            <textarea v-model="contact.contact_detail" class="form-control " id="formMassage" rows="3"
                                 placeholder="Message"></textarea>
-                        </div>
+                        </v-row>
                     </v-col>
                     <v-col sm="11" :md="isFullScreen ? 12 : 11" class="p-2">
-                        <v-col class="px-5">
-                            <h4 class="text-center py-1">Contact Us About</h4>
-                            <v-btn-toggle class="d-flex justify-space-between" multiple selected-class="bg-primary"
-                                variant="outlined" divided>
+                        <v-col class="">
+                            <h4 class="text-center py-1">Contact <span class="text-txtcolor">Us</span> About</h4>
+                            <v-btn-toggle class="toggle-btn" multiple selected-class="bg-primary" variant="outlined"
+                                divided>
                                 <v-btn class=" bg-surface border rounded-xl border-0 border-primary"
                                     v-model="contact.web_develop" @click="toggleapp">
                                     Application Development
@@ -175,13 +175,13 @@ const toggleout_source = () => {
                                     Out Source
                                 </v-btn>
                             </v-btn-toggle>
-                            <v-btn-toggle class="d-flex justify-space-between mt-2 " multiple selected-class="bg-primary"
-                                variant="outlined" divided>
+                            <v-btn-toggle class="toggle-btn mt-2 " multiple selected-class="bg-primary" variant="outlined"
+                                divided>
                                 <v-btn class=" bg-surface border rounded-xl border-0 border-primary"
                                     v-model="contact.iot_develop" @click="toggleweb">
                                     Web Development
                                 </v-btn>
-                                <v-btn class="  bg-surface border rounded-xl border-0 border-primary"
+                                <v-btn class=" bg-surface border rounded-xl border-0 border-primary"
                                     v-model="contact.out_source" @click="toggleiot">
                                     Iot Development
                                 </v-btn>
@@ -218,8 +218,11 @@ const toggleout_source = () => {
     flex-direction: row-reverse;
 }
 
-.toggle-box {
-    padding: 1em;
+.toggle-btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 2.5em;
 }
 
 .contact-img-1 {
@@ -303,5 +306,19 @@ const toggleout_source = () => {
     }
 }
 
-@media only screen and (max-width: 720px) {}
+@media only screen and (max-width: 580px) {
+
+    .form {
+        width: 95%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .toggle-btn {
+        display: flex;
+        flex-direction: column;
+        /* height: 10em; */
+        overflow: auto;
+    }
+}
 </style>

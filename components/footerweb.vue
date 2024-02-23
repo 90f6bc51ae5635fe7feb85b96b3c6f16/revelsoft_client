@@ -38,7 +38,7 @@ onMounted(async () => {
             <img class="footer-bg-4 w-100 h-100" src="@/assets/images/footer/footer.png" alt="">
             <v-col class="pt-5 footer-info">
                 <h2 class="my-10">Let's make your <span class="text-txtcolor px-1">Dream</span> come true</h2>
-                <v-btn class=" rounded-lg mb-16 bg-service_3 text-surface" @click="openFrom">
+                <v-btn id="contact-us" class=" rounded-lg mb-16 bg-service_3 text-surface" @click="openFrom">
                     CONTACT US
                 </v-btn>
             </v-col>
