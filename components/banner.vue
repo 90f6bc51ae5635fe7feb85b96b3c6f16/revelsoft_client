@@ -1,6 +1,5 @@
 
 <script lang="ts" setup>
-import popupform from '~/components/popupform.vue';
 import type { Product, Banner } from "~~/misc/types"
 import errorImage from "@/assets/images/error.png"
 
@@ -67,7 +66,7 @@ const openFrom = () => {
                     <v-hover>
                         <template v-slot:default="{ isHovering, props }">
                             <v-btn
-                                class="banner-button px-5 my-2 text-none text-surface fs-6 rounded-pill bg-themecolor border border-2 border-surface font-weight-bold"
+                                class="banner-button px-5 my-2 mx-4 text-none text-surface fs-6 rounded-pill bg-themecolor border border-2 border-surface font-weight-bold"
                                 href="#service" v-bind="props" :color="isHovering ? 'grey' : undefined">
                                 Our Service
                             </v-btn>
@@ -119,7 +118,7 @@ const openFrom = () => {
 }
 
 .banner-text {
-    min-width: 22em;
+    min-width: 20em;
     align-self: center;
 }
 

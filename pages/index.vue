@@ -37,12 +37,12 @@
       <service />
     </div>
 
-    <!-- <div style="position: relative; overflow: visible ;">******************************************** responsive ********************>>>>
+    <div class="sponge-skill" style="position: relative; overflow: visible ;">
       <circle-sm style="position: absolute; right: 10%;" />
       <div style="position: relative;">
         <circle-xs style="position: absolute; right: 11%;" />
       </div>
-    </div> -->
+    </div>
 
     <!-- <<<<******************************** skill  **********************************>>>> -->
     <div class="">
@@ -63,12 +63,12 @@
     </div>
 
 
-    <!-- <div style="position: relative; overflow: visible ;">******************************************** responsive ********************>>>>
+    <div class="sponge-port" style="position: relative; overflow: visible ;">
       <circle-sm class=" circle-sm-portfolio" />
       <div style="position: relative;">
         <circle-xs style="position: absolute; right: 11%; top: 10%;" />
       </div>
-    </div> -->
+    </div>
 
     <!-- <<<<******************************** portfolio  **********************************>>>> -->
     <div class="">
@@ -79,15 +79,15 @@
       <circle-blur style="position: absolute; right: 0; top: -200px;" />
     </div>
 
-    <!-- <div style="position: relative; overflow: visible ;"> ******************************************* responsive *********************>>>>
+    <div class="sponge-footer" style="position: relative; overflow: visible ;">
       <circle-sm style="position: absolute; right: 15%;" />
       <div style="position: relative;">
         <circle-xs style="position: absolute; right: 11%;" />
       </div>
-    </div> -->
+    </div>
 
     <!-- <<<<******************************** footerweb  **********************************>>>> -->
-    <div class="" style="overflow: hidden;">
+    <div class="" style="overflow: clip;">
       <footerweb />
     </div>
 
@@ -100,7 +100,6 @@
 <style scoped>
 * {
   margin: 0 !important;
-  padding: 0 !important;
   box-sizing: border-box;
 }
 
@@ -135,6 +134,7 @@
 
 
 @media only screen and (max-width: 790px) {
+
   .circle-lg-1 {
     position: absolute;
     top: -7em;
@@ -162,6 +162,18 @@
   .circle-sm-portfolio {
     position: absolute;
     right: 25%;
+  }
+
+  .sponge-skill {
+    right: 15%;
+  }
+
+  .sponge-port {
+    right: 5%;
+  }
+
+  .sponge-footer {
+    right: 15%;
   }
 }
 </style>

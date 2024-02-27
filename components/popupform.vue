@@ -132,7 +132,8 @@ const toggleout_source = () => {
         <v-card class="bg-formcolor  rounded-xl h-100">
             <v-row class="card-from">
                 <v-col lg="4" class=" m-5 d-flex justify-center " style="position: relative;">
-                    <v-row class="d-flex justify-center align-center text-center" style="position: absolute; top: -5%;">
+                    <v-row class="contact-text d-flex justify-center align-center text-center"
+                        style="position: absolute; top: -5%;">
                         <span class="text-h1 text-txtcolor"> CONTACT</span>
                         <span class="text-h1 ml-3">US</span>
                     </v-row>
@@ -143,7 +144,7 @@ const toggleout_source = () => {
                     <v-col class="contact-img-5  w-100 h-100 "></v-col>
                 </v-col>
                 <v-col class="form m-4 my-5">
-                    <v-col cols="12" xs="11" md="12" lg="12" style="position: relative;">
+                    <v-col cols="12" xs="11" sm="11" :md="isFullScreen ? 12 : 11" style="position: relative;">
                         <v-row sm="11" class="mb-3 w-100">
                             <input v-model="contact.contact_name" type="name" class="form-control" id="formName"
                                 placeholder="Name">
@@ -307,9 +308,12 @@ const toggleout_source = () => {
 }
 
 @media only screen and (max-width: 580px) {
-
     .form {
         width: 95%;
+    }
+
+    .contact-text {
+        margin-left: -20%;
     }
 }
 
@@ -317,8 +321,11 @@ const toggleout_source = () => {
     .toggle-btn {
         display: flex;
         flex-direction: column;
-        /* height: 10em; */
         overflow: auto;
+    }
+
+    .contact-text {
+        margin-left: -30%;
     }
 }
 </style>
