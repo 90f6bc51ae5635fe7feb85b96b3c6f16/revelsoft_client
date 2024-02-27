@@ -52,10 +52,10 @@ onMounted(async () => {
 })
 
 async function onSubmit() {
-    if (issubmitting.value) {
-        alert("คุณส่งข้อความไปเเล้ว")
-        return
-    }
+    // if (issubmitting.value) {
+    //     alert("คุณส่งข้อความไปเเล้ว")
+    //     return
+    // }
     if (submitting.value || !validateForm()) return;
     try {
         submitting.value = true;
@@ -96,11 +96,6 @@ const closeForm = () => {
     props.modelValue.show = false
 }
 
-const resetFrom = () => {
-    reloadpage();
-    openFrom();
-}
-
 const fullScreen = () => {
     if (document.fullscreenElement) {
         isFullScreen.value = true
@@ -121,6 +116,14 @@ const toggleout_source = () => {
     contact.value.out_source = !contact.value.out_source
 }
 
+watch(props.modelValue, async (data) => {
+    if (data.show) {
+        const id = await generateConTactClientID()
+        contact.value.contact_id = id
+        submitting.value = false
+    }
+}, { flush: 'pre', immediate: true, deep: true })
+
 </script>
 
 <template>
@@ -132,8 +135,7 @@ const toggleout_source = () => {
         <v-card class="bg-formcolor  rounded-xl h-100">
             <v-row class="card-from">
                 <v-col lg="4" class=" m-5 d-flex justify-center " style="position: relative;">
-                    <v-row class="contact-text d-flex justify-center align-center text-center"
-                        style="position: absolute; top: -5%;">
+                    <v-row class="contact-text  align-center text-center" style="position: absolute; top: -5%;">
                         <span class="text-h1 text-txtcolor"> CONTACT</span>
                         <span class="text-h1 ml-3">US</span>
                     </v-row>
@@ -143,8 +145,9 @@ const toggleout_source = () => {
                     <v-col class="contact-img-4  w-100 h-100 "></v-col>
                     <v-col class="contact-img-5  w-100 h-100 "></v-col>
                 </v-col>
-                <v-col class="form m-4 my-5">
-                    <v-col cols="12" xs="11" sm="11" :md="isFullScreen ? 12 : 11" style="position: relative;">
+                <v-col class="form m-4">
+                    <v-col class="form-input" cols="12" xs="11" sm="11" :md="isFullScreen ? 12 : 11"
+                        style="position: relative;">
                         <v-row sm="11" class="mb-3 w-100">
                             <input v-model="contact.contact_name" type="name" class="form-control" id="formName"
                                 placeholder="Name">
@@ -162,10 +165,10 @@ const toggleout_source = () => {
                                 placeholder="Message"></textarea>
                         </v-row>
                     </v-col>
-                    <v-col sm="11" :md="isFullScreen ? 12 : 11" class="p-2">
-                        <v-col class="">
+                    <v-col sm="11" :md="isFullScreen ? 12 : 11" class="toggle-container">
+                        <v-col class="toggle">
                             <h4 class="text-center py-1">Contact <span class="text-txtcolor">Us</span> About</h4>
-                            <v-btn-toggle class="toggle-btn" multiple selected-class="bg-primary" variant="outlined"
+                            <v-btn-toggle class="toggle-btn " multiple selected-class="bg-primary" variant="outlined"
                                 divided>
                                 <v-btn class=" bg-surface border rounded-xl border-0 border-primary"
                                     v-model="contact.web_develop" @click="toggleapp">
@@ -191,17 +194,9 @@ const toggleout_source = () => {
                         <div class="d-flex justify-center mt-2">
                             <v-hover>
                                 <template v-slot:default="{ isHovering, props }">
-                                    <v-btn class="text-none text-center border border-surface rounded-pill bg-surface ml-5 "
+                                    <v-btn class="text-none text-center border border-surface rounded-pill bg-surface "
                                         @click="onSubmit" v-bind="props" :color="isHovering ? 'grey' : undefined">
                                         SEND
-                                    </v-btn>
-                                </template>
-                            </v-hover>
-                            <v-hover>
-                                <template v-slot:default="{ isHovering, props }">
-                                    <v-btn class="text-none text-center border rounded-pill ml-5 bg-primary"
-                                        @click="resetFrom" v-bind="props" :color="isHovering ? 'formcolor' : undefined">
-                                        RESEND
                                     </v-btn>
                                 </template>
                             </v-hover>
@@ -217,6 +212,10 @@ const toggleout_source = () => {
 .card-from {
     display: flex;
     flex-direction: row-reverse;
+}
+
+.form-input {
+    padding-right: 0;
 }
 
 .toggle-btn {
@@ -305,11 +304,19 @@ const toggleout_source = () => {
     .contact-img-5 {
         display: none;
     }
+
+    .contact-text {
+        margin-left: -12%;
+    }
 }
 
-@media only screen and (max-width: 580px) {
+@media only screen and (max-width: 600px) {
     .form {
         width: 95%;
+    }
+
+    .form-input {
+        padding-right: 12px;
     }
 
     .contact-text {
@@ -321,11 +328,29 @@ const toggleout_source = () => {
     .toggle-btn {
         display: flex;
         flex-direction: column;
-        overflow: auto;
+        justify-content: space-evenly;
+        height: 35%;
+    }
+
+    .toggle-container {
+        height: 100%;
+    }
+
+    .toggle {
+        height: 75%;
+    }
+
+    .form-input {
+        padding-right: 12px;
+    }
+
+    .toggle-container {
+        margin-left: -5%;
+        ;
     }
 
     .contact-text {
-        margin-left: -30%;
+        margin-left: -20%;
     }
 }
 </style>
