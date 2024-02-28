@@ -37,8 +37,71 @@ const openFrom = () => {
     <img class="banner-bg1  w-100" src="@/assets/images/Curve1.png" style="overflow: visible;">
     <img class="banner-bg2 d-block w-100" src="@/assets/images/Curve2.png" style="overflow: visible;">
     <div id="banner" class="d-flex justify-center ">
-        <v-row class=" py-2 banner-info mx-5 ">
-            <v-col class="py-10 w-100 h-auto ">
+        <!-- <v-row cols="12" class="banner-info mx-5 ">
+            <v-col cols="4" md="6" class="banner-left-container  w-50 border">
+                <v-col class="banner-text">
+                    <v-col class="containner-title px-4 py-2 w-100 ">
+                        <div class="banner-title banner-text-1 fs-1 text-h1" style="white-space: pre-line;">
+                            {{ banner[0].banner_name }}
+                        </div>
+                    </v-col>
+                    <v-col class="containner-title px-4 py-2 w-100 ">
+                        <div class="banner-title banner-text-2 text-h3 fs-5 " style="white-space: pre-line;">
+                            {{
+                                banner[0].banner_detail
+                            }}
+                        </div>
+                    </v-col>
+                </v-col>
+                <v-row class="justify-center">
+                    <v-hover>
+                        <template v-slot:default="{ isHovering, props }">
+                            <v-btn @click="openFrom"
+                                class="banner-button px-5 my-2 text-none text-surface fs-6 rounded-pill bg-greenblue border border-2 border-greenblue font-weight-bold"
+                                v-bind="props" :color="isHovering ? 'themecolor' : undefined">
+                                Get In Touch
+                            </v-btn>
+                        </template>
+                    </v-hover>
+                    <v-hover>
+                        <template v-slot:default="{ isHovering, props }">
+                            <v-btn
+                                class="banner-button px-5 my-2 mx-2 text-none text-surface fs-6 rounded-pill bg-themecolor border border-2 border-surface font-weight-bold"
+                                href="#service" v-bind="props" :color="isHovering ? 'grey' : undefined">
+                                Our Service
+                            </v-btn>
+                        </template>
+                    </v-hover>
+                </v-row>
+            </v-col>
+            <div cols="12" class="banner-img-containner d-flex justify-center border">
+                <div id="carouselExampleIndicators" class=" carousel slide carousel-fade w-100 h-100 "
+                    data-bs-ride="carousel">
+                    <div class="  carousel-inner  w-100  px-3">
+                        <div v-for="(list, idx) in banner" :key="idx"
+                            :class="{ 'carousel-item d-flex justify-center': true, 'active': idx === activeIndex }">
+                            <v-img class="my-5 banner-img  d-block"
+                                :src="`${list.banner_img ? `${publicCtx.apiBaseUrl}${list.banner_img}` : defaultImage}`"
+                                cover alt="banner">
+                                <template v-slot:error>
+                                    <v-img :src="errorImage" cover alt="error"></v-img>
+                                </template>
+                            </v-img>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                        <span class="visually-hidden"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                        <span class="visually-hidden"></span>
+                    </button>
+                </div>
+            </div>
+        </v-row> -->
+        <v-row class=" py-2 banner-info mx-5 " style="position: relative;">
+            <v-col class="py-10 w-50 h-auto ">
                 <v-col class="banner-text" v-if="banner.length > 0">
                     <v-col class="containner-title px-4 py-2 w-100 ">
                         <div class="banner-title banner-text-1 fs-1 text-h1" style="white-space: pre-line;">
@@ -66,7 +129,7 @@ const openFrom = () => {
                     <v-hover>
                         <template v-slot:default="{ isHovering, props }">
                             <v-btn
-                                class="banner-button px-5 my-2 mx-4 text-none text-surface fs-6 rounded-pill bg-themecolor border border-2 border-surface font-weight-bold"
+                                class="banner-button px-5 my-2 mx-2 text-none text-surface fs-6 rounded-pill bg-themecolor border border-2 border-surface font-weight-bold"
                                 href="#service" v-bind="props" :color="isHovering ? 'grey' : undefined">
                                 Our Service
                             </v-btn>
@@ -74,10 +137,10 @@ const openFrom = () => {
                     </v-hover>
                 </v-row>
             </v-col>
-            <v-col class="banner-img-containner d-flex justify-center ">
+            <v-col class="banner-img-containner  h-100 w-100">
                 <div id="carouselExampleIndicators" class=" carousel slide carousel-fade w-100 h-100 "
                     data-bs-ride="carousel">
-                    <div class="  carousel-inner  w-100  px-3">
+                    <div class=" carousel-inner  w-100">
                         <div v-for="(list, idx) in banner" :key="idx"
                             :class="{ 'carousel-item d-flex justify-center': true, 'active': idx === activeIndex }">
                             <v-img class="my-5 banner-img  d-block"
@@ -117,6 +180,10 @@ const openFrom = () => {
     padding-top: 200px;
 }
 
+.banner-left-container {
+    max-width: 75%;
+}
+
 .banner-text {
     min-width: 20em;
     align-self: center;
@@ -150,6 +217,8 @@ const openFrom = () => {
     padding: 1.3em;
     align-content: center;
 }
+
+.banner-img-containner {}
 
 .banner-img {
     min-width: 20em;

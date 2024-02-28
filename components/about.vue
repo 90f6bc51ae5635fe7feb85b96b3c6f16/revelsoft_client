@@ -39,7 +39,7 @@ onMounted(async () => {
                             <span class="text-greenblue text-h1 px-2 font-weight-bold ">10 years experience</span>
                         </v-row>
                         <v-col class="containner ">
-                            <div class="text-h4 font-weight-regular" style="white-space: pre-line;">{{
+                            <div class="text-h4 pt-2 font-weight-regular" style="white-space: pre-line;">{{
                                 abouts.about_detail }} </div>
                         </v-col>
                     </v-col>

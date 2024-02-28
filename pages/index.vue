@@ -138,7 +138,7 @@
   .circle-lg-1 {
     position: absolute;
     top: -7em;
-    left: 40%;
+    left: 35%;
   }
 
   .circle-sm-1 {
@@ -165,7 +165,7 @@
   }
 
   .sponge-skill {
-    right: 15%;
+    right: 22%;
   }
 
   .sponge-port {
