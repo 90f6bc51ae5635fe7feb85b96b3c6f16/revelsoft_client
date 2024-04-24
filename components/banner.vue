@@ -155,8 +155,6 @@ const openFrom = () => {
     align-content: center;
 }
 
-.banner-img-containner {}
-
 .banner-img {
     min-width: 20em;
     max-width: 30em;
